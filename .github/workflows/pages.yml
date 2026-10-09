@@ -1,0 +1,49 @@
+# Publishes the site to GitHub Pages on every push to main.
+# Builds the language versions (/ru/ /ro/ /uk/), sitemap and robots.txt with tools/build.py.
+# One-time setup on GitHub: Settings -> Pages -> Source: "GitHub Actions".
+name: Publish site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install the browser used for translating pages
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+      - name: Build
+        env:
+          # the public address of the site; change it when you connect your own domain
+          SITE_URL: https://d4rv1n17.github.io/Enigma-Studio-Website/
+        run: python tools/build.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Twins' Hunt — Horror Game for Android | Enigma Studio</title>
+  <meta name="description" content="Twins' Hunt is a horror game for Android, coming soon to the App Store. The twins have locked you inside the school: find the keys, fight the monsters and get out. You have three days.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Twins' Hunt — Horror Game for Android">
+  <meta property="og:description" content="The twins have locked you inside the school. Find the keys, fight the monsters and get out. You have three days.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Enigma Studio">
+  <meta property="og:image" content="assets/og/twins-hunt.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Twins' Hunt — Horror Game for Android">
+  <meta name="twitter:description" content="The twins have locked you inside the school. Find the keys, fight the monsters and get out. You have three days.">
+  <meta name="twitter:image" content="assets/og/twins-hunt.jpg">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/icons/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kavoon&family=Koulen&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/twins/banner.webp">
+  <link rel="stylesheet" href="src/styles.css">
+  <script>(function(d){var L,F=d.getAttribute('data-lang-fixed');try{L=F||localStorage.getItem('enigma-lang');if(F)localStorage.setItem('enigma-lang',F)}catch(e){L=F}if(!/^(en|ru|ro|uk)$/.test(L||'')){L='en';var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(/^ru/.test(c)){L='ru';break}if(/^(ro|mo)/.test(c)){L='ro';break}if(/^uk/.test(c)){L='uk';break}if(/^en/.test(c))break}}if(!F&&L!=='en'&&d.hasAttribute('data-built')){location.replace(L+'/'+(location.pathname.split('/').pop()||'index.html')+location.search+location.hash);return}d.lang=L;if(L!=='en'&&!F){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})(document.documentElement)</script>
+  <script>try{if(sessionStorage.getItem('enigma-pt')){sessionStorage.removeItem('enigma-pt');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pt-enter')}}catch(e){}</script>
+</head>
+<body data-page="twins-hunt" class="theme-twins">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <a class="logo" href="index.html" aria-label="Enigma Studio — home">
+      <img src="assets/brand/logo.png" alt="Enigma Studio" width="91" height="80">
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <div class="nav-group nav-group--games is-current is-current--twins" data-nav-group>
+        <button class="nav-group__btn" type="button" aria-expanded="false" aria-haspopup="true">Games<svg class="nav-group__chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-group__menu">
+          <a class="nav-app nav-app--vof" href="veil-of-fear.html"><img src="assets/brand/nav-vof.webp" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Veil of Fear</span><span class="nav-app__desc">Psychological horror · PC</span></span></a>
+          <a class="nav-app nav-app--twins" href="twins-hunt.html" aria-current="page"><img src="assets/brand/nav-twins.webp" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Twins’ Hunt</span><span class="nav-app__desc">Action horror · Android</span></span></a>
+        </div>
+      </div>
+      <div class="nav-group nav-group--apps" data-nav-group>
+        <button class="nav-group__btn" type="button" aria-expanded="false" aria-haspopup="true">Apps<svg class="nav-group__chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-group__menu">
+          <a class="nav-app nav-app--cube" href="enigma-cube.html"><img src="assets/brand/enigma-cube.png" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Enigma Cube</span><span class="nav-app__desc">Timer and speedcubing school</span></span></a>
+          <a class="nav-app nav-app--disk" href="enigma-disk.html"><img src="assets/brand/enigma-disk.png" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Enigma Disk</span><span class="nav-app__desc">Disk space analyzer</span></span></a>
+        </div>
+      </div>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="vf-hero th-hero" aria-labelledby="th-title">
+      <div class="vf-hero__art" data-parallax>
+        <img src="assets/twins/banner.webp" srcset="assets/twins/banner-1280.webp 1280w, assets/twins/banner.webp 2560w" sizes="100vw" alt="Twins' Hunt logo in a dark school hallway; the twins stand behind the letters" width="2560" height="1440">
+      </div>
+      <h1 class="visually-hidden" id="th-title">Twins' Hunt</h1>
+
+      <div class="container vf-hero__bar">
+        <dl class="facts">
+          <div class="facts__hl"><dt>Downloads</dt><dd>500+</dd></div>
+          <div><dt>Released</dt><dd><time datetime="2023-09-25">25 Sep 2023</time></dd></div>
+          <div><dt>Genre</dt><dd>Action horror</dd></div>
+          <div><dt>Platform</dt><dd>Android · iOS soon</dd></div>
+          <div><dt>Age rating</dt><dd>12+</dd></div>
+          <div><dt>Status</dt><dd><span class="live-dot"></span>Out now</dd></div>
+        </dl>
+        <div class="actions">
+          <a class="play-btn" data-play-link target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.EnigmaStudio.TwinsHunt">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            <span class="play-btn__text"><span class="play-btn__small">Get it on</span><span class="play-btn__big">Google Play</span></span>
+          </a>
+          <a class="ghost-btn" href="#trailer">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>
+            Watch trailer
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ COMING SOON ============ -->
+    <section class="th-soon-wrap" aria-labelledby="soon-title">
+      <div class="container">
+        <div class="th-soon" data-reveal>
+          <div class="th-soon__text">
+            <p class="th-soon__label"><span class="live-dot"></span>Coming soon</p>
+            <h2 class="h2" id="soon-title">A big update is on the way</h2>
+            <p>We are working on a major update for Twins’ Hunt, and the game is coming to iPhone and iPad on the App Store.</p>
+          </div>
+          <ul class="th-soon__list">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+              <span><strong>Global update</strong>A major update for all players on Android.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.9-.9-3.1-.8C6.8 7.3 5.3 8.3 4.5 9.8c-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.7 2.4 3 2.4 1.2-.1 1.6-.8 3.1-.8s1.8.8 3.1.8c1.3 0 2.1-1.2 2.9-2.3.9-1.3 1.3-2.6 1.3-2.7 0 0-2.7-1-2.7-4.2zM14.2 5.6c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3z" fill="currentColor"/></svg>
+              <span><strong>App Store release</strong>Twins’ Hunt on iPhone and iPad.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STORY ============ -->
+    <section class="section" aria-labelledby="story-title">
+      <div class="container">
+        <div class="split">
+          <div data-reveal>
+            <h2 class="h2" id="story-title">Three days to get out</h2>
+            <div class="frame split__media th-cover">
+              <img src="assets/twins/cover-512.webp" srcset="assets/twins/cover-512.webp 512w, assets/twins/cover.webp 1080w" sizes="(max-width: 900px) 100vw, 480px" alt="Twins' Hunt cover art" width="512" height="512" loading="lazy">
+            </div>
+          </div>
+          <div class="split__body" data-reveal>
+            <p class="lead">The twins have locked you inside the school. Now you have to get out, and you have to be careful and fast, because the twins are looking for you everywhere.</p>
+            <p>Search the classrooms, the halls and the basement for keys. Fight off the monsters that stand in your way, keep your flashlight alive and stay out of the twins’ sight.</p>
+            <p>You have three days. Good luck.</p>
+          </div>
+        </div>
+
+        <ul class="pillars" data-reveal>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="11" cy="9" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="21" cy="9" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 27v-5a6 6 0 0 1 12 0v5M15 27v-5a6 6 0 0 1 12 0v5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            <h3>Keep out of the twins</h3>
+            <p>They hunt you through the whole school. Hide, run, and never let them see you twice.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 5h18v22H7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M7 12h18M13 5v7" stroke="currentColor" stroke-width="1.6"/><circle cx="21" cy="19" r="1.4" fill="currentColor"/></svg>
+            <h3>Explore the school</h3>
+            <p>Classrooms, corridors and a basement full of danger. Every room may hide a key.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="10" width="23" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M26 14h3v4h-3" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="6" y="13" width="9" height="6" fill="currentColor"/></svg>
+            <h3>Collect batteries</h3>
+            <p>Your flashlight is your best friend. Without batteries, the dark wins.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="10" cy="16" r="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M15 16h13M24 16v4M20 16v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <h3>Find the way out</h3>
+            <p>Collect items and keys, fight the monsters and escape before the third day ends.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ TRAILER ============ -->
+    <section class="section" id="trailer" aria-labelledby="trailer-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="h2" id="trailer-title">Trailer</h2>
+          <a class="link-arrow" href="https://www.youtube.com/watch?v=vwAguZZrS5o" target="_blank" rel="noopener">Watch on YouTube</a>
+        </div>
+        <div class="video" data-reveal>
+          <div class="frame video__frame" data-yt-frame data-yt-id="vwAguZZrS5o" data-yt-title="Twins' Hunt — Trailer">
+            <button class="video__poster" type="button" aria-label="Play the Twins' Hunt trailer">
+              <img src="assets/twins/banner-1280.webp" srcset="assets/twins/banner-1280.webp 1280w, assets/twins/banner.webp 2560w" sizes="(max-width: 1240px) 100vw, 1180px" alt="" loading="lazy">
+              <span class="video__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span>
+              <span class="video__hint">Play the trailer</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SCREENSHOTS ============ -->
+    <section class="section" id="screens" aria-labelledby="shots-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="h2" id="shots-title">Screenshots</h2>
+          <p class="muted section-head__note">Click any image to view it full screen</p>
+        </div>
+        <div class="shots shots--lead" data-reveal>
+          <button class="frame shot" type="button" data-full="assets/twins/shot-keep-out.webp"><img src="assets/twins/shot-keep-out-1280.webp" srcset="assets/twins/shot-keep-out-1280.webp 800w, assets/twins/shot-keep-out.webp 1600w" sizes="(max-width: 640px) 50vw, 390px" alt="Keep out of the twins: one of them waits at the end of a dark school corridor" width="800" height="361" loading="lazy"></button>
+          <button class="frame shot" type="button" data-full="assets/twins/shot-classroom.webp"><img src="assets/twins/shot-classroom-1280.webp" srcset="assets/twins/shot-classroom-1280.webp 800w, assets/twins/shot-classroom.webp 1600w" sizes="(max-width: 640px) 50vw, 390px" alt="Explore the location: a dark classroom lit by a flashlight" width="800" height="361" loading="lazy"></button>
+          <button class="frame shot" type="button" data-full="assets/twins/shot-batteries.webp"><img src="assets/twins/shot-batteries-1280.webp" srcset="assets/twins/shot-batteries-1280.webp 800w, assets/twins/shot-batteries.webp 1600w" sizes="(max-width: 640px) 50vw, 390px" alt="Collect batteries: a battery on a table in the dark" width="800" height="361" loading="lazy"></button>
+          <button class="frame shot" type="button" data-full="assets/twins/shot-blood-room.webp"><img src="assets/twins/shot-blood-room-1280.webp" srcset="assets/twins/shot-blood-room-1280.webp 800w, assets/twins/shot-blood-room.webp 1600w" sizes="(max-width: 640px) 50vw, 390px" alt="Explore the location: a blood-stained room" width="800" height="361" loading="lazy"></button>
+          <button class="frame shot" type="button" data-full="assets/twins/shot-inventory.webp"><img src="assets/twins/shot-inventory-1280.webp" srcset="assets/twins/shot-inventory-1280.webp 800w, assets/twins/shot-inventory.webp 1600w" sizes="(max-width: 640px) 50vw, 390px" alt="Collect items to get out: the inventory with a basement key" width="800" height="361" loading="lazy"></button>
+          <button class="frame shot" type="button" data-full="assets/twins/shot-basement.webp"><img src="assets/twins/shot-basement-1280.webp" srcset="assets/twins/shot-basement-1280.webp 800w, assets/twins/shot-basement.webp 1600w" sizes="(max-width: 640px) 50vw, 390px" alt="Explore the location: a high-voltage electrical panel in the basement" width="800" height="361" loading="lazy"></button>
+          <button class="frame shot" type="button" data-full="assets/twins/shot-get-out.webp"><img src="assets/twins/shot-get-out-1280.webp" srcset="assets/twins/shot-get-out-1280.webp 800w, assets/twins/shot-get-out.webp 1600w" sizes="(max-width: 640px) 50vw, 390px" alt="Get out: a boarded-up door at the end of the hall" width="800" height="361" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="vf-cta th-cta" aria-labelledby="cta-title">
+      <div class="vf-cta__bg" aria-hidden="true">
+        <img src="assets/twins/shot-get-out.webp" alt="" loading="lazy">
+      </div>
+      <div class="container vf-cta__inner" data-reveal>
+        <h2 class="h2" id="cta-title">Can you get out?</h2>
+        <p>Already 500+ downloads on Google Play. A big update and the App Store release are coming soon.</p>
+        <div class="actions actions--center">
+          <a class="play-btn" data-play-link target="_blank" rel="noopener" href="https://play.google.com/store/apps/details?id=com.EnigmaStudio.TwinsHunt">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+            <span class="play-btn__text"><span class="play-btn__small">Get it on</span><span class="play-btn__big">Google Play</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <dialog class="lightbox" data-lightbox aria-label="Image viewer">
+    <div class="lightbox__top">
+      <span class="lightbox__count" data-lb-count></span>
+      <div class="lightbox__tools">
+        <button class="lb-btn" type="button" data-lb-fullscreen aria-label="Full screen" title="Full screen (F)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+        <button class="lb-btn" type="button" data-lb-close aria-label="Close" title="Close (Esc)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+      </div>
+    </div>
+    <figure class="lightbox__stage">
+      <img class="lightbox__img" data-lb-img alt="">
+      <figcaption class="lightbox__caption" data-lb-caption></figcaption>
+    </figure>
+    <button class="lb-btn lb-nav lb-nav--prev" type="button" data-lb-prev aria-label="Previous image">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+    <button class="lb-btn lb-nav lb-nav--next" type="button" data-lb-next aria-label="Next image">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+    <div class="lightbox__thumbs" data-lb-thumbs></div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <a class="logo logo--small" href="index.html" aria-label="Enigma Studio — home"><img src="assets/brand/logo.png" alt="Enigma Studio" width="73" height="64"></a>
+          <p class="site-footer__tagline">Not Just a Studio, An Enigma.</p>
+          <a class="site-footer__mail" href="mailto:enigmastudio.md@gmail.com">enigmastudio.md@gmail.com</a>
+          <a class="site-footer__support" href="https://dalink.to/enigma_studio_md" target="_blank" rel="noopener" data-support><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.4 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.5 0 5.5 3.5 4.2 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Support the studio</span></a>
+        </div>
+        <nav class="site-footer__cols" aria-label="Footer">
+          <div class="site-footer__col">
+            <p class="site-footer__head">Games</p>
+            <a href="veil-of-fear.html">Veil of Fear</a>
+            <a href="twins-hunt.html">Twins' Hunt</a>
+          </div>
+          <div class="site-footer__col">
+            <p class="site-footer__head">Apps</p>
+            <a href="enigma-cube.html">Enigma Cube</a>
+            <a href="enigma-disk.html">Enigma Disk</a>
+          </div>
+          <div class="site-footer__col">
+            <p class="site-footer__head">Studio</p>
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About us</a>
+            <a href="news.html">News</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+          </div>
+        </nav>
+      </div>
+      <div class="site-footer__news">
+        <div>
+          <p class="site-footer__head">Newsletter</p>
+          <p class="site-footer__news-text">Fresh news from the studio, straight to your inbox.</p>
+        </div>
+        <form class="subscribe subscribe--compact" data-subscribe novalidate>
+            <label class="visually-hidden" for="nl-foot">Your email</label>
+            <div class="subscribe__row">
+              <input id="nl-foot" type="email" name="email" placeholder="Your email" autocomplete="email" inputmode="email" required>
+              <button class="subscribe__btn" type="submit">Subscribe</button>
+            </div>
+            <p class="subscribe__msg" data-subscribe-msg aria-live="polite"></p>
+            <p class="subscribe__legal" data-i18n-unit>By subscribing you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+          </form>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">© <span data-year>2026</span> Enigma Studio</p>
+        <div class="social-mini" data-social></div>
+        <a class="to-top" href="#main" data-to-top>Back to top <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="src/config.js"></script>
+  <script src="src/i18n-data.js"></script>
+  <script src="src/i18n.js"></script>
+  <script src="src/main.js"></script>
+  <script src="src/gallery.js"></script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enigma Studio — Not Just a Studio, An Enigma</title>
+  <meta name="description" content="Enigma Studio is an independent game development team crafting dark, immersive horror and psychological games.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Enigma Studio">
+  <meta property="og:description" content="Not just a studio, an enigma. Independent horror game developer.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Enigma Studio">
+  <meta property="og:image" content="assets/og/studio.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Enigma Studio">
+  <meta name="twitter:description" content="Not just a studio, an enigma. Independent horror game developer.">
+  <meta name="twitter:image" content="assets/og/studio.jpg">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/icons/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kavoon&family=Koulen&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="assets/art/studio-desk.webp">
+  <link rel="stylesheet" href="src/styles.css">
+  <script>(function(d){var L,F=d.getAttribute('data-lang-fixed');try{L=F||localStorage.getItem('enigma-lang');if(F)localStorage.setItem('enigma-lang',F)}catch(e){L=F}if(!/^(en|ru|ro|uk)$/.test(L||'')){L='en';var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(/^ru/.test(c)){L='ru';break}if(/^(ro|mo)/.test(c)){L='ro';break}if(/^uk/.test(c)){L='uk';break}if(/^en/.test(c))break}}if(!F&&L!=='en'&&d.hasAttribute('data-built')){location.replace(L+'/'+(location.pathname.split('/').pop()||'index.html')+location.search+location.hash);return}d.lang=L;if(L!=='en'&&!F){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})(document.documentElement)</script>
+  <script>try{if(sessionStorage.getItem('enigma-pt')){sessionStorage.removeItem('enigma-pt');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pt-enter')}}catch(e){}</script>
+</head>
+<body data-page="home">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <a class="logo" href="index.html" aria-label="Enigma Studio — home">
+      <img src="assets/brand/logo.png" alt="Enigma Studio" width="91" height="80">
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html" aria-current="page">Home</a>
+      <div class="nav-group nav-group--games" data-nav-group>
+        <button class="nav-group__btn" type="button" aria-expanded="false" aria-haspopup="true">Games<svg class="nav-group__chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-group__menu">
+          <a class="nav-app nav-app--vof" href="veil-of-fear.html"><img src="assets/brand/nav-vof.webp" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Veil of Fear</span><span class="nav-app__desc">Psychological horror · PC</span></span></a>
+          <a class="nav-app nav-app--twins" href="twins-hunt.html"><img src="assets/brand/nav-twins.webp" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Twins’ Hunt</span><span class="nav-app__desc">Action horror · Android</span></span></a>
+        </div>
+      </div>
+      <div class="nav-group nav-group--apps" data-nav-group>
+        <button class="nav-group__btn" type="button" aria-expanded="false" aria-haspopup="true">Apps<svg class="nav-group__chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-group__menu">
+          <a class="nav-app nav-app--cube" href="enigma-cube.html"><img src="assets/brand/enigma-cube.png" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Enigma Cube</span><span class="nav-app__desc">Timer and speedcubing school</span></span></a>
+          <a class="nav-app nav-app--disk" href="enigma-disk.html"><img src="assets/brand/enigma-disk.png" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Enigma Disk</span><span class="nav-app__desc">Disk space analyzer</span></span></a>
+        </div>
+      </div>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <!-- HERO: the scene is dark; the torch follows the pointer and reveals it -->
+    <section class="hero" data-torch>
+      <div class="hero__scene" aria-hidden="true">
+        <img class="hero__img hero__img--dark" src="assets/art/studio-desk.webp" alt="" width="2560" height="1429">
+        <img class="hero__img hero__img--lit" src="assets/art/studio-desk.webp" alt="" width="2560" height="1429">
+      </div>
+      <div class="hero__inner">
+        <h1 class="hero__title">Enigma Studio</h1>
+        <p class="hero__tagline">Not Just a Studio, An Enigma.</p>
+        <a class="hero__news" href="veil-of-fear.html"><span class="live-dot"></span><span class="hero__news-label">In development</span>Veil of Fear<span class="hero__news-arrow" aria-hidden="true">→</span></a>
+      </div>
+      <p class="hero__hint" data-torch-hint>Move the light to look around</p>
+      <a class="hero__scroll" href="#about" aria-label="Scroll to About us"><span></span></a>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section about" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__head" data-reveal>
+            <h2 class="h2" id="about-title">About Us</h2>
+            <p class="subtitle">Crafting Dark and Immersive Experiences</p>
+            <dl class="about__stats">
+              <div><dt>Founded</dt><dd>2022</dd></div>
+              <div><dt>Projects</dt><dd>4</dd></div>
+              <div><dt>Downloads</dt><dd>1000+</dd></div>
+            </dl>
+          </div>
+          <div class="about__body" data-reveal>
+            <p class="lead">Enigma Studio is an independent team driven by a passion for mystery, horror, and psychological storytelling. We craft deeply immersive experiences that challenge perception and provoke thought.</p>
+            <p>Our mission is to create games that stay with players long after they’ve put down the controller. From eerie psychological thrillers to haunting post-apocalyptic worlds, we push the boundaries of storytelling and gameplay.</p>
+            <p>Games are the heart of the studio, but not the only thing we do: alongside our own titles, the team also takes on other creative projects.</p>
+          </div>
+        </div>
+
+        <ul class="focus" data-reveal>
+          <li class="focus__item focus__item--main">
+            <span class="focus__label">Main focus</span>
+            <h3>Games</h3>
+            <p>Story-driven horror and psychological games for PC, built around atmosphere, sound and the fear of what hides in the dark.</p>
+          </li>
+          <li class="focus__item">
+            <span class="focus__label">Also</span>
+            <h3>Other projects</h3>
+            <p>Beyond our own games, we work on other creative projects, bringing the same attention to mood and detail.</p>
+          </li>
+        </ul>
+
+        <p class="about__outro" data-reveal>Join us as we explore the unknown.</p>
+      </div>
+    </section>
+
+    <!-- GAMES -->
+    <section class="section projects" id="games" aria-labelledby="games-title">
+      <div class="container">
+        <h2 class="h2" id="games-title" data-reveal>Our Games</h2>
+
+        <a class="project project--vof" href="veil-of-fear.html" data-reveal>
+          <div class="frame project__media">
+            <img src="assets/art/game-banner-1280.webp" srcset="assets/art/game-banner-1280.webp 1280w, assets/art/game-banner.webp 2560w" sizes="(max-width: 860px) 100vw, 700px" alt="Veil of Fear: episode 1, He Never Left, between two hidden episodes yet to come" width="1280" height="720" loading="lazy">
+          </div>
+          <div class="project__body">
+            <p class="status"><span class="live-dot"></span>In development</p>
+            <h3 class="project__title">Veil of Fear</h3>
+            <p class="project__desc">An episodic psychological horror game for PC, based on the real events of the CIA’s secret MKUltra program. Each episode is a standalone night of fear, with its own setting, mechanics and tone.</p>
+            <span class="link-arrow">Learn more</span>
+          </div>
+        </a>
+
+        <a class="project project--twins" href="twins-hunt.html" data-reveal>
+          <div class="frame project__media">
+            <img src="assets/twins/banner-1280.webp" srcset="assets/twins/banner-1280.webp 1280w, assets/twins/banner.webp 2560w" sizes="(max-width: 860px) 100vw, 700px" alt="Twins' Hunt logo in a dark school hallway" width="1280" height="720" loading="lazy">
+          </div>
+          <div class="project__body">
+            <p class="status"><span class="live-dot"></span>Out now · 500+ downloads · iOS soon</p>
+            <h3 class="project__title">Twins’ Hunt</h3>
+            <p class="project__desc">The twins have locked you inside the school. Find the keys, fight the monsters and get out. You have three days. A big update is on the way.</p>
+            <span class="link-arrow">Learn more</span>
+          </div>
+        </a>
+
+        <div class="apps-head" data-reveal>
+          <h2 class="h2 apps-title" id="apps-title">Our Apps</h2>
+          <a class="apps-os" data-github href="https://github.com/d4rv1n17" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg><span class="apps-os__text"><span class="apps-os__big">Free, with the code on GitHub</span><span class="apps-os__small">The code of every app is on GitHub</span></span></a>
+        </div>
+        <a class="project project--app" href="enigma-cube.html" aria-labelledby="apps-title cube-card-title" data-reveal>
+          <div class="frame project__media app-card__media">
+            <img src="assets/brand/enigma-cube.png" alt="Enigma Cube icon: a cube with a stopwatch" width="256" height="256" loading="lazy">
+          </div>
+          <div class="project__body">
+            <p class="status"><span class="live-dot"></span>New version 3.1 · Free for Windows · Code on GitHub</p>
+            <h3 class="project__title" id="cube-card-title">Enigma Cube</h3>
+            <p class="project__desc">A timer and a speedcubing school in one app: WCA timer and statistics, courses for all 14 events, 342 algorithms and a smart trainer. Works offline.</p>
+            <span class="link-arrow">Learn more and download</span>
+          </div>
+        </a>
+        <a class="project project--app project--disk" href="enigma-disk.html" aria-labelledby="apps-title disk-card-title" data-reveal>
+          <div class="frame project__media app-card__media">
+            <img src="assets/brand/enigma-disk.png" alt="Enigma Disk icon: a yellow ring chart" width="256" height="256" loading="lazy">
+          </div>
+          <div class="project__body">
+            <p class="status"><span class="live-dot"></span>New · Released 9 Oct 2026 · Free for Windows</p>
+            <h3 class="project__title" id="disk-card-title">Enigma Disk</h3>
+            <p class="project__desc">Find out what is eating your disk space and when it started. Snapshots show which folders grew this week, and a safe clean-up removes only known caches.</p>
+            <span class="link-arrow">Learn more and download</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- NEWS (posts live in src/news.js) -->
+    <section class="section news-section" id="news" aria-labelledby="news-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="h2" id="news-title">News</h2>
+          <p class="muted section-head__note">What’s happening at the studio</p>
+        </div>
+        <div class="news" data-news data-i18n-skip></div>
+        <div class="news__more" data-reveal>
+          <a class="ghost-btn" href="news.html">All news <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="newsletter" data-reveal>
+          <div class="newsletter__text">
+            <p class="eyebrow">Newsletter</p>
+            <h3 class="newsletter__title">Get the news first</h3>
+            <p class="muted">New episodes, updates and releases straight to your inbox. We only write when there is real news.</p>
+          </div>
+          <form class="subscribe" data-subscribe novalidate>
+            <label class="visually-hidden" for="nl-home">Your email</label>
+            <div class="subscribe__row">
+              <input id="nl-home" type="email" name="email" placeholder="Your email" autocomplete="email" inputmode="email" required>
+              <button class="subscribe__btn" type="submit">Subscribe</button>
+            </div>
+            <p class="subscribe__msg" data-subscribe-msg aria-live="polite"></p>
+            <p class="subscribe__legal" data-i18n-unit>By subscribing you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- LATEST VIDEO from the channel -->
+    <section class="section" id="video" aria-labelledby="video-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="h2" id="video-title">From our channel</h2>
+          <a class="link-arrow" data-video-all target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLCvffitjV9S6at15Yieo6BuvdwiDLa8g9">All videos on YouTube</a>
+        </div>
+        <div class="video" data-latest-video data-reveal>
+          <div class="frame video__frame" data-video-frame>
+            <button class="video__poster" type="button" data-video-poster aria-label="Play the latest video">
+              <img src="assets/art/nightvision-facade-1280.webp" srcset="assets/art/nightvision-facade-1280.webp 1280w, assets/art/nightvision-facade.webp 2560w" sizes="(max-width: 1240px) 100vw, 1180px" alt="" loading="lazy" data-video-thumb>
+              <span class="video__play"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4l14 8-14 8z"/></svg></span>
+              <span class="video__hint" data-video-hint>Play the latest video</span>
+            </button>
+          </div>
+          <div class="video__meta">
+            <p class="video__title" data-video-title data-i18n-skip></p>
+            <p class="video__date muted" data-video-date data-i18n-skip></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUPPORT -->
+    <section class="section support" id="support" aria-labelledby="support-title">
+      <div class="container">
+        <div class="support__box" data-reveal>
+          <div class="support__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.4 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.5 0 5.5 3.5 4.2 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <div class="support__text">
+            <p class="eyebrow">Support the studio</p>
+            <h2 class="h2" id="support-title">Keep the lights off</h2>
+            <p class="muted">We are a small independent team. Every donation goes straight into our games: new episodes, better sound, more nights of fear. Thank you for being part of the enigma.</p>
+          </div>
+          <div class="support__action">
+            <a class="support-btn" href="https://dalink.to/enigma_studio_md" target="_blank" rel="noopener" data-support><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.4 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.5 0 5.5 3.5 4.2 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Support us</span></a>
+            <p class="support__note">Opens dalink.to in a new tab</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMUNITY -->
+    <section class="section community" aria-labelledby="community-title">
+      <div class="container">
+        <div class="community__box" data-reveal>
+          <div class="community__text">
+            <p class="eyebrow">Community</p>
+            <h2 class="h2" id="community-title">Step into the dark with us</h2>
+            <p class="muted">Devlogs, trailers, behind the scenes and the first news about new episodes. Follow the studio wherever you like.</p>
+          </div>
+          <div class="social-cards" data-social data-social-size="card"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <a class="logo logo--small" href="index.html" aria-label="Enigma Studio — home"><img src="assets/brand/logo.png" alt="Enigma Studio" width="73" height="64"></a>
+          <p class="site-footer__tagline">Not Just a Studio, An Enigma.</p>
+          <a class="site-footer__mail" href="mailto:enigmastudio.md@gmail.com">enigmastudio.md@gmail.com</a>
+          <a class="site-footer__support" href="https://dalink.to/enigma_studio_md" target="_blank" rel="noopener" data-support><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.4 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.5 0 5.5 3.5 4.2 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Support the studio</span></a>
+        </div>
+        <nav class="site-footer__cols" aria-label="Footer">
+          <div class="site-footer__col">
+            <p class="site-footer__head">Games</p>
+            <a href="veil-of-fear.html">Veil of Fear</a>
+            <a href="twins-hunt.html">Twins' Hunt</a>
+          </div>
+          <div class="site-footer__col">
+            <p class="site-footer__head">Apps</p>
+            <a href="enigma-cube.html">Enigma Cube</a>
+            <a href="enigma-disk.html">Enigma Disk</a>
+          </div>
+          <div class="site-footer__col">
+            <p class="site-footer__head">Studio</p>
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About us</a>
+            <a href="news.html">News</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+          </div>
+        </nav>
+      </div>
+      <div class="site-footer__news">
+        <div>
+          <p class="site-footer__head">Newsletter</p>
+          <p class="site-footer__news-text">Fresh news from the studio, straight to your inbox.</p>
+        </div>
+        <form class="subscribe subscribe--compact" data-subscribe novalidate>
+            <label class="visually-hidden" for="nl-foot">Your email</label>
+            <div class="subscribe__row">
+              <input id="nl-foot" type="email" name="email" placeholder="Your email" autocomplete="email" inputmode="email" required>
+              <button class="subscribe__btn" type="submit">Subscribe</button>
+            </div>
+            <p class="subscribe__msg" data-subscribe-msg aria-live="polite"></p>
+            <p class="subscribe__legal" data-i18n-unit>By subscribing you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+          </form>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">© <span data-year>2026</span> Enigma Studio</p>
+        <div class="social-mini" data-social></div>
+        <a class="to-top" href="#main" data-to-top>Back to top <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="src/config.js"></script>
+  <script src="src/i18n-data.js"></script>
+  <script src="src/i18n.js"></script>
+  <script src="src/news.js"></script>
+  <script src="src/main.js"></script>
+  <script src="src/veil-of-fear.js"></script>
+</body>
+</html>

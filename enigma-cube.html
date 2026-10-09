@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enigma Cube — Timer and Speedcubing School for Windows | Enigma Studio</title>
+  <meta name="description" content="Enigma Cube is a free timer and speedcubing school for Windows: WCA scrambles and statistics, courses for all 14 WCA events, 342 algorithms and a smart trainer. Works offline.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Enigma Cube — Timer and Speedcubing School for Windows">
+  <meta property="og:description" content="A free timer and speedcubing school for Windows: courses for all 14 WCA events, 342 algorithms and a smart trainer. Works offline.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Enigma Studio">
+  <meta property="og:image" content="assets/og/enigma-cube.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Enigma Cube — Timer and Speedcubing School for Windows">
+  <meta name="twitter:description" content="A free timer and speedcubing school for Windows: courses for all 14 WCA events, 342 algorithms and a smart trainer. Works offline.">
+  <meta name="twitter:image" content="assets/og/enigma-cube.jpg">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/icons/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kavoon&family=Koulen&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="src/styles.css">
+  <script>(function(d){var L,F=d.getAttribute('data-lang-fixed');try{L=F||localStorage.getItem('enigma-lang');if(F)localStorage.setItem('enigma-lang',F)}catch(e){L=F}if(!/^(en|ru|ro|uk)$/.test(L||'')){L='en';var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(/^ru/.test(c)){L='ru';break}if(/^(ro|mo)/.test(c)){L='ro';break}if(/^uk/.test(c)){L='uk';break}if(/^en/.test(c))break}}if(!F&&L!=='en'&&d.hasAttribute('data-built')){location.replace(L+'/'+(location.pathname.split('/').pop()||'index.html')+location.search+location.hash);return}d.lang=L;if(L!=='en'&&!F){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})(document.documentElement)</script>
+  <script>try{if(sessionStorage.getItem('enigma-pt')){sessionStorage.removeItem('enigma-pt');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pt-enter')}}catch(e){}</script>
+</head>
+<body data-page="enigma-cube" class="theme-cube">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <a class="logo" href="index.html" aria-label="Enigma Studio — home">
+      <img src="assets/brand/logo.png" alt="Enigma Studio" width="91" height="80">
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <div class="nav-group nav-group--games" data-nav-group>
+        <button class="nav-group__btn" type="button" aria-expanded="false" aria-haspopup="true">Games<svg class="nav-group__chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-group__menu">
+          <a class="nav-app nav-app--vof" href="veil-of-fear.html"><img src="assets/brand/nav-vof.webp" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Veil of Fear</span><span class="nav-app__desc">Psychological horror · PC</span></span></a>
+          <a class="nav-app nav-app--twins" href="twins-hunt.html"><img src="assets/brand/nav-twins.webp" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Twins’ Hunt</span><span class="nav-app__desc">Action horror · Android</span></span></a>
+        </div>
+      </div>
+      <div class="nav-group nav-group--apps is-current" data-nav-group>
+        <button class="nav-group__btn" type="button" aria-expanded="false" aria-haspopup="true">Apps<svg class="nav-group__chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-group__menu">
+          <a class="nav-app nav-app--cube" href="enigma-cube.html" aria-current="page"><img src="assets/brand/enigma-cube.png" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Enigma Cube</span><span class="nav-app__desc">Timer and speedcubing school</span></span></a>
+          <a class="nav-app nav-app--disk" href="enigma-disk.html"><img src="assets/brand/enigma-disk.png" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Enigma Disk</span><span class="nav-app__desc">Disk space analyzer</span></span></a>
+        </div>
+      </div>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO (same layout as the game pages) ============ -->
+    <section class="vf-hero cube-hero2" aria-labelledby="cube-title">
+      <div class="vf-hero__art cube-hero2__art">
+        <img src="assets/app/cube-banner.webp" srcset="assets/app/cube-banner-1280.webp 1280w, assets/app/cube-banner.webp 3840w" sizes="100vw" alt="Enigma Cube: Every solve. Every second." width="3840" height="2160">
+      </div>
+      <h1 class="visually-hidden" id="cube-title">Enigma Cube</h1>
+
+      <div class="container vf-hero__bar">
+        <dl class="facts">
+          <div><dt>Type</dt><dd>Timer and speedcubing school</dd></div>
+          <div><dt>Platform</dt><dd>Windows 10 / 11</dd></div>
+          <div><dt>Price</dt><dd>Free</dd></div>
+          <div><dt>Source code</dt><dd>On GitHub</dd></div>
+          <div><dt>Released</dt><dd><time datetime="2022-04-09">9 Apr 2022</time></dd></div>
+          <div><dt>Version</dt><dd><span class="live-dot"></span><span data-cube-version>3.1</span></dd></div>
+        </dl>
+        <div class="actions">
+          <a class="dl-btn" data-cube-download>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="dl-btn__text">
+              <span class="dl-btn__big">Download for Windows</span>
+              <span class="dl-btn__small">Free, version <span data-cube-version>3.1</span>, <span data-cube-size>41 MB</span></span>
+            </span>
+          </a>
+          <a class="ghost-btn" href="#screens">Screenshots</a>
+          <a class="ghost-btn gh-btn" data-cube-repo href="https://github.com/d4rv1n17/Enigma-Cube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Source code</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" aria-labelledby="about-title">
+      <div class="container">
+        <div class="split">
+          <div data-reveal>
+            <h2 class="h2" id="about-title">A timer and a speedcubing school in one app</h2>
+            <div class="frame split__media cube-icon-card">
+              <img src="assets/brand/enigma-cube.png" alt="Enigma Cube icon" width="256" height="256" loading="lazy">
+            </div>
+          </div>
+          <div class="split__body" data-reveal>
+            <p class="lead">Enigma Cube is a timer and a speedcubing school in one app for Windows. It generates WCA scrambles, times you like a real Stackmat and calculates your averages and personal bests.</p>
+            <p>The Training section has courses for all 14 WCA events: from your very first solve to the methods the pros use. Every course has three levels: beginner, intermediate and advanced.</p>
+            <p>Everything works without the internet, and every solve stays on your computer.</p>
+          </div>
+        </div>
+
+        <div class="cube-allinone" data-reveal>
+          <p class="eyebrow">Why Enigma Cube</p>
+          <h3 class="cube-allinone__title">One app instead of three</h3>
+          <p class="muted">Usually a cuber keeps a timer in one tab, algorithm sheets in another and a trainer in a third. Learning apps are often made for phones, cover only the 3x3 or lock the advanced methods behind a payment. Enigma Cube puts all of it on your PC: a WCA timer, courses for every event and a trainer that tells you what to repeat. Free and offline.</p>
+          <ul class="cube-allinone__list">
+            <li><strong>14</strong><span>WCA events with a timer and a course</span></li>
+            <li><strong>342</strong><span>algorithms with pictures</span></li>
+            <li><strong>40</strong><span>achievements</span></li>
+            <li><strong>0</strong><span>internet needed</span></li>
+          </ul>
+        </div>
+
+        <div class="section-head cube-sub" data-reveal>
+          <h2 class="h2">Training</h2>
+        </div>
+        <ul class="pillars pillars--six" data-reveal>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 7h9a3 3 0 0 1 3 3v16a2.5 2.5 0 0 0-2.5-2.5H5zM27 7h-9a3 3 0 0 0-3 3v16a2.5 2.5 0 0 1 2.5-2.5H27z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <h3>Courses for every event</h3>
+            <p>3x3 (beginner method, Fridrich/CFOP, Roux), 2x2 (Ortega, CLL), 4x4–7x7 (reduction and parity), Pyraminx (L4E), Skewb, Megaminx, Square-1, Clock, blindfolded, one-handed and FMC.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="3" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 12.3h22M5 19.7h22M12.3 5v22M19.7 5v22" stroke="currentColor" stroke-width="1.2"/><path d="M8 8.5h1.5" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <h3>342 algorithms with pictures</h3>
+            <p>Every set that has a simulator in the app is checked on it automatically. Popular cases come with verified alternative algorithms.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26 16a10 10 0 1 1-3-7.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M26 5v6h-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 11v5l3.5 2.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <h3>A smart trainer</h3>
+            <p>Spaced repetition and a “Recognise the case” quiz. The app decides what is due for review and introduces new algorithms gradually.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 5h15l4 4v18H7z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 13h3M12 18h8M12 22h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M18 9.5c1.6-1 3.4-.4 3.6 1.3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            <h3>Notation reference</h3>
+            <p>For every puzzle, with a picture of each move.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M10 5h12v6a6 6 0 0 1-12 0z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M10 7H6a4 4 0 0 0 4 5M22 7h4a4 4 0 0 1-4 5M16 17v5M11 27h10M13 22h6v5h-6z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round"/></svg>
+            <h3>40 achievements</h3>
+            <p>For solves, personal bests, learned algorithm sets and practice days in a row.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="17" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="13" y="13" width="16" height="13" rx="2" fill="#000" stroke="currentColor" stroke-width="1.6"/><path d="M13 17h16" stroke="currentColor" stroke-width="1.6"/></svg>
+            <h3>Any section in its own window</h3>
+            <p>Mini timer, Training, Reference and Achievements open in separate windows that can stay on top of the others.</p>
+          </li>
+        </ul>
+
+        <div class="section-head cube-sub" data-reveal>
+          <h2 class="h2">Timer and statistics</h2>
+        </div>
+        <ul class="cube-features" data-reveal>
+          <li><strong>14 WCA events</strong><span>Cubes from 2x2 to 7x7, Pyraminx, Skewb, Megaminx, Clock, Square-1, OH, 3BLD and FMC.</span></li>
+          <li><strong>Scramble preview</strong><span>See how the puzzle should look after scrambling, before you start.</span></li>
+          <li><strong>A fair timer</strong><span>Hold space to start, like a real Stackmat. 15-second WCA inspection with automatic +2 and DNF.</span></li>
+          <li><strong>WCA statistics</strong><span>ao5, ao12, ao50 and ao100, a progress chart and a time distribution.</span></li>
+          <li><strong>Sessions and data</strong><span>As many sessions as you like. Import from csTimer, export to CSV.</span></li>
+          <li><strong>Focus on the solve</strong><span>A minimal dark interface, focus mode and minimal mode. English and Russian.</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SCREENSHOTS ============ -->
+    <section class="section" id="screens" aria-labelledby="shots-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="h2" id="shots-title">Screenshots</h2>
+          <p class="muted section-head__note">Click any image to view it full screen</p>
+        </div>
+        <div class="shots shots--disk" data-reveal>
+          <button class="frame shot shot--wide" type="button" data-full="assets/app/cube3-training.webp"><img src="assets/app/cube3-training-1280.webp" srcset="assets/app/cube3-training-1280.webp 1280w, assets/app/cube3-training.webp 1916w" sizes="(max-width: 860px) 100vw, 1180px" alt="Training: the Fridrich (CFOP) course for the 3x3 with beginner, intermediate and advanced steps, learned algorithms and what is due for review" width="1280" height="687" loading="lazy"></button>
+          <button class="frame shot" type="button" data-full="assets/app/cube3-timer.webp"><img src="assets/app/cube3-timer-1280.webp" srcset="assets/app/cube3-timer-1280.webp 1280w, assets/app/cube3-timer.webp 1916w" sizes="(max-width: 860px) 100vw, 590px" alt="Timer: a 3x3 scramble with its preview, the time 12.33, WCA averages and a progress chart" width="1280" height="687" loading="lazy"></button>
+          <button class="frame shot" type="button" data-full="assets/app/cube3-reference.webp"><img src="assets/app/cube3-reference-1280.webp" srcset="assets/app/cube3-reference-1280.webp 1280w, assets/app/cube3-reference.webp 1916w" sizes="(max-width: 860px) 100vw, 590px" alt="Reference: 3x3 notation with a picture of every move, wide moves, slices and rotations" width="1280" height="687" loading="lazy"></button>
+          <button class="frame shot shot--wide" type="button" data-full="assets/app/cube3-achievements.webp"><img src="assets/app/cube3-achievements-1280.webp" srcset="assets/app/cube3-achievements-1280.webp 1280w, assets/app/cube3-achievements.webp 1916w" sizes="(max-width: 860px) 100vw, 1180px" alt="Achievements: 40 achievements for solves, personal bests, learned algorithm sets and practice streaks" width="1280" height="687" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHAT'S NEW + REQUIREMENTS ============ -->
+    <section class="section" id="whats-new" aria-labelledby="new-title">
+      <div class="container cube-two">
+        <div class="cube-panel" data-reveal>
+          <h2 class="h2" id="new-title">What’s new in 3.1</h2>
+          <ul class="cube-list">
+            <li>A Windows menu: the mini timer, Training, Reference and Achievements open in separate windows and stay on top of the others.</li>
+            <li>A course overview page: overall progress, the next step and what is due for review.</li>
+            <li>A “Recognise the case” quiz and detailed algorithm cards: length, what the algorithm does and alternative versions.</li>
+            <li>New lessons: cross, finger tricks, look-ahead and Roux.</li>
+            <li>A clearer timer screen.</li>
+          </ul>
+          <h3 class="cube-panel__sub">What came in 3.0</h3>
+          <ul class="cube-list cube-list--muted">
+            <li>The Training section with courses for all 14 events and a trainer.</li>
+            <li>A notation reference and achievements.</li>
+            <li>Multi-window mode.</li>
+            <li>A new installer in the Enigma style.</li>
+          </ul>
+        </div>
+        <div class="cube-panel" data-reveal>
+          <h2 class="h2">System requirements</h2>
+          <dl class="cube-req">
+            <div><dt>System</dt><dd>Windows 10 or Windows 11, 64-bit</dd></div>
+            <div><dt>Disk space</dt><dd>About 100 MB</dd></div>
+            <div><dt>Installer</dt><dd>About 41 MB</dd></div>
+            <div><dt>Screen</dt><dd>1280×720 or larger</dd></div>
+            <div><dt>Internet</dt><dd>Not needed</dd></div>
+            <div><dt>Price</dt><dd>Free</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INSTALL HELP ============ -->
+    <section class="section" aria-labelledby="install-title">
+      <div class="container">
+        <div class="cube-install" data-reveal>
+          <div>
+            <h2 class="h2" id="install-title">Installing and updating</h2>
+            <p class="muted">Enigma Cube is not yet signed with a paid code certificate, so Windows may show a blue “Windows protected your PC” window the first time. This is normal for small independent apps. If an older version is installed, the installer updates it and keeps all your solves.</p>
+          </div>
+          <ol class="cube-steps">
+            <li><span>Run <span class="mono" data-cube-filename>EnigmaCube-Setup-3.1.exe</span>.</span></li>
+            <li><span>If the blue window appears, click <strong>More info</strong>, then <strong>Run anyway</strong>.</span></li>
+            <li><span>Choose the folder and shortcuts and click <strong>Install</strong> (or <strong>Update</strong>).</span></li>
+          </ol>
+        </div>
+        <p class="cube-hash muted" data-cube-hash hidden>SHA-256: <span class="mono" data-cube-sha></span></p>
+      </div>
+    </section>
+
+    <!-- ============ SOURCE CODE ON GITHUB ============ -->
+    <section class="section" aria-labelledby="os-title">
+      <div class="container">
+        <div class="os-block" data-reveal>
+          <div class="os-block__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></div>
+          <div class="os-block__text">
+            <p class="eyebrow">Source code</p>
+            <h2 class="h2" id="os-title">The code is on GitHub</h2>
+            <p class="muted">The full source code of Enigma Cube is on GitHub: the timer, the scramble generator, the statistics and the installer. Read it, build it with Python, report a bug or suggest an idea.</p>
+          </div>
+          <a class="ghost-btn gh-btn" data-cube-repo href="https://github.com/d4rv1n17/Enigma-Cube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Open on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="vf-cta cube-cta2" aria-labelledby="cta-title">
+      <div class="vf-cta__bg" aria-hidden="true">
+        <img src="assets/app/cube3-timer.webp" alt="" loading="lazy">
+      </div>
+      <div class="container vf-cta__inner" data-reveal>
+        <h2 class="h2" id="cta-title">Ready for your next PB?</h2>
+        <p>Timer and speedcubing school, free for Windows 10 and 11.</p>
+        <div class="actions actions--center">
+          <a class="dl-btn" data-cube-download>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="dl-btn__text">
+              <span class="dl-btn__big">Download Enigma Cube</span>
+              <span class="dl-btn__small">Free, version <span data-cube-version>3.1</span>, <span data-cube-size>41 MB</span></span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Lightbox -->
+  <dialog class="lightbox" data-lightbox aria-label="Image viewer">
+    <div class="lightbox__top">
+      <span class="lightbox__count" data-lb-count></span>
+      <div class="lightbox__tools">
+        <button class="lb-btn" type="button" data-lb-fullscreen aria-label="Full screen" title="Full screen (F)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+        <button class="lb-btn" type="button" data-lb-close aria-label="Close" title="Close (Esc)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+      </div>
+    </div>
+    <figure class="lightbox__stage">
+      <img class="lightbox__img" data-lb-img alt="">
+      <figcaption class="lightbox__caption" data-lb-caption></figcaption>
+    </figure>
+    <button class="lb-btn lb-nav lb-nav--prev" type="button" data-lb-prev aria-label="Previous image">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+    <button class="lb-btn lb-nav lb-nav--next" type="button" data-lb-next aria-label="Next image">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+    <div class="lightbox__thumbs" data-lb-thumbs></div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <a class="logo logo--small" href="index.html" aria-label="Enigma Studio — home"><img src="assets/brand/logo.png" alt="Enigma Studio" width="73" height="64"></a>
+          <p class="site-footer__tagline">Not Just a Studio, An Enigma.</p>
+          <a class="site-footer__mail" href="mailto:enigmastudio.md@gmail.com">enigmastudio.md@gmail.com</a>
+          <a class="site-footer__support" href="https://dalink.to/enigma_studio_md" target="_blank" rel="noopener" data-support><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.4 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.5 0 5.5 3.5 4.2 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Support the studio</span></a>
+        </div>
+        <nav class="site-footer__cols" aria-label="Footer">
+          <div class="site-footer__col">
+            <p class="site-footer__head">Games</p>
+            <a href="veil-of-fear.html">Veil of Fear</a>
+            <a href="twins-hunt.html">Twins' Hunt</a>
+          </div>
+          <div class="site-footer__col">
+            <p class="site-footer__head">Apps</p>
+            <a href="enigma-cube.html">Enigma Cube</a>
+            <a href="enigma-disk.html">Enigma Disk</a>
+          </div>
+          <div class="site-footer__col">
+            <p class="site-footer__head">Studio</p>
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About us</a>
+            <a href="news.html">News</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+          </div>
+        </nav>
+      </div>
+      <div class="site-footer__news">
+        <div>
+          <p class="site-footer__head">Newsletter</p>
+          <p class="site-footer__news-text">Fresh news from the studio, straight to your inbox.</p>
+        </div>
+        <form class="subscribe subscribe--compact" data-subscribe novalidate>
+            <label class="visually-hidden" for="nl-foot">Your email</label>
+            <div class="subscribe__row">
+              <input id="nl-foot" type="email" name="email" placeholder="Your email" autocomplete="email" inputmode="email" required>
+              <button class="subscribe__btn" type="submit">Subscribe</button>
+            </div>
+            <p class="subscribe__msg" data-subscribe-msg aria-live="polite"></p>
+            <p class="subscribe__legal" data-i18n-unit>By subscribing you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+          </form>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">© <span data-year>2026</span> Enigma Studio</p>
+        <div class="social-mini" data-social></div>
+        <a class="to-top" href="#main" data-to-top>Back to top <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="src/config.js"></script>
+  <script src="src/i18n-data.js"></script>
+  <script src="src/i18n.js"></script>
+  <script src="src/main.js"></script>
+  <script src="src/gallery.js"></script>
+</body>
+</html>
