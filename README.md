@@ -1,177 +1,104 @@
-# Enigma Studio — сайт студии
+# Enigma Studio — website
 
-Сайт свёрстан по макету Figma «enigma studio website». Он сделан на чистом HTML/CSS/JS:
-сборка и зависимости не нужны, а разместить его можно где угодно (GitHub Pages, Netlify, Vercel,
-обычный хостинг).
+The official website of **Enigma Studio**, an independent team making dark, story-driven horror games and small free apps.
 
-## Страницы
+**Live site:** https://d4rv1n17.github.io/Enigma-Studio-Website/
 
-| Файл | Что это |
+It is a plain HTML/CSS/JavaScript site: no framework and no dependencies. The pages work as they are, and a small build step creates the language versions for search engines.
+
+## Pages
+
+| File | What it is |
 |---|---|
-| `index.html` | Главная студии: Enigma Studio, About Us, Our Games (пока только Veil of Fear) |
-| `veil-of-fear.html` | Страница игры: арт, факты, описание, **последнее видео с YouTube**, эпизод He Never Left, галерея с полноэкранным просмотром, кнопка Steam |
-| `enigma-cube.html` | Страница приложения Enigma Cube: описание, функции, требования, кнопка скачивания |
-| `contact.html` | Контакты: почта и соцсети |
+| `index.html` | Studio home: hero, about the studio, games, apps, news, latest video, support and community |
+| `veil-of-fear.html` | Veil of Fear: episodic psychological horror for PC, based on the real events of MKUltra |
+| `twins-hunt.html` | Twins' Hunt: horror game for Android, trailer and screenshots |
+| `enigma-cube.html` | Enigma Cube: free timer and speedcubing school for Windows, download |
+| `enigma-disk.html` | Enigma Disk: free Windows app that shows which folders grew, download |
+| `news.html` | All news, grouped by year, with a filter by project |
+| `contact.html` | Email, contact form (opens the visitor's mail app), FAQ, social links |
+| `privacy.html` | Privacy policy |
+| `404.html` | "Lost in the dark" page for wrong addresses |
 
-Road to Limansk на сайт не добавлен. Когда появятся новые проекты, скопируйте блок
-`<a class="project">` на главной и создайте страницу по образцу `veil-of-fear.html`.
+## Languages
 
-## Запуск локально
+The site is in **English, Russian, Romanian and Ukrainian**.
 
-Сайт открывается и двойным кликом по `index.html`, но видео YouTube в этом режиме не встраивается:
-YouTube запрещает плеер на страницах, открытых с диска (по клику откроется YouTube).
-Чтобы проверить всё как на хостинге, запустите локальный сервер:
+- The pages are written in English. Translations live in `src/i18n-data.js`, a dictionary of "English text → translation" for `ru`, `ro` and `uk`.
+- To fix a translation, find the line and change the text on the right.
+- If you change English text in an HTML page, add a translation for the new English text in `src/i18n-data.js`, otherwise that piece stays in English.
+- Visitors pick a language with the globe button in the header; the choice is remembered. On the first visit the browser language is used.
+- Koulen has no Cyrillic or Romanian letters, so Russian, Romanian and Ukrainian use the Oswald font.
 
-```bash
-cd enigma-studio
-python3 -m http.server 5173     # или: npx serve .
+## Project structure
+
+```
+index.html, veil-of-fear.html, twins-hunt.html, enigma-cube.html, enigma-disk.html,
+news.html, contact.html, privacy.html, 404.html
+src/
+  config.js        links and settings: social networks, YouTube, Steam, downloads, newsletter, email
+  news.js          the news posts (in four languages)
+  i18n-data.js     translations
+  i18n.js          language detection, switcher and translation
+  main.js          header and menus, torch effect, news, forms, videos, page transitions
+  gallery.js       full-screen image viewer
+  veil-of-fear.js  Steam button and the latest YouTube video
+  styles.css       all styles
+assets/            images, icons, link previews (og/)
+tools/build.py     builds the published version (see below)
+.github/workflows/pages.yml   publishes the site to GitHub Pages
 ```
 
-Затем откройте http://localhost:5173
+## Running it locally
 
-## Структура
+- **Windows:** double-click `start-site.bat`. The site opens at http://localhost:8080/.
+- **Mac:** double-click `start-site.command` (needs Python 3).
+- Or: `python3 -m http.server 8080` in this folder.
 
-```
-enigma-studio/
-├── index.html, veil-of-fear.html, contact.html
-├── src/
-│   ├── config.js         ← ссылки: соцсети, YouTube, Steam, почта (правится здесь)
-│   ├── styles.css        общие токены, сетка и стили всех страниц
-│   ├── main.js           шапка, «фонарик», соцсети, параллакс, появление блоков
-│   ├── gallery.js        полноэкранный просмотр картинок (общий для всех страниц)
-│   └── veil-of-fear.js   кнопка Steam и окно последнего видео
-└── assets/
-    ├── brand/            логотип, иконки Steam, YouTube, Instagram, TikTok
-    └── art/              арты и скриншоты: name.webp (2560px) + name-1280.webp
-```
+Opening `index.html` directly also works, but YouTube does not allow its player on pages opened from disk, so videos show a hint instead.
 
-## Картинки
+## Publishing
 
-Все арты и скриншоты прогнаны через нейросетевой апскейлер (Real-ESRGAN) до 2560px.
-Для каждой картинки лежат две версии: `name.webp` в 2560px для полноэкранного просмотра
-и `name-1280.webp` для страницы. Браузер сам выбирает нужную по размеру экрана.
+Every push to `main` publishes the site automatically: `.github/workflows/pages.yml` runs `tools/build.py` and deploys the result to GitHub Pages.
 
-Чтобы добавить картинку в галерею:
-1. Положите две версии в `assets/art/` (2560px и 1280px по ширине).
-2. Скопируйте в `veil-of-fear.html` строку `<button class="frame shot" …>` и поменяйте имя файла
-   и описание.
+`tools/build.py` writes a ready-to-publish copy to `dist/`:
 
-## Соцсети
+- the English pages, plus already translated copies in `dist/ru/`, `dist/ro/` and `dist/uk/`, each with its own address so search engines see every language;
+- `sitemap.xml` and `robots.txt`;
+- links between the language versions (hreflang), canonical addresses and structured data for the studio, the games and the apps.
 
-Ссылки и иконки задаются в одном месте: массив `social` в `src/config.js`. Оттуда они
-попадают на страницу контактов и в подвал каждой страницы.
+Run it locally with `pip install playwright`, `python -m playwright install chromium`, then `python tools/build.py`.
 
-## Окно «Latest Video»
+The site address is `SITE_URL` in `tools/build.py` and `.github/workflows/pages.yml`. Change it in both places when you connect your own domain.
 
-Видео берутся из плейлиста Veil of Fear (`CONFIG.youtube.playlistId` в `src/config.js`).
+## Common edits
 
-- **Без ключа (по умолчанию).** Работает встроенный плеер плейлиста YouTube. Он показывает
-  **первое** видео плейлиста, поэтому в настройках плейлиста на YouTube включите
-  «Добавлять новые видео в начало плейлиста».
-- **С ключом YouTube Data API v3.** Сайт сам находит самое свежее видео по дате публикации
-  и показывает обложку, название и дату. Плеер загружается только после нажатия на play,
-  поэтому страница грузится быстрее. Как получить ключ: Google Cloud Console → APIs &
-  Services → включить «YouTube Data API v3» → Credentials → Create API key. Затем
-  ограничьте ключ своим доменом (HTTP referrers) и вставьте его в `apiKey`.
+**Add a news post.** Open `src/news.js`, copy one `{ … },` block to the top of the list and change `id`, `date` (`'2026-10-15'`, or `'2026-10'` for month only), `tag` (`studio`, `vof`, `twins`, `cube` or `disk`), `image`, `link`, and the `title` and `text` in each language. The home page shows the 4 newest posts; `news.html` shows all of them.
 
-Если API не ответит, сайт автоматически переключится на плеер плейлиста.
+**New version of an app.** In `src/config.js`, change `version`, `size` and the download `url` in `enigmaCube` or `enigmaDisk`, and update the "What's new" block on the app's page.
+- Enigma Cube downloads the installer from the GitHub release of [Enigma-Cube](https://github.com/d4rv1n17/Enigma-Cube) (`releases/download/v3.1/EnigmaCube-Setup-3.1.exe`).
+- Enigma Disk downloads `EnigmaDiskSetup.exe` from the latest release of [Enigma-Disk](https://github.com/d4rv1n17/Enigma-Disk), so a new release needs no change here as long as the file name stays the same.
 
-## Steam
+**Steam.** Put the store address of Veil of Fear in `steamUrl` in `src/config.js`. Until then the button says "Coming soon".
 
-Кнопка «Wishlist on Steam» нарисована кодом, отдельная картинка не нужна. Пока ссылки нет,
-на ней написано «Coming soon» и она не кликается. Когда появится страница игры в Steam, впишите
-её адрес в `steamUrl` в `src/config.js`, и кнопка начнёт вести в магазин.
+**Social links.** The `social` list in `src/config.js` feeds the footer, the contact page and the community block.
 
-## Enigma Cube: скачивание
+**Latest video.** The home page and the Veil of Fear page find the newest video of the playlist (`youtube.playlistId`) and show its real YouTube preview. Without a key this uses the playlist's public feed; a YouTube Data API key in `youtube.apiKey` makes it fully reliable. `youtube.videoId` pins one specific video.
 
-Кнопки скачивания ведут на установщик из **GitHub Releases** репозитория Enigma-Cube:
-`https://github.com/d4rv1n17/Enigma-Cube/releases/download/v3.1/EnigmaCube-Setup-3.1.exe`.
-Релиз создаётся сам, когда вы отправляете тег (например `v3.1`): сборка на GitHub прикрепляет к нему установщик.
+**Newsletter.** The subscribe forms send email addresses to MailerLite (`newsletter.action` in `src/config.js`).
 
-Новая версия: в `enigmaCube` в `src/config.js` поменяйте `version`, `size` и версию в `url`
-(по желанию `sha256` — тогда под инструкцией появится контрольная сумма) и обновите блок «What’s new» в `enigma-cube.html`.
+**Support button.** `supportUrl` in `src/config.js`.
 
-## Цвета страниц
+**Images.** Large pictures come in two sizes: `name.webp` (full size, used in the full-screen viewer) and `name-1280.webp` (used on the page). The browser picks the right one.
 
-Все страницы используют одну переменную акцента `--accent` (в `src/styles.css`):
-- главная и контакты — белый (страницы студии остаются чёрно-белыми);
-- `veil-of-fear.html` (`class="theme-vof"`) — немного зелёного ночного видения;
-- `enigma-cube.html` (`class="theme-cube"`) — жёлтый из иконки приложения.
+## Privacy
 
-Скриншоты Enigma Cube лежат в `assets/app/` (`name.webp` 1920px + `name-1280.webp`).
+`privacy.html` describes what the site collects (only an email address, for the newsletter) and the third-party services it loads. If you add a new service, such as visit statistics, add it to the "Third-party services" section and update the date.
 
-## Локальный просмотр одним кликом
+## Copyright
 
-- **Windows:** дважды кликните `start-site.bat`. Сайт откроется в браузере по адресу
-  http://localhost:8080/, ничего устанавливать не нужно. Закройте окно, чтобы остановить.
-- **Mac:** дважды кликните `start-site.command` (нужен Python 3, на Mac он обычно есть).
+© 2026 Enigma Studio. All rights reserved.
 
-Так сайт работает точно как на хостинге, в том числе видео YouTube прямо на странице.
-Если открыть `index.html` двойным кликом, YouTube не пускает свой плеер, и вместо видео
-появится подсказка.
+The code, texts, artwork and logos of this website belong to Enigma Studio. The source code is public so you can read it, but no licence is granted to copy, modify or reuse it. Game, app and studio names and logos may not be used without permission.
 
-## Видео на странице игры
-
-- По умолчанию — плеер YouTube прямо на странице (плейлист Veil of Fear).
-- `youtube.videoId` в `src/config.js` — показывать одно конкретное видео.
-- `trailer.src` — свой файл (`.mp4`), который играет во встроенном плеере сайта без YouTube и
-  работает даже при открытии с диска. Положите файл, например, в `assets/video/trailer.mp4`.
-  Файлы больше 100 МБ не помещаются в обычный GitHub-репозиторий; для них лучше YouTube.
-
-## Контакты
-
-Форма на странице контактов ничего не хранит и не требует сервера: кнопка открывает
-почтовую программу посетителя с готовым письмом (тема зависит от выбранной темы обращения).
-Часовой пояс «Studio time» — `studioTimeZone` в `src/config.js`.
-
-## Иконка сайта и превью ссылок
-
-- Иконка вкладки одна на всех страницах: `favicon.ico` в корне и `assets/icons/` (16, 32, 180 для iPhone, 192/512 для Android). Манифест: `site.webmanifest`.
-- Картинки для превью ссылок в соцсетях и мессенджерах: `assets/og/*.jpg` (1200×630). Когда у сайта появится домен, пути в `og:image`/`twitter:image` лучше сделать полными (`https://ваш-домен/assets/og/...`): так превью работает везде.
-- `404.html` — страница «Lost in the dark» для несуществующих адресов (GitHub Pages подхватывает её сам).
-
-## Новости на главной
-
-Все новости лежат в `src/news.js`. Новые сверху. Чтобы добавить новость, скопируйте один блок `{ ... },` в начало списка и поменяйте:
-- `date` — `'2026-10-15'` (с днём) или `'2026-10'` (только месяц);
-- `tag` — `'studio'`, `'vof'`, `'twins'` или `'cube'` (от него зависит цвет);
-- `image` — картинка из `assets/`, `link` — куда ведёт «Читать далее»;
-- `title` и `text` — текст на четырёх языках (`en`, `ru`, `ro`, `uk`). Если какого-то языка нет, покажется английский.
-
-На главной видны 4 новости, остальные открываются кнопкой «Show older news».
-
-## Языки (English, Русский, Română, Українська)
-
-- Язык выбирается кнопкой с глобусом справа в шапке и запоминается в браузере. При первом заходе берётся язык браузера (русский, румынский/молдавский, украинский, иначе английский).
-- Страницы написаны на английском. Переводы лежат в `src/i18n-data.js`: это словарь «английский текст → перевод» для `ru`, `ro`, `uk`. Чтобы поправить перевод, найдите строку и измените текст справа от двоеточия.
-- Если вы меняете английский текст в HTML, перевод для него надо добавить в `src/i18n-data.js` с новым английским текстом в качестве ключа, иначе этот кусок останется на английском.
-- Для русского, румынского и украинского используется шрифт Oswald (в Koulen нет кириллицы и румынских букв ș, ț, ă).
-
-## Превью видео с YouTube
-
-На главной и на странице Veil of Fear сайт сам находит самое новое видео плейлиста и показывает его настоящее превью с YouTube, название и дату. По клику играет именно оно. Без ключа это работает через публичную ленту плейлиста (бесплатный сервис rss2json). Для полной надёжности можно вписать ключ YouTube Data API в `src/config.js` (`apiKey`). Если интернет или сервис недоступны, остаётся арт из игры. У трейлера Twins' Hunt превью берётся с YouTube по ID ролика.
-
-## Поддержка и рассылка
-
-- Кнопки «Support us» ведут на `supportUrl` в `src/config.js` (сейчас https://dalink.to/enigma_studio_md).
-- Подписка на новости: форма на главной (под новостями) и в футере каждой страницы.
-  - Пока `newsletter.action` в `src/config.js` пустой, кнопка «Subscribe» открывает почтовое приложение посетителя с готовым письмом «подпишите меня» на почту студии. Адреса собираются у вас во входящих.
-  - Чтобы рассылка работала сама (подтверждение, отписка, массовая отправка), заведите бесплатный аккаунт в сервисе рассылок, например Buttondown или MailerLite, и вставьте адрес формы в `newsletter.action`. Для Buttondown: `https://buttondown.com/api/emails/embed-subscribe/ВАШ_НИК`, поле `email`. Для Mailchimp поле называется `EMAIL`.
-
-## Страница новостей
-
-`news.html` показывает все новости из `src/news.js`, сгруппированные по годам, с фильтром по проектам. У каждой новости своя ссылка: `news.html#id` (кнопка «Copy link» копирует её). На главной показываются 4 последние новости и кнопка «All news».
-
-## Политика конфиденциальности
-
-`privacy.html`, ссылка есть в футере и под каждой формой подписки. Если подключите новые сервисы (например, статистику посещений), допишите их в раздел «Third-party services» и поменяйте дату «Last updated». Это не юридическая консультация: при сомнениях покажите текст юристу.
-
-## Google и публикация
-
-Сайт в этой папке — исходник: открывается и работает как есть. Для публикации собирается версия для Google:
-
-- `python tools/build.py` создаёт папку `dist/`: английские страницы плюс уже переведённые копии в `dist/ru/`, `dist/ro/`, `dist/uk/` (у каждой свой адрес, Google видит их отдельно), `sitemap.xml`, `robots.txt`, ссылки между языками (hreflang), канонические адреса и описания студии, игр и приложения для Google (structured data). Нужны Python и `pip install playwright` + `python -m playwright install chromium`.
-- На опубликованном сайте посетитель с русским, румынским или украинским браузером сразу попадает на свою языковую версию, а переключатель языков переходит между адресами.
-- Адрес сайта задаётся в `SITE_URL` (в `tools/build.py` и в `.github/workflows/pages.yml`). Сейчас там `https://d4rv1n17.github.io/Enigma-Studio-Website/`. Когда подключите свой домен, поменяйте его в обоих местах.
-- Автопубликация: `.github/workflows/pages.yml` сам собирает и публикует сайт на GitHub Pages при каждом изменении в ветке `main`. Один раз включите в репозитории: Settings → Pages → Source: «GitHub Actions».
-- После публикации добавьте сайт в Google Search Console и отправьте `sitemap.xml` — так Google быстрее найдёт все страницы и языки.
+Fonts are from Google Fonts under the SIL Open Font License. YouTube, Instagram, TikTok, GitHub, Steam, Google Play and App Store names and logos belong to their owners.
