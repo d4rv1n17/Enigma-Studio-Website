@@ -1835,3 +1835,32 @@ button.ghost-btn { font-family: inherit; text-transform: inherit; letter-spacing
 .cube-panel__sub { margin: 1.6rem 0 .8rem; font-size: var(--fs-h3); color: var(--grey); }
 .cube-list--muted li { color: var(--grey); }
 .cube-list--muted li::before { background: rgba(245, 203, 11, .45); }
+
+/* Mobile menu: the groups are plain lists here, never the desktop dropdown.
+   (Tapping a card used to trigger the dropdown's hover/focus shift.) */
+@media (max-width: 920px) {
+  .site-nav .nav-group__menu,
+  .site-nav .nav-group:hover .nav-group__menu,
+  .site-nav .nav-group:focus-within .nav-group__menu,
+  .site-nav .nav-group.is-open .nav-group__menu {
+    position: static; left: auto; top: auto; transform: none; opacity: 1; visibility: visible; margin: 0; padding: 0;
+    background: none; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; transition: none;
+  }
+  .site-nav .nav-group__menu::before { display: none; }
+  .site-nav .nav-group__btn { cursor: default; text-shadow: none; }
+  .site-nav .nav-app { gap: .9rem; padding: .6rem .8rem; transition: background-color .2s, border-color .2s; }
+  .site-nav .nav-app:active { background: rgba(255, 255, 255, .08); }
+  .site-nav .nav-app img { border-radius: 9px; }
+  .site-nav .nav-app::after { content: "→"; display: block; position: static; margin-left: auto; height: auto; background: none; transform: none; color: var(--grey); font-size: 1rem; }
+  .site-nav .nav-app[aria-current="page"]::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--link-accent, #fff); box-shadow: 0 0 10px var(--link-accent, #fff); font-size: 0; }
+  .site-nav .nav-app--vof[aria-current="page"] { --link-accent: var(--vof-green); border-color: rgba(143, 240, 127, .4); }
+  .site-nav .nav-app--twins[aria-current="page"] { --link-accent: var(--twins-red); border-color: rgba(255, 43, 69, .45); }
+  .site-nav .nav-app--cube[aria-current="page"], .site-nav .nav-app--disk[aria-current="page"] { --link-accent: var(--cube-yellow); border-color: rgba(245, 203, 11, .45); }
+}
+@media (max-width: 920px) {
+  .site-nav .nav-app__text { min-width: 0; flex: 1; }
+  .site-nav .nav-app__name, .site-nav .nav-app__desc { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .site-nav .nav-app::after { flex: none; }
+  .site-nav .nav-app[aria-current="page"]::after { display: block; min-width: 7px; }
+}
+@media (max-width: 920px) { .site-nav .nav-app__desc { white-space: normal; overflow: visible; line-height: 1.25; } }
