@@ -2,7 +2,7 @@
 
 The official website of **Enigma Studio**, an independent team making dark, story-driven horror games and small free apps.
 
-**Live site:** https://d4rv1n17.github.io/Enigma-Studio-Website/
+**Live site:** https://enigmastudioo.com/
 
 It is a plain HTML/CSS/JavaScript site: no framework and no dependencies. The pages work as they are, and a small build step creates the language versions for search engines.
 
@@ -69,7 +69,7 @@ Every push to `main` publishes the site automatically: `.github/workflows/pages.
 
 Run it locally with `pip install playwright`, `python -m playwright install chromium`, then `python tools/build.py`.
 
-The site address is `SITE_URL` in `tools/build.py` and `.github/workflows/pages.yml`. Change it in both places when you connect your own domain.
+The site lives at https://enigmastudioo.com (domain on Cloudflare, connected in GitHub → Settings → Pages → Custom domain). The address is `SITE_URL` in `tools/build.py` and `.github/workflows/pages.yml`; change both if the domain ever changes.
 
 ## Common edits
 

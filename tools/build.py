@@ -31,7 +31,7 @@ from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-SITE_URL = os.environ.get("SITE_URL", "https://d4rv1n17.github.io/Enigma-Studio-Website/").rstrip("/") + "/"
+SITE_URL = os.environ.get("SITE_URL", "https://enigmastudioo.com/").rstrip("/") + "/"
 ROOT = Path(__file__).resolve().parent.parent
 DIST = ROOT / "dist"
 LANGS = ["ru", "ro", "uk"]
