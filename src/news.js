@@ -11,6 +11,25 @@
 // =========================================================
 window.ENIGMA_NEWS = [
   {
+    id: 'last-signal',
+    date: '2026-10-13',
+    tag: 'vof',
+    image: 'assets/lastsignal/closet-1280.webp',
+    link: 'last-signal.html',
+    title: {
+      en: 'Last Signal: a browser prequel to Veil of Fear',
+      ru: 'Last Signal: браузерный пролог к Veil of Fear',
+      ro: 'Last Signal: un prolog Veil of Fear în browser',
+      uk: 'Last Signal: браузерний пролог до Veil of Fear',
+    },
+    text: {
+      en: 'A detective horror for two: one of you sits at the laptop of a missing girl, the other holds her notebook on a phone. The story leads straight to Episode 1. The prologue will be free.',
+      ru: 'Детективный хоррор для двоих: один сидит за ноутбуком пропавшей девушки, второй держит её блокнот на телефоне. История ведёт прямо к Эпизоду I. Пролог будет бесплатным.',
+      ro: 'Un horror polițist pentru doi: unul stă la laptopul unei fete dispărute, celălalt îi ține carnetul pe telefon. Povestea duce direct la Episodul 1. Prologul va fi gratuit.',
+      uk: 'Детективний горор для двох: один сидить за ноутбуком зниклої дівчини, другий тримає її блокнот на телефоні. Історія веде просто до Епізоду I. Пролог буде безкоштовним.',
+    },
+  },
+  {
     id: 'enigma-cube-3-1',
     date: '2026-10-09',
     tag: 'cube',

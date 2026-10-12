@@ -54,6 +54,17 @@ window.ENIGMA_CONFIG = {
   // Time zone of the 'Studio time' clock on the contact page.
   studioTimeZone: 'Europe/Chisinau',
 
+  // Last Signal (browser prequel to Veil of Fear, last-signal.html).
+  //   playUrl: address of the game (the free demo). Empty = the buttons say "Coming soon".
+  //   buyUrl:  Lemon Squeezy checkout link of the full game ("Share" link of the product).
+  //            Empty = the buy button says "Coming soon". The checkout opens on top of the page.
+  //   price:   shown on the page.
+  lastSignal: {
+    playUrl: '',
+    buyUrl: '',
+    price: '$2.99',
+  },
+
   // Enigma Disk: the download button downloads the installer right away.
   // The link always points to EnigmaDiskSetup.exe of the LATEST GitHub release, so a new
   // version needs no change here: publish a release and attach a file with exactly that name.

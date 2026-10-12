@@ -161,6 +161,13 @@ def structured_data(name, html, lang):
                 "operatingSystem": "Windows", "inLanguage": lang,
                 "image": SITE_URL + "assets/art/game-banner.webp",
                 "author": studio, "publisher": studio}
+    elif name == "last-signal.html":
+        data = {"@context": "https://schema.org", "@type": "VideoGame", "name": "Last Signal", "url": url,
+                "description": desc, "genre": ["Detective", "Horror", "Puzzle"], "gamePlatform": "Web browser",
+                "playMode": "CoOp", "numberOfPlayers": {"@type": "QuantitativeValue", "value": 2},
+                "inLanguage": lang, "image": SITE_URL + "assets/og/last-signal.jpg",
+                "isPartOf": {"@type": "VideoGameSeries", "name": "Veil of Fear"},
+                "author": studio, "publisher": studio}
     elif name == "twins-hunt.html":
         data = {"@context": "https://schema.org", "@type": "VideoGame", "name": "Twins’ Hunt", "url": url,
                 "description": desc, "genre": ["Action", "Horror"], "gamePlatform": "Android",
