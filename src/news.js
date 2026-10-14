@@ -14,7 +14,7 @@ window.ENIGMA_NEWS = [
     id: 'last-signal',
     date: '2026-10-13',
     tag: 'vof',
-    image: 'assets/lastsignal/closet-1280.webp',
+    image: 'assets/lastsignal/banner-1280.webp',
     link: 'last-signal.html',
     title: {
       en: 'Last Signal: a browser prequel to Veil of Fear',
