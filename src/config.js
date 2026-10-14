@@ -60,7 +60,7 @@ window.ENIGMA_CONFIG = {
   //            Empty = the buy button says "Coming soon". The checkout opens on top of the page.
   //   price:   shown on the page.
   lastSignal: {
-    playUrl: '',
+    playUrl: 'https://play.enigmastudioo.com/',
     buyUrl: '',
     price: '$2.99',
   },
