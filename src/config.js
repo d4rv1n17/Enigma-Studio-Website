@@ -56,8 +56,8 @@ window.ENIGMA_CONFIG = {
 
   // Last Signal (browser prequel to Veil of Fear, last-signal.html).
   //   playUrl: address of the game (the free demo). Empty = the buttons say "Coming soon".
-  //   buyUrl:  Lemon Squeezy checkout link of the full game ("Share" link of the product).
-  //            Empty = the buy button says "Coming soon". The checkout opens on top of the page.
+  //   buyUrl:  itch.io page of the full game (https://<name>.itch.io/last-signal).
+  //            Empty = the buy button says "Coming soon". Opens in a new tab.
   //   price:   shown on the page.
   lastSignal: {
     playUrl: 'https://play.enigmastudioo.com/',

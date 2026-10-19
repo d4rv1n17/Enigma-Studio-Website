@@ -22,20 +22,15 @@
     }
   });
 
-  // full game
+  // full game: itch.io page, in a new tab
   const buy = document.querySelector('[data-ls-buy]');
   if (buy) {
     const small = buy.querySelector('[data-ls-buy-small]');
     if (cfg.buyUrl) {
       buy.href = cfg.buyUrl;
+      buy.target = '_blank';
+      buy.rel = 'noopener';
       if (small) small.textContent = cfg.price || '';
-      // Lemon Squeezy overlay checkout: their script turns links with this class into a pop-up
-      buy.classList.add('lemonsqueezy-button');
-      const s = document.createElement('script');
-      s.src = 'https://app.lemonsqueezy.com/js/lemon.js';
-      s.defer = true;
-      s.onload = () => { if (window.createLemonSqueezy) window.createLemonSqueezy(); };
-      document.head.appendChild(s);
     } else if (small) {
       small.textContent = t('Coming soon');
     }
