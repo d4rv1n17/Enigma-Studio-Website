@@ -1986,3 +1986,11 @@ button.ghost-btn { font-family: inherit; text-transform: inherit; letter-spacing
 .ls-promo .link-arrow { margin-top: 1.25rem; }
 .ls-promo .link-arrow::after { background: var(--ls-amber); }
 @media (max-width: 860px) { .ls-promo { grid-template-columns: 1fr; } }
+
+/* Last Signal: how to buy */
+.ls-howbuy { margin-top: clamp(2.5rem, 5vw, 4rem); }
+.ls-howbuy__title { margin-bottom: 1.4rem; }
+.ls-steps--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 1100px) { .ls-steps--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .ls-steps--4 { grid-template-columns: 1fr; } }
+.ls-steps p { overflow-wrap: anywhere; }
