@@ -61,7 +61,7 @@ window.ENIGMA_CONFIG = {
   //   price:   shown on the page.
   lastSignal: {
     playUrl: 'https://play.enigmastudioo.com/',
-    buyUrl: '',
+    buyUrl: 'https://enigmastudiooo.itch.io/veil-of-fear-last-signal',
     price: '$2.99',
   },
 
