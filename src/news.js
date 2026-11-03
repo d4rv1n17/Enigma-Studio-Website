@@ -11,6 +11,25 @@
 // =========================================================
 window.ENIGMA_NEWS = [
   {
+    id: 'enigma-cube-3-2',
+    date: '2026-11-03',
+    tag: 'cube',
+    image: 'assets/app/cube-banner-1280.webp',
+    link: 'enigma-cube.html#whats-new',
+    title: {
+      en: 'Enigma Cube 3.2: smart cubes and live 3D',
+      ru: 'Enigma Cube 3.2: смарт-кубы и живой 3D',
+      ro: 'Enigma Cube 3.2: cuburi smart și 3D live',
+      uk: 'Enigma Cube 3.2: смарт-куби та живий 3D',
+    },
+    text: {
+      en: 'Connect a Giiker smart cube: the app checks the scramble, times the solve itself, helps you solve the cube step by step and replays every solve. Plus 3D notation for every puzzle, a new interface and automatic updates.',
+      ru: 'Подключите смарт-куб Giiker: приложение проверит скрамбл, само засечёт время, поможет собрать куб шаг за шагом и покажет повтор каждой сборки. А ещё 3D-нотация для всех головоломок, новый интерфейс и автообновления.',
+      ro: 'Conectați un cub smart Giiker: aplicația verifică amestecarea, cronometrează singură, vă ajută să rezolvați cubul pas cu pas și reia fiecare rezolvare. Plus notație 3D pentru fiecare puzzle, o interfață nouă și actualizări automate.',
+      uk: 'Під’єднайте смарт-куб Giiker: застосунок перевірить скрембл, сам засіче час, допоможе зібрати куб крок за кроком і покаже повтор кожної зборки. А ще 3D-нотація для всіх головоломок, новий інтерфейс і автооновлення.',
+    },
+  },
+  {
     id: 'last-signal',
     date: '2026-10-13',
     tag: 'vof',

@@ -78,11 +78,11 @@ window.ENIGMA_CONFIG = {
   // Enigma Cube download: the installer from GitHub Releases of the Enigma-Cube repository.
   // New version: change `version`, `size` and the version in `url` (and `sha256` if you want it shown).
   enigmaCube: {
-    version: '3.1',
-    size: '41 MB',
-    // the installer attached to the GitHub release v3.1 (push the tag v3.1 and the build workflow attaches it)
-    url: 'https://github.com/d4rv1n17/Enigma-Cube/releases/download/v3.1/EnigmaCube-Setup-3.1.exe',
+    version: '3.2.1',
+    size: '56 MB',
+    // the installer attached to the GitHub release v3.2.1 (push the tag and the build workflow attaches it)
+    url: 'https://github.com/d4rv1n17/Enigma-Cube/releases/download/v3.2.1/EnigmaCube-Setup-3.2.1.exe',
     repo: 'https://github.com/d4rv1n17/Enigma-Cube',   // source code
-    sha256: '5d6d76aca2536afc062ec284a85467529b6f7265e61cac8742d79b46de0a5b9f',   // SHA-256 of the installer, shown under the install steps
+    sha256: '4d580fb3e901d4c091497f83a8380883e889e4c356c861a2365ecd2060086989',   // SHA-256 of the installer, shown under the install steps
   },
 };
