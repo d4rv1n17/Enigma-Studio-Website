@@ -63,11 +63,30 @@
   <main id="main">
 
     <!-- ============ HERO (same layout as the game pages) ============ -->
-    <section class="vf-hero cube-hero2" aria-labelledby="cube-title">
-      <div class="vf-hero__art cube-hero2__art">
-        <img src="assets/app/cube-banner.webp" srcset="assets/app/cube-banner-1280.webp 1280w, assets/app/cube-banner.webp 3840w" sizes="100vw" alt="Enigma Cube: Every solve. Every second." width="3840" height="2160">
+    <section class="disk-hero cube-hero3" aria-labelledby="cube-title">
+      <div class="container disk-hero__grid">
+        <div class="disk-hero__text">
+          <p class="disk-hero__eyebrow"><span class="os-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg><span>Code on GitHub</span></span><span>Free for Windows</span><span class="cube-hero3__new">New in 3.2: smart cubes</span></p>
+          <h1 class="disk-hero__title" id="cube-title">Enigma Cube</h1>
+          <p class="disk-hero__tagline">Every solve. Every second. A WCA timer, a speedcubing school and now your smart cube in 3D.</p>
+        </div>
+        <div class="disk-hero__visual cube3d-stage" aria-hidden="true" data-cube3d>
+          <div class="disk-hero__glow"></div>
+          <div class="cube3d"><div class="cube3d__body">
+            <div class="cube3d__face cube3d__face--u" data-face="u"></div>
+            <div class="cube3d__face cube3d__face--d" data-face="d"></div>
+            <div class="cube3d__face cube3d__face--f" data-face="f"></div>
+            <div class="cube3d__face cube3d__face--b" data-face="b"></div>
+            <div class="cube3d__face cube3d__face--r" data-face="r"></div>
+            <div class="cube3d__face cube3d__face--l" data-face="l"></div>
+          </div></div>
+          <div class="cube-timer-card">
+            <p class="cube-timer-card__head"><span><i class="live-dot"></i><span>Giiker connected</span></span><em data-cube3d-solve>#1</em></p>
+            <p class="cube-timer-card__time" data-cube3d-time>0.00</p>
+            <p class="cube-timer-card__scr" data-cube3d-scr>R U R' U' F2 D L2 B'</p>
+          </div>
+        </div>
       </div>
-      <h1 class="visually-hidden" id="cube-title">Enigma Cube</h1>
 
       <div class="container vf-hero__bar">
         <dl class="facts">
@@ -366,5 +385,6 @@
   <script src="src/i18n.js"></script>
   <script src="src/main.js"></script>
   <script src="src/gallery.js"></script>
+  <script src="src/cube-hero.js"></script>
 </body>
 </html>
