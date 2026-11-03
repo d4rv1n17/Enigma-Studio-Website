@@ -5,6 +5,8 @@
 (() => {
   const stage = document.querySelector('[data-cube3d]');
   if (!stage) return;
+  // with WebGL the real 3D cube (cube-hero3d.js) takes over
+  try { const c = document.createElement('canvas'); if (c.getContext('webgl2') || c.getContext('webgl')) return; } catch (e) { /* use the CSS cube */ }
   const COLORS = { u: '#f2f2f2', d: '#f5cb0b', f: '#1fa055', b: '#2f6fe0', r: '#d8342c', l: '#f08a1c' };
   const all = Object.values(COLORS);
   const cube = stage.querySelector('.cube3d');

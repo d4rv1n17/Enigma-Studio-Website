@@ -2055,3 +2055,11 @@ button.ghost-btn { font-family: inherit; text-transform: inherit; letter-spacing
   .cube-timer-card { position: relative; right: auto; bottom: auto; margin: 2.5rem auto 0; }
 }
 @media (prefers-reduced-motion: reduce) { .cube3d, .cube3d__body { animation: none; } .cube3d__body { transform: rotateX(-24deg) rotateY(-35deg); } }
+/* real 3D cube (three.js); the CSS cube stays as a fallback without WebGL */
+.cube3d-canvas { position: absolute; inset: -8% -12% -4%; display: none; cursor: grab; }
+.cube3d-canvas canvas { width: 100% !important; height: 100% !important; display: block; }
+.cube3d-stage.is-3d .cube3d-canvas { display: block; animation: fade-up 1.2s .2s var(--ease) both; }
+.cube3d-stage.is-3d .cube3d { display: none; }
+.cube3d-stage.is-grabbing .cube3d-canvas { cursor: grabbing; }
+.cube3d-stage.is-3d { min-height: clamp(380px, 38vw, 520px); }
+@media (max-width: 900px) { .cube3d-stage.is-3d { min-height: 0; height: min(92vw, 420px); padding: 0; } .cube3d-stage.is-3d .cube-timer-card { position: absolute; left: 0; right: 0; bottom: -1rem; margin: 0 auto; width: min(17rem, 86%); } .cube3d-canvas { inset: 0 0 3rem; } .cube3d-stage.is-3d { margin-bottom: 2.5rem; } }
