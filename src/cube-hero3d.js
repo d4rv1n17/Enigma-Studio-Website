@@ -46,11 +46,13 @@ function start() {
 
   // ---------- the cube ----------
   const COLORS = { U: 0xf4f4f2, D: 0xf5cb0b, F: 0x16a34a, B: 0x2563eb, R: 0xdc2626, L: 0xf97316 };
-  const root = new THREE.Group();          // user rotation + idle orbit
+  const tilt = new THREE.Group();          // fixed tilt towards the viewer (drag up/down)
+  const root = new THREE.Group();          // spin around the vertical axis (drag left/right, idle orbit)
+  tilt.add(root);
   const lift = new THREE.Group(); lift.position.set(-0.35, 0.45, 0); scene.add(lift);
   const cubeGroup = new THREE.Group();     // holds the 27 cubies
-  root.add(cubeGroup); lift.add(root);
-  root.rotation.set(0.5, -0.65, 0);
+  root.add(cubeGroup); lift.add(tilt);
+  tilt.rotation.x = 0.52; root.rotation.y = -0.7;
 
   const bodyGeo = new RoundedBoxGeometry(0.97, 0.97, 0.97, 4, 0.12);
   const bodyMat = new THREE.MeshPhysicalMaterial({ color: 0x050505, roughness: 0.55, metalness: 0.0, clearcoat: 0.35, clearcoatRoughness: 0.5, envMapIntensity: 0.5 });
@@ -60,7 +62,11 @@ function start() {
     s.moveTo(-h + r, -h); s.lineTo(h - r, -h); s.quadraticCurveTo(h, -h, h, -h + r);
     s.lineTo(h, h - r); s.quadraticCurveTo(h, h, h - r, h); s.lineTo(-h + r, h);
     s.quadraticCurveTo(-h, h, -h, h - r); s.lineTo(-h, -h + r); s.quadraticCurveTo(-h, -h, -h + r, -h);
-    return new THREE.ShapeGeometry(s, 6);
+    const geo = new THREE.ShapeGeometry(s, 6);
+    // ShapeGeometry UVs are in shape units; map them to 0..1 so a texture covers the sticker
+    const uv = geo.attributes.uv;
+    for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) / w + 0.5, uv.getY(i) / w + 0.5);
+    return geo;
   }
   const stickerGeo = roundedRect(0.82, 0.16);
   const mats = {};
@@ -73,8 +79,8 @@ function start() {
     const cv = document.createElement('canvas'); cv.width = cv.height = 256;
     const g = cv.getContext('2d'); g.fillStyle = '#f4f4f2'; g.fillRect(0, 0, 256, 256);
     const img = new Image();
-    img.onload = () => { g.drawImage(img, 58, 58, 140, 140); tex.needsUpdate = true; };
-    img.src = 'assets/brand/enigma-cube.png';
+    img.onload = () => { g.drawImage(img, 14, 14, 228, 228); tex.needsUpdate = true; };
+    img.src = '/assets/brand/enigma-cube.png';
     const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace;
     logoMat.map = tex; logoMat.color.set(0xffffff);
   }
@@ -130,8 +136,10 @@ function start() {
       turning.layer.forEach((c) => {
         cubeGroup.attach(c);
         c.position.set(Math.round(c.position.x), Math.round(c.position.y), Math.round(c.position.z));
-        const e = new THREE.Euler().setFromQuaternion(c.quaternion);
-        c.rotation.set(Math.round(e.x / (Math.PI / 2)) * (Math.PI / 2), Math.round(e.y / (Math.PI / 2)) * (Math.PI / 2), Math.round(e.z / (Math.PI / 2)) * (Math.PI / 2));
+        // snap the orientation to exact right angles (round the rotation matrix)
+        const m4 = new THREE.Matrix4().makeRotationFromQuaternion(c.quaternion);
+        m4.elements = m4.elements.map((v, i) => (i % 4 === 3 || i >= 12 ? v : Math.round(v)));
+        c.quaternion.setFromRotationMatrix(m4);
       });
       const done = turning.res; turning = null; done();
     }
@@ -171,9 +179,10 @@ function start() {
     stepTurn(now);
     if (!drag) { velX *= 0.94; velY *= 0.94; }
     const idle = now - lastUser > 2500 && !drag;
-    root.rotation.y += velY + (idle && !reduce ? 0.0022 : 0);
-    root.rotation.x = Math.max(-1.1, Math.min(1.1, root.rotation.x + velX));
-    if (idle) root.rotation.x += (0.5 - root.rotation.x) * 0.01;
+    const dt = Math.min(0.05, (now - (frame.last || now)) / 1000); frame.last = now;
+    root.rotation.y += velY + (idle && !reduce ? 0.32 * dt : 0);
+    tilt.rotation.x = Math.max(-0.2, Math.min(1.1, tilt.rotation.x + velX));
+    if (idle) tilt.rotation.x += (0.52 - tilt.rotation.x) * Math.min(1, 2 * dt);
     // a soft pulse of the rim light when solved
     const glow = solved ? Math.max(0, 1 - (now - solvedAt) / 1600) : 0;
     rim.intensity = 40 + 70 * glow; rim2.intensity = 18 + 40 * glow;
