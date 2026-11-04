@@ -64,8 +64,15 @@
 
     <!-- ============ HERO ============ -->
     <section class="vf-hero th-hero" aria-labelledby="th-title">
-      <div class="vf-hero__art" data-parallax>
-        <img src="assets/twins/banner.webp" srcset="assets/twins/banner-1280.webp 1280w, assets/twins/banner.webp 2560w" sizes="100vw" alt="Twins' Hunt logo in a dark school hallway; the twins stand behind the letters" width="2560" height="1440">
+      <div class="vf-hero__art th-stage" data-torch data-th-stage>
+        <img class="th-stage__img th-stage__img--dark" src="assets/twins/banner-1280.webp" srcset="assets/twins/banner-1280.webp 1280w, assets/twins/banner.webp 2560w" sizes="100vw" alt="Twins' Hunt logo in a dark school hallway; the twins stand behind the letters" width="2560" height="1440">
+        <img class="th-stage__img th-stage__img--lit" src="assets/twins/banner-1280.webp" srcset="assets/twins/banner-1280.webp 1280w, assets/twins/banner.webp 2560w" sizes="100vw" alt="" aria-hidden="true" width="2560" height="1440">
+        <span class="th-eyes" data-th-eyes aria-hidden="true"><i></i><i></i></span>
+        <div class="th-hud" aria-hidden="true">
+          <p class="th-hud__day"><span>Day</span> <b data-th-day>1</b> <span>/ 3</span></p>
+          <p class="th-hud__bat"><span class="th-hud__cell"><i data-th-bat-fill></i></span><b data-th-bat>99%</b></p>
+          <p class="th-hud__hint" data-torch-hint>Move the light. Don’t let them see you.</p>
+        </div>
       </div>
       <h1 class="visually-hidden" id="th-title">Twins' Hunt</h1>
 
@@ -309,6 +316,7 @@
   <script src="src/i18n-data.js"></script>
   <script src="src/i18n.js"></script>
   <script src="src/main.js"></script>
+  <script src="src/th-live.js"></script>
   <script src="src/gallery.js"></script>
 </body>
 </html>

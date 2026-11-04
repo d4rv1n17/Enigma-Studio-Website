@@ -27,25 +27,32 @@ function start() {
   const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.outputColorSpace = THREE.SRGBColorSpace;
-  renderer.toneMapping = THREE.NoToneMapping;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 0.92;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
   host.appendChild(renderer.domElement);
   stage.classList.add('is-3d');
 
   const scene = new THREE.Scene();
   const pmrem = new THREE.PMREMGenerator(renderer);
-  scene.environment = pmrem.fromScene(new RoomEnvironment(renderer), 0.04).texture;
+  scene.environment = pmrem.fromScene(new RoomEnvironment(renderer), 0.02).texture;
 
   const camera = new THREE.PerspectiveCamera(30, 1, 0.1, 100);
   camera.position.set(0, 0, 11.5);
 
   // lights: soft key, cool fill, warm yellow rim from behind (brand colour)
-  scene.add(new THREE.HemisphereLight(0xffffff, 0x101010, 0.6));
-  const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(4, 6, 7); scene.add(key);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x0a0a0a, 0.45));
+  const key = new THREE.DirectionalLight(0xfff6e8, 2.6); key.position.set(4, 6, 7);
+  key.castShadow = true; key.shadow.mapSize.set(1024, 1024); key.shadow.radius = 4; key.shadow.bias = -0.0004;
+  Object.assign(key.shadow.camera, { left: -3, right: 3, top: 3, bottom: -3, near: 1, far: 20 });
+  scene.add(key);
+  const fill = new THREE.DirectionalLight(0xbcd2ff, 0.55); fill.position.set(-6, 1, 5); scene.add(fill);
   const rim = new THREE.PointLight(0xf5cb0b, 40, 20, 2); rim.position.set(-3.5, 2.5, -4); scene.add(rim);
   const rim2 = new THREE.PointLight(0xf5cb0b, 18, 20, 2); rim2.position.set(4, -3, -3); scene.add(rim2);
 
   // ---------- the cube ----------
-  const COLORS = { U: 0xf4f4f2, D: 0xf5cb0b, F: 0x16a34a, B: 0x2563eb, R: 0xdc2626, L: 0xf97316 };
+  const COLORS = { U: 0xf7f7f4, D: 0xffd21a, F: 0x12b04a, B: 0x1f5fe0, R: 0xe0242a, L: 0xff7a12 };
   const tilt = new THREE.Group();          // fixed tilt towards the viewer (drag up/down)
   const root = new THREE.Group();          // spin around the vertical axis (drag left/right, idle orbit)
   tilt.add(root);
@@ -55,23 +62,24 @@ function start() {
   tilt.rotation.x = 0.52; root.rotation.y = -0.7;
 
   const bodyGeo = new RoundedBoxGeometry(0.97, 0.97, 0.97, 4, 0.12);
-  const bodyMat = new THREE.MeshPhysicalMaterial({ color: 0x050505, roughness: 0.55, metalness: 0.0, clearcoat: 0.35, clearcoatRoughness: 0.5, envMapIntensity: 0.5 });
+  const bodyMat = new THREE.MeshPhysicalMaterial({ color: 0x070707, roughness: 0.32, metalness: 0.0, clearcoat: 1, clearcoatRoughness: 0.18, envMapIntensity: 0.9 });
 
   function roundedRect(w, r) {
     const s = new THREE.Shape(), h = w / 2;
     s.moveTo(-h + r, -h); s.lineTo(h - r, -h); s.quadraticCurveTo(h, -h, h, -h + r);
     s.lineTo(h, h - r); s.quadraticCurveTo(h, h, h - r, h); s.lineTo(-h + r, h);
     s.quadraticCurveTo(-h, h, -h, h - r); s.lineTo(-h, -h + r); s.quadraticCurveTo(-h, -h, -h + r, -h);
-    const geo = new THREE.ShapeGeometry(s, 6);
+    // a raised tile with a soft bevel, like the stickers of a premium speedcube
+    const geo = new THREE.ExtrudeGeometry(s, { depth: 0.012, bevelEnabled: true, bevelThickness: 0.012, bevelSize: 0.014, bevelSegments: 4, curveSegments: 8 });
     // ShapeGeometry UVs are in shape units; map them to 0..1 so a texture covers the sticker
     const uv = geo.attributes.uv;
     for (let i = 0; i < uv.count; i++) uv.setXY(i, uv.getX(i) / w + 0.5, uv.getY(i) / w + 0.5);
     return geo;
   }
-  const stickerGeo = roundedRect(0.82, 0.16);
+  const stickerGeo = roundedRect(0.8, 0.15);
   const mats = {};
   for (const [k, c] of Object.entries(COLORS)) {
-    mats[k] = new THREE.MeshPhysicalMaterial({ color: c, roughness: 0.35, metalness: 0, clearcoat: 0.6, clearcoatRoughness: 0.2, envMapIntensity: 0.35 });
+    mats[k] = new THREE.MeshPhysicalMaterial({ color: c, roughness: 0.22, metalness: 0, clearcoat: 1, clearcoatRoughness: 0.08, envMapIntensity: 0.45 });
   }
   // the Enigma Cube logo on the white centre, like in the app
   const logoMat = mats.U.clone();
@@ -92,13 +100,15 @@ function start() {
   const cubies = [];
   for (let x = -1; x <= 1; x++) for (let y = -1; y <= 1; y++) for (let z = -1; z <= 1; z++) {
     const c = new THREE.Group();
-    c.add(new THREE.Mesh(bodyGeo, bodyMat));
+    const body = new THREE.Mesh(bodyGeo, bodyMat); body.castShadow = true; body.receiveShadow = true;
+    c.add(body);
     for (const f of FACES) {
       const [nx, ny, nz] = f.n;
       if ((nx && nx !== x) || (ny && ny !== y) || (nz && nz !== z)) continue;
       const isLogo = f.k === 'U' && x === 0 && z === 0;
       const m = new THREE.Mesh(stickerGeo, isLogo ? logoMat : mats[f.k]);
-      m.position.set(nx * 0.492, ny * 0.492, nz * 0.492);
+      m.position.set(nx * 0.476, ny * 0.476, nz * 0.476);
+      m.castShadow = true; m.receiveShadow = true;
       m.lookAt(nx * 2, ny * 2, nz * 2);
       if (isLogo) m.rotateZ(Math.PI);
       c.add(m);
@@ -107,6 +117,25 @@ function start() {
     c.userData.home = c.position.clone();
     cubeGroup.add(c); cubies.push(c);
   }
+
+  // soft contact shadow under the floating cube
+  const shadowTex = (() => {
+    const cv = document.createElement('canvas'); cv.width = cv.height = 128;
+    const g = cv.getContext('2d'); const gr = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+    gr.addColorStop(0, 'rgba(0,0,0,.75)'); gr.addColorStop(.5, 'rgba(0,0,0,.35)'); gr.addColorStop(1, 'rgba(0,0,0,0)');
+    g.fillStyle = gr; g.fillRect(0, 0, 128, 128); return new THREE.CanvasTexture(cv);
+  })();
+  const floor = new THREE.Mesh(new THREE.PlaneGeometry(5.2, 5.2), new THREE.MeshBasicMaterial({ map: shadowTex, transparent: true, depthWrite: false }));
+  floor.rotation.x = -Math.PI / 2; floor.position.y = -2.85; lift.add(floor);
+  // a yellow glow on the floor, the brand colour
+  const glowTex = (() => {
+    const cv = document.createElement('canvas'); cv.width = cv.height = 128;
+    const g = cv.getContext('2d'); const gr = g.createRadialGradient(64, 64, 0, 64, 64, 64);
+    gr.addColorStop(0, 'rgba(245,203,11,.35)'); gr.addColorStop(1, 'rgba(245,203,11,0)');
+    g.fillStyle = gr; g.fillRect(0, 0, 128, 128); return new THREE.CanvasTexture(cv);
+  })();
+  const floorGlow = new THREE.Mesh(new THREE.PlaneGeometry(7.5, 7.5), new THREE.MeshBasicMaterial({ map: glowTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending }));
+  floorGlow.rotation.x = -Math.PI / 2; floorGlow.position.y = -2.9; lift.add(floorGlow);
 
   // ---------- layer turns ----------
   const AX = { R: ['x', 1], L: ['x', -1], U: ['y', 1], D: ['y', -1], F: ['z', 1], B: ['z', -1] };
@@ -187,6 +216,10 @@ function start() {
     const glow = solved ? Math.max(0, 1 - (now - solvedAt) / 1600) : 0;
     rim.intensity = 40 + 70 * glow; rim2.intensity = 18 + 40 * glow;
     root.position.y = reduce ? 0 : Math.sin(now / 1400) * 0.08;
+    const sc = 1 - root.position.y * 0.6; floor.scale.set(sc, sc, 1); floor.material.opacity = 0.9 - root.position.y * 1.5;
+    floorGlow.material.opacity = 0.6 + 0.4 * glow;
+    // the key light slowly sweeps, so reflections glide over the tiles
+    if (!reduce) key.position.set(4 + Math.sin(now / 3200) * 2.5, 6, 7 + Math.cos(now / 3200) * 1.5);
     renderer.render(scene, camera);
   }
   requestAnimationFrame(frame);
