@@ -90,7 +90,7 @@ window.ENIGMA_NEWS = [
     id: 'vof-mkultra',
     date: '2026-10',
     tag: 'vof',
-    image: 'assets/art/key-art-1280.webp',
+    image: 'assets/art/game-banner-1280.webp',
     link: 'veil-of-fear.html',
     title: {
       en: 'Veil of Fear: based on real events',

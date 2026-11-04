@@ -27,7 +27,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Kavoon&family=Koulen&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="assets/art/vof-ep1-hero-1920.webp">
+  <link rel="preload" as="image" href="assets/art/game-banner-1920.webp" imagesrcset="assets/art/game-banner-1280.webp 1280w, assets/art/game-banner-1920.webp 1920w, assets/art/game-banner.webp 2560w" imagesizes="100vw">
   <link rel="stylesheet" href="src/styles.css">
   <script>(function(d){var L,F=d.getAttribute('data-lang-fixed');try{L=F||localStorage.getItem('enigma-lang');if(F)localStorage.setItem('enigma-lang',F)}catch(e){L=F}if(!/^(en|ru|ro|uk)$/.test(L||'')){L='en';var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(/^ru/.test(c)){L='ru';break}if(/^(ro|mo)/.test(c)){L='ro';break}if(/^uk/.test(c)){L='uk';break}if(/^en/.test(c))break}}if(!F&&L!=='en'&&d.hasAttribute('data-built')){location.replace(L+'/'+(location.pathname.split('/').pop()||'index.html')+location.search+location.hash);return}d.lang=L;if(L!=='en'&&!F){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})(document.documentElement)</script>
   <script>try{if(sessionStorage.getItem('enigma-pt')){sessionStorage.removeItem('enigma-pt');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pt-enter')}}catch(e){}</script>
@@ -65,15 +65,17 @@
 
     <!-- ============ HERO ============ -->
     <section class="vf-hero" aria-labelledby="vf-title">
-      <div class="vf-hero__art vf-cam" data-vf-cam>
-        <div class="vf-cam__frame">
-          <img src="assets/art/vof-ep1-hero-1920.webp" srcset="assets/art/vof-ep1-hero-1280.webp 1280w, assets/art/vof-ep1-hero-1920.webp 1920w, assets/art/vof-ep1-hero.webp 3840w" sizes="100vw" alt="Veil of Fear, Episode 1: He Never Left. Night-vision camera footage of an abandoned school courtyard. Your father did not die in the fire." width="3840" height="2160">
-          <span class="vf-cam__lamp" aria-hidden="true"></span>
-          <span class="vf-cam__dot" aria-hidden="true"></span>
-          <span class="vf-cam__colon" aria-hidden="true"></span>
-          <canvas class="vf-cam__noise" width="192" height="108" aria-hidden="true"></canvas>
-          <span class="vf-cam__scan" aria-hidden="true"></span>
-          <span class="vf-cam__track" aria-hidden="true"></span>
+      <div class="vf-hero__art vf-series" data-vf-cam>
+        <img src="assets/art/game-banner-1920.webp" srcset="assets/art/game-banner-1280.webp 1280w, assets/art/game-banner-1920.webp 1920w, assets/art/game-banner.webp 2560w" sizes="100vw" alt="Veil of Fear. Some secrets should remain buried. Episode 1 in night vision between two sealed episodes marked with question marks." width="2560" height="1440">
+        <span class="vf-series__fog vf-series__fog--l" aria-hidden="true"></span>
+        <span class="vf-series__fog vf-series__fog--r" aria-hidden="true"></span>
+        <span class="vf-series__q vf-series__q--l" aria-hidden="true"></span>
+        <span class="vf-series__q vf-series__q--r" aria-hidden="true"></span>
+        <div class="vf-series__live" aria-hidden="true">
+          <span class="vf-series__lamp"></span>
+          <canvas class="vf-cam__noise" width="96" height="164"></canvas>
+          <span class="vf-cam__scan"></span>
+          <span class="vf-cam__track"></span>
         </div>
       </div>
       <h1 class="visually-hidden" id="vf-title">Veil of Fear</h1>
@@ -109,7 +111,7 @@
           <div class="split__head" data-reveal>
             <h2 class="h2" id="about-title">Some secrets should remain buried</h2>
             <div class="frame split__media">
-              <img src="assets/art/game-banner-1280.webp" srcset="assets/art/game-banner-1280.webp 1280w, assets/art/game-banner.webp 2560w" sizes="(max-width: 900px) 100vw, 480px" alt="Veil of Fear: episode 1, He Never Left, between two hidden episodes yet to come" width="1280" height="720" loading="lazy">
+              <img src="assets/art/cemetery-1280.webp" srcset="assets/art/cemetery-1280.webp 1280w, assets/art/cemetery.webp 2560w" sizes="(max-width: 900px) 100vw, 480px" alt="An open cemetery gate in a moonlit forest" width="1280" height="720" loading="lazy">
             </div>
           </div>
           <div class="split__body" data-reveal>
@@ -175,9 +177,16 @@
     <section class="section" aria-labelledby="ep-title">
       <div class="container">
         <article class="episode">
-          <div class="frame episode__media" data-reveal>
-            <img src="assets/art/key-art-1280.webp" srcset="assets/art/key-art-1280.webp 1280w, assets/art/key-art.webp 2560w" sizes="(max-width: 860px) 100vw, 640px" alt="Veil of Fear: He Never Left — St. Valentine Psychiatric Hospital at night in the rain" width="1280" height="720" loading="lazy">
-            <p class="episode__plate" aria-hidden="true">Episode 1: He Never Left</p>
+          <div class="frame episode__media vf-cam" data-vf-cam data-reveal>
+            <div class="vf-cam__frame">
+              <img src="assets/art/vof-ep1-hero-1280.webp" srcset="assets/art/vof-ep1-hero-1280.webp 1280w, assets/art/vof-ep1-hero-1920.webp 1920w" sizes="(max-width: 860px) 100vw, 680px" alt="Veil of Fear, Episode 1: He Never Left. Night-vision camera footage of an abandoned school courtyard. Your father did not die in the fire." width="1920" height="1080" loading="lazy">
+              <span class="vf-cam__lamp" aria-hidden="true"></span>
+              <span class="vf-cam__dot" aria-hidden="true"></span>
+              <span class="vf-cam__colon" aria-hidden="true"></span>
+              <canvas class="vf-cam__noise" width="160" height="90" aria-hidden="true"></canvas>
+              <span class="vf-cam__scan" aria-hidden="true"></span>
+              <span class="vf-cam__track" aria-hidden="true"></span>
+            </div>
           </div>
           <div class="episode__text" data-reveal>
             <p class="eyebrow">Episode 1</p>
@@ -222,7 +231,7 @@
         <div class="eps" data-reveal>
           <a class="ep ep--open" href="#ep-title">
             <div class="ep__media">
-              <img src="assets/art/vof-ep1-1280.webp" srcset="assets/art/vof-ep1-1280.webp 1280w, assets/art/vof-ep1.webp 2560w" sizes="(max-width: 860px) 100vw, 760px" alt="Veil of Fear, Episode 1: He Never Left — night-vision footage of an abandoned school courtyard" width="1280" height="720" loading="lazy">
+              <img src="assets/art/key-art-1280.webp" srcset="assets/art/key-art-1280.webp 1280w, assets/art/key-art.webp 2560w" sizes="(max-width: 860px) 100vw, 760px" alt="Veil of Fear: He Never Left — St. Valentine Psychiatric Hospital at night in the rain" loading="lazy">
             </div>
             <div class="ep__info">
               <p class="ep__file">File 01</p>
