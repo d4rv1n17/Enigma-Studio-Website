@@ -62,10 +62,12 @@
   <main id="main" class="contact-page">
 
     <!-- ============ HERO: the studio desk by candlelight, revealed by the torch ============ -->
-    <section class="contact-hero" data-torch>
+    <section class="contact-hero" data-torch data-hero-live>
       <div class="hero__scene" aria-hidden="true">
         <img class="hero__img hero__img--dark" src="assets/art/studio-phone-1280.webp" srcset="assets/art/studio-phone-1280.webp 1280w, assets/art/studio-phone.webp 2560w" sizes="100vw" alt="" width="2560" height="1429">
         <img class="hero__img hero__img--lit" src="assets/art/studio-phone-1280.webp" srcset="assets/art/studio-phone-1280.webp 1280w, assets/art/studio-phone.webp 2560w" sizes="100vw" alt="" width="2560" height="1429">
+        <span class="hero__candle" data-spot="0.924,0.455,0.12,0.2"></span>
+        <canvas class="hero__dust" data-hero-dust></canvas>
       </div>
       <div class="container contact-hero__inner">
         <h1 class="contact-hero__title">Contact Us</h1>
@@ -276,5 +278,6 @@
   <script src="src/i18n-data.js"></script>
   <script src="src/i18n.js"></script>
   <script src="src/main.js"></script>
+  <script src="src/hero-live.js"></script>
 </body>
 </html>

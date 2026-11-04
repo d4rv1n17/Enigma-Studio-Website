@@ -7,25 +7,28 @@
   const hero = document.querySelector('[data-hero-live]');
   if (!hero) return;
   const img = hero.querySelector('.hero__img');
-  const crt = hero.querySelector('[data-hero-crt]');
+  const spots = [...hero.querySelectorAll('[data-spot]')];
   const cv = hero.querySelector('[data-hero-dust]');
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // the monitor screen inside studio-desk.webp, as fractions of the picture
-  const SCREEN = { cx: 0.503, cy: 0.519, w: 0.15, h: 0.215 };
+  // each [data-spot="cx,cy,w,h"] is a light source inside the picture, in fractions of it
   const OBJ = { x: 0.5, y: 0.6 }; // matches object-position of .hero__img
 
   const place = () => {
-    if (!crt || !img) return;
+    if (!spots.length || !img) return;
     const W = hero.clientWidth, H = hero.clientHeight;
     const iw = img.naturalWidth || 2560, ih = img.naturalHeight || 1429;
     const k = Math.max(W / iw, H / ih);
     const dw = iw * k, dh = ih * k;
-    const ox = (W - dw) * OBJ.x, oy = (H - dh) * OBJ.y;
-    crt.style.left = (ox + SCREEN.cx * dw) + 'px';
-    crt.style.top = (oy + SCREEN.cy * dh) + 'px';
-    crt.style.width = (SCREEN.w * dw) + 'px';
-    crt.style.height = (SCREEN.h * dh) + 'px';
+    const op = getComputedStyle(img).objectPosition.split(' ').map((v) => parseFloat(v) / 100);
+    const ox = (W - dw) * (isNaN(op[0]) ? OBJ.x : op[0]), oy = (H - dh) * (isNaN(op[1]) ? OBJ.y : op[1]);
+    spots.forEach((el) => {
+      const [cx, cy, w, h] = el.dataset.spot.split(',').map(Number);
+      el.style.left = (ox + cx * dw) + 'px';
+      el.style.top = (oy + cy * dh) + 'px';
+      el.style.width = (w * dw) + 'px';
+      el.style.height = (h * dh) + 'px';
+    });
   };
   place();
   if (img && !img.complete) img.addEventListener('load', place, { once: true });

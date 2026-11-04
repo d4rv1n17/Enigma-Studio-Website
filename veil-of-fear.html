@@ -26,7 +26,7 @@
 
   <link rel="preload" href="assets/fonts/koulen-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
-  <link rel="preload" as="image" href="assets/art/game-banner-1920.webp" imagesrcset="assets/art/game-banner-1280.webp 1280w, assets/art/game-banner-1920.webp 1920w, assets/art/game-banner.webp 2560w" imagesizes="100vw">
+  <link rel="preload" as="image" href="assets/art/vof-ep1-panel-860.webp">
   <link rel="stylesheet" href="src/styles.css">
   <script>(function(d){var L,F=d.getAttribute('data-lang-fixed');try{L=F||localStorage.getItem('enigma-lang');if(F)localStorage.setItem('enigma-lang',F)}catch(e){L=F}if(!/^(en|ru|ro|uk)$/.test(L||'')){L='en';var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(/^ru/.test(c)){L='ru';break}if(/^(ro|mo)/.test(c)){L='ro';break}if(/^uk/.test(c)){L='uk';break}if(/^en/.test(c))break}}if(!F&&L!=='en'&&d.hasAttribute('data-built')){location.replace(L+'/'+(location.pathname.split('/').pop()||'index.html')+location.search+location.hash);return}d.lang=L;if(L!=='en'&&!F){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})(document.documentElement)</script>
   <script>try{if(sessionStorage.getItem('enigma-pt')){sessionStorage.removeItem('enigma-pt');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pt-enter')}}catch(e){}</script>
@@ -64,18 +64,30 @@
 
     <!-- ============ HERO ============ -->
     <section class="vf-hero" aria-labelledby="vf-title">
-      <div class="vf-hero__art vf-series" data-vf-cam>
-        <img src="assets/art/game-banner-1920.webp" srcset="assets/art/game-banner-1280.webp 1280w, assets/art/game-banner-1920.webp 1920w, assets/art/game-banner.webp 2560w" sizes="100vw" alt="Veil of Fear. Some secrets should remain buried. Episode 1 in night vision between two sealed episodes marked with question marks." width="2560" height="1440">
-        <span class="vf-series__fog vf-series__fog--l" aria-hidden="true"></span>
-        <span class="vf-series__fog vf-series__fog--r" aria-hidden="true"></span>
-        <span class="vf-series__q vf-series__q--l" aria-hidden="true"></span>
-        <span class="vf-series__q vf-series__q--r" aria-hidden="true"></span>
-        <div class="vf-series__live" aria-hidden="true">
-          <span class="vf-series__lamp"></span>
-          <canvas class="vf-cam__noise" width="96" height="164"></canvas>
-          <span class="vf-cam__scan"></span>
-          <span class="vf-cam__track"></span>
-        </div>
+      <div class="vf-tri" data-vf-cam>
+        <a class="vf-tri__panel vf-tri__panel--sealed" href="#eps-title">
+          <img src="assets/art/vof-sealed-l.webp" alt="" width="844" height="1000">
+          <span class="vf-tri__fog" aria-hidden="true"></span>
+          <span class="vf-tri__label"><span class="vf-tri__file">File 02</span><span class="vf-tri__stamp">Classified</span></span>
+          <span class="visually-hidden">Episode 2: classified</span>
+        </a>
+        <a class="vf-tri__panel vf-tri__panel--open" href="#ep-title">
+          <img src="assets/art/vof-ep1-panel-860.webp" srcset="assets/art/vof-ep1-panel-860.webp 854w, assets/art/vof-ep1-panel.webp 1709w" sizes="(max-width: 700px) 60vw, 40vw" alt="Episode 1: He Never Left. Night-vision footage of an abandoned school courtyard." width="1709" height="1836" fetchpriority="high">
+          <span class="vf-tri__lamp" aria-hidden="true"></span>
+          <canvas class="vf-cam__noise" width="120" height="130" aria-hidden="true"></canvas>
+          <span class="vf-cam__scan" aria-hidden="true"></span>
+          <span class="vf-cam__track" aria-hidden="true"></span>
+          <span class="vf-tri__rec" aria-hidden="true"><i></i>REC</span>
+          <span class="vf-tri__time" aria-hidden="true">OCT 24 2014 23<b>:</b>47</span>
+          <span class="vf-tri__label"><span class="vf-tri__file">Episode 1</span><span class="vf-tri__name">He Never Left</span></span>
+        </a>
+        <a class="vf-tri__panel vf-tri__panel--sealed" href="#eps-title">
+          <img src="assets/art/vof-sealed-r.webp" alt="" width="844" height="1000">
+          <span class="vf-tri__fog" aria-hidden="true"></span>
+          <span class="vf-tri__label"><span class="vf-tri__file">File 03</span><span class="vf-tri__stamp">Classified</span></span>
+          <span class="visually-hidden">Episode 3: classified</span>
+        </a>
+        <img class="vf-tri__logo" src="assets/brand/vof-logo.png" alt="Veil of Fear. Some secrets should remain buried." width="1027" height="205">
       </div>
       <h1 class="visually-hidden" id="vf-title">Veil of Fear</h1>
 
@@ -248,7 +260,7 @@
         <div class="eps" data-reveal>
           <a class="ep ep--open" href="#ep-title">
             <div class="ep__media">
-              <img src="assets/art/key-art-1280.webp" srcset="assets/art/key-art-1280.webp 1280w, assets/art/key-art.webp 2560w" sizes="(max-width: 860px) 100vw, 760px" alt="Veil of Fear: He Never Left — St. Valentine Psychiatric Hospital at night in the rain" loading="lazy">
+              <img src="assets/art/vof-ep1-panel-860.webp" srcset="assets/art/vof-ep1-panel-860.webp 854w, assets/art/vof-ep1-panel.webp 1709w" sizes="(max-width: 860px) 100vw, 760px" alt="Episode 1: He Never Left. Night-vision footage of an abandoned school courtyard." loading="lazy" style="object-position: 50% 42%">
             </div>
             <div class="ep__info">
               <p class="ep__file">File 01</p>
