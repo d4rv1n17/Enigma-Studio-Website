@@ -2195,3 +2195,20 @@ button.ghost-btn { font-family: inherit; text-transform: inherit; letter-spacing
 @keyframes crt-flick { 0%, 61%, 63%, 64.5%, 100% { opacity: 1; } 62% { opacity: .35; } 64% { opacity: .6; } }
 @keyframes crt-roll { to { top: 100%; } }
 @media (prefers-reduced-motion: reduce) { .hero__crt::before, .hero__crt i, .hero__crt i::after { animation: none; } }
+
+/* =========================================================
+   News: one page per post (news-<id>.html, made by tools/build.py)
+   ========================================================= */
+.news-post__inner { max-width: 960px; padding-top: clamp(7.5rem, 14vw, 10rem); }
+.news-post__back { display: inline-flex; gap: .5rem; color: var(--grey); text-decoration: none; font-size: var(--fs-small); transition: color .3s; }
+.news-post__back:hover { color: var(--white); }
+.news-post__meta { margin-top: 1.75rem; }
+.news-post__title { font-size: var(--fs-h1, clamp(2.4rem, 1.4rem + 4vw, 4.4rem)); line-height: 1.02; margin-top: .6rem; text-shadow: 0 0 40px var(--tag-glow); }
+.news-post__media { aspect-ratio: 16 / 9; margin-top: clamp(1.5rem, 3vw, 2.25rem); box-shadow: 0 0 0 1px var(--line), 0 0 80px -30px var(--tag-glow); }
+.news-post__media img { width: 100%; height: 100%; object-fit: cover; }
+.news-post__text { margin-top: clamp(1.5rem, 3vw, 2rem); max-width: 46rem; }
+.news-post__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; margin-top: 2rem; }
+.news-post__cta { border-color: var(--tag); }
+.news-post__more .h2 { margin-bottom: clamp(1.5rem, 3vw, 2.25rem); }
+.news-post__more .news-card__title { font-size: 1.35rem; }
+.news-post .news-card__share { position: static; padding: .55rem 1rem .45rem; font-size: .95rem; }

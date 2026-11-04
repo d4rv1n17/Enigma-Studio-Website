@@ -113,11 +113,14 @@ if (newsBox && Array.isArray(window.ENIGMA_NEWS)) {
     el.dataset.tag = n.tag || 'studio';
     el.dataset.year = y;
     if (all && n.id) el.id = n.id;
-    const ext = /^https?:/.test(n.link || '');
+    // on the published site every post has its own page (made by tools/build.py)
+    const built = document.documentElement.hasAttribute('data-built') || document.documentElement.hasAttribute('data-lang-fixed');
+    const href = built && n.id ? `news-${n.id}.html` : (n.link || '#');
+    const ext = /^https?:/.test(href);
     const share = all && n.id
       ? `<button class="news-card__share" type="button" data-share="${esc(n.id)}"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.5 9.5 9.5 6.5M7 4.5l1.3-1.3a2.8 2.8 0 0 1 4 4L11 8.5M9 11.5l-1.3 1.3a2.8 2.8 0 0 1-4-4L5 7.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span>${esc(t('Copy link'))}</span></button>` : '';
     el.innerHTML = `
-      <a class="news-card__link" href="${esc(n.link || '#')}"${ext ? ' target="_blank" rel="noopener"' : ''}>
+      <a class="news-card__link" href="${esc(href)}"${ext ? ' target="_blank" rel="noopener"' : ''}>
         <div class="frame news-card__media">${n.image ? `<img src="${esc(asset(n.image))}" alt="" loading="lazy">` : ''}</div>
         <div class="news-card__body">
           <p class="news-card__meta"><span class="news-card__tag">${esc(TAGS[n.tag] || TAGS.studio)}</span><time datetime="${esc(n.date)}">${esc(fmtDate(n.date))}</time></p>
@@ -134,7 +137,8 @@ if (newsBox && Array.isArray(window.ENIGMA_NEWS)) {
   newsBox.addEventListener('click', async (e) => {
     const b = e.target.closest('[data-share]');
     if (!b) return;
-    const url = `${location.href.split('#')[0]}#${b.dataset.share}`;
+    const built = document.documentElement.hasAttribute('data-built') || document.documentElement.hasAttribute('data-lang-fixed');
+    const url = built ? new URL(`news-${b.dataset.share}.html`, location.href).href : `${location.href.split('#')[0]}#${b.dataset.share}`;
     const label = b.querySelector('span');
     try {
       if (navigator.share && matchMedia('(pointer: coarse)').matches) await navigator.share({ url });
@@ -166,6 +170,20 @@ if (newsBox && Array.isArray(window.ENIGMA_NEWS)) {
     }
   }
 }
+
+// ---- Post page: copy the link to this post ----------------------
+document.querySelectorAll('[data-share-url]').forEach((b) => {
+  const label = b.querySelector('span');
+  const idle = label.textContent;
+  b.addEventListener('click', async () => {
+    const url = location.href.split('#')[0];
+    try {
+      if (navigator.share && matchMedia('(pointer: coarse)').matches) await navigator.share({ url, title: document.title });
+      else { await navigator.clipboard.writeText(url); label.textContent = b.dataset.copied || idle; }
+    } catch (err) { /* cancelled */ }
+    setTimeout(() => { label.textContent = idle; }, 1800);
+  });
+});
 
 // ---- Newsletter: "Subscribe" forms ---------------------------
 // With CONFIG.newsletter.action set, the address goes to the mailing service
