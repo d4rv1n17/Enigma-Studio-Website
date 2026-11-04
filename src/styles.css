@@ -2264,3 +2264,126 @@ button.ghost-btn { font-family: inherit; text-transform: inherit; letter-spacing
 /* Episode 1: the episode banner plays as camcorder footage */
 .episode__media.vf-cam { height: auto; }
 .episode__media.vf-cam::after { display: none; }
+
+/* =========================================================
+   Veil of Fear: the classified Greywood file under a flashlight
+   ========================================================= */
+.vf-file {
+  --lx: 50%; --ly: 50%; --lr: 150px;
+  position: relative; touch-action: pan-y; cursor: none; user-select: none; -webkit-user-select: none;
+  border-radius: var(--radius); overflow: hidden; background: #050605;
+  box-shadow: 0 0 0 1px rgba(143, 240, 127, .22), 0 40px 110px -50px rgba(120, 255, 100, .35);
+  padding: clamp(1rem, 3vw, 1.6rem);
+}
+.vf-file__paper {
+  position: relative; padding: clamp(1.1rem, 3vw, 1.6rem) clamp(1.1rem, 3vw, 1.7rem) clamp(1.3rem, 3vw, 1.8rem);
+  font-family: "Special Elite", "Courier New", monospace; text-transform: none; letter-spacing: 0; color: #231f19;
+  background:
+    radial-gradient(ellipse at 15% 10%, rgba(255, 255, 255, .35), transparent 55%),
+    radial-gradient(ellipse at 85% 95%, rgba(110, 85, 50, .3), transparent 60%),
+    repeating-linear-gradient(0deg, rgba(0, 0, 0, .025) 0 1px, transparent 1px 4px),
+    #d6ceb9;
+  transform: rotate(-1.2deg); box-shadow: 0 20px 40px -18px #000;
+  filter: brightness(.16) saturate(.6);
+}
+.vf-file__paper--lit {
+  position: absolute; margin: 0; filter: brightness(1.04) sepia(.1); pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle var(--lr) at var(--px, 50%) var(--py, 50%), #000 45%, rgba(0,0,0,.6) 70%, transparent 100%);
+          mask-image: radial-gradient(circle var(--lr) at var(--px, 50%) var(--py, 50%), #000 45%, rgba(0,0,0,.6) 70%, transparent 100%);
+}
+.vf-file__top { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .7rem; padding-bottom: .7rem; border-bottom: 2px solid rgba(35, 31, 25, .75); }
+.vf-file__logo { width: 34px; height: 34px; color: #231f19; }
+.vf-file__org { display: grid; line-height: 1.15; font-size: clamp(.95rem, .85rem + .4vw, 1.15rem); letter-spacing: .06em; text-transform: uppercase; }
+.vf-file__est { font-size: .72em; opacity: .7; }
+.vf-file__no { font-size: .9rem; padding: .15rem .45rem; border: 1.5px solid rgba(35, 31, 25, .7); }
+.vf-file__title { margin-top: .9rem; font-size: clamp(1.15rem, 1rem + .7vw, 1.45rem); line-height: 1.2; }
+.vf-file__rows { margin: .8rem 0 0; display: grid; gap: .35rem; font-size: clamp(.92rem, .86rem + .3vw, 1.05rem); }
+.vf-file__rows div { display: grid; grid-template-columns: minmax(0, 11rem) minmax(0, 1fr); gap: .75rem; padding-bottom: .3rem; border-bottom: 1px dashed rgba(35, 31, 25, .35); }
+.vf-file__rows dt { opacity: .75; }
+.vf-file__rows dd { margin: 0; }
+.vf-file__note { margin-top: 1rem; font-size: clamp(.92rem, .86rem + .3vw, 1.05rem); line-height: 1.5; }
+.vf-file__sign { margin-top: .6rem; text-align: right; font-family: var(--font-script); font-size: 1.5rem; transform: rotate(-4deg); }
+.vf-file__stamp {
+  position: absolute; left: 7%; bottom: 5%; padding: .2rem .7rem; transform: rotate(-8deg);
+  border: 3px solid rgba(160, 25, 20, .8); color: rgba(160, 25, 20, .85); font-family: var(--font); font-size: clamp(1.3rem, 1rem + 1.2vw, 2rem);
+  letter-spacing: .12em; text-transform: uppercase; mix-blend-mode: multiply; opacity: .85;
+}
+/* the blacked-out words: solid ink on the file, glowing ink under the light */
+.vf-x { padding: 0 .15em; background: #111; color: transparent; box-decoration-break: clone; -webkit-box-decoration-break: clone; border-radius: 1px; }
+.vf-file__paper--lit .vf-x { background: rgba(20, 60, 15, .1); color: #1d7a10; text-shadow: 0 0 10px rgba(80, 255, 60, .55); }
+.vf-file__hint {
+  position: relative; margin-top: clamp(.9rem, 2.4vw, 1.3rem); text-align: center; color: rgba(143, 240, 127, .75); font-size: var(--fs-small);
+  transition: opacity .6s var(--ease);
+}
+.vf-file.is-touched .vf-file__hint { opacity: .35; }
+/* the light itself: a soft green-white beam over everything */
+.vf-file::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none; mix-blend-mode: screen;
+  background: radial-gradient(circle var(--lr) at var(--lx) var(--ly), rgba(220, 255, 210, .1), rgba(140, 255, 120, .05) 55%, transparent 75%);
+}
+@media (hover: none) { .vf-file { cursor: auto; } }
+@media (max-width: 480px) { .vf-file__rows div { grid-template-columns: 1fr; gap: 0; } }
+@media (max-width: 600px) { .vf-file { --lr: 115px; } }
+
+/* =========================================================
+   Polish pass: reading comfort, menu, footer, next project, mobile action bar
+   ========================================================= */
+/* headings break into even lines, paragraphs avoid lonely last words */
+h1, h2, h3, .h2, .ls-title, .news-post__title, .contact-hero__title { text-wrap: balance; }
+p, li, dd { text-wrap: pretty; }
+/* long grey copy: a bit more air and a comfortable line length */
+.split__body p:not(.lead):not(.vf-dossier__label), .episode__text p:not(.eyebrow), .story p:not(.lead) { line-height: 1.62; max-width: 62ch; }
+.lead { max-width: 40ch; }
+@media (max-width: 600px) { .lead { font-size: clamp(1.18rem, 1rem + 1.2vw, 1.35rem); line-height: 1.38; } }
+
+/* the logo stays visible above the open phone menu */
+@media (max-width: 920px) { .site-header.is-menu-open .logo { position: relative; z-index: 3; } }
+
+/* footer: bigger tap targets on phones, and no second sign-up form on pages that already have one */
+@media (max-width: 760px) { .site-footer__cols a { padding-block: .3rem; } .site-footer__col { gap: .2rem; } }
+body:has(main .newsletter) .site-footer__news { display: none; }
+
+/* ---------- Next project: a wide doorway before the footer ---------- */
+.next-proj { --np: #fff; --np-glow: var(--glow); border-top: 1px solid var(--line); }
+.next-proj--vof { --np: var(--vof-green); --np-glow: var(--vof-glow); }
+.next-proj--ls { --np: #e8a840; --np-glow: rgba(232, 168, 64, .4); }
+.next-proj--twins { --np: var(--twins-red); --np-glow: var(--twins-glow); }
+.next-proj--cube, .next-proj--disk { --np: var(--cube-yellow); --np-glow: var(--cube-glow2); }
+.next-proj__link { position: relative; display: block; overflow: hidden; isolation: isolate; color: #fff; text-decoration: none; padding-block: clamp(3.5rem, 9vw, 6.5rem); }
+.next-proj__bg { position: absolute; inset: 0; z-index: -2; width: 100%; height: 100%; object-fit: cover; filter: brightness(.55) saturate(.9); transform: scale(1.04); transition: transform 1.4s var(--ease), filter .8s var(--ease); }
+.next-proj__link::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, #000 0%, rgba(0,0,0,.7) 40%, rgba(0,0,0,.05) 100%), linear-gradient(to bottom, #000, transparent 28%, transparent 72%, #000); }
+.next-proj__inner { display: grid; grid-template-columns: 1fr auto; align-items: center; column-gap: 2rem; }
+.next-proj__eyebrow { grid-column: 1; color: var(--np); font-size: var(--fs-small); letter-spacing: .12em; display: inline-flex; align-items: center; gap: .6rem; }
+.next-proj__eyebrow::before { content: ""; width: 2.2rem; height: 1px; background: var(--np); box-shadow: 0 0 10px var(--np-glow); }
+.next-proj__title { grid-column: 1; font-size: clamp(2.8rem, 1.6rem + 5vw, 5.5rem); line-height: 1; margin-top: .5rem; transition: text-shadow .5s var(--ease); }
+.next-proj__meta { grid-column: 1; color: var(--grey-text); margin-top: .5rem; }
+.next-proj__go { grid-column: 2; grid-row: 1 / span 3; display: grid; place-items: center; width: clamp(56px, 7vw, 84px); aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(255,255,255,.3); transition: border-color .4s, box-shadow .4s, transform .5s var(--ease); }
+.next-proj__go svg { width: 42%; height: 42%; }
+.next-proj__link:hover .next-proj__bg, .next-proj__link:focus-visible .next-proj__bg { transform: scale(1.09); filter: brightness(.75) saturate(1.05); }
+.next-proj__link:hover .next-proj__title { text-shadow: 0 0 40px var(--np-glow); }
+.next-proj__link:hover .next-proj__go { border-color: var(--np); box-shadow: 0 0 34px -6px var(--np-glow); transform: translateX(6px); color: var(--np); }
+/* the section right before it already ends with space */
+
+/* ---------- Phones: the main action stays at hand after the first screen ---------- */
+.sticky-cta { display: none; }
+@media (max-width: 760px) {
+  .sticky-cta {
+    display: flex; gap: .6rem; position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+    padding: .7rem var(--gutter) calc(.7rem + env(safe-area-inset-bottom));
+    background: linear-gradient(to top, rgba(0,0,0,.92), rgba(0,0,0,.7)); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    border-top: 1px solid var(--line);
+    transform: translateY(110%); transition: transform .45s var(--ease);
+  }
+  .sticky-cta.is-shown { transform: none; }
+  .sticky-cta > * { flex: 1 1 0; min-width: 0; margin: 0 !important; min-height: 52px !important; justify-content: center; }
+  .sticky-cta svg, .sticky-cta img { flex: none; }
+}
+
+/* dark scrollbar that takes the page's accent on hover */
+html { scrollbar-color: rgba(255, 255, 255, .22) #000; }
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: #000; }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, .18); border-radius: 10px; border: 3px solid #000; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+/* buttons answer the finger */
+.ghost-btn:active, .steam-btn:active, .play-btn:active, .dl-btn:active, .ls-btn[href]:active, .subscribe__btn:active, .next-proj__link:active .next-proj__go { transform: scale(.97); }

@@ -24,9 +24,8 @@
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Kavoon&family=Koulen&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/koulen-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="preload" as="image" href="assets/lastsignal/banner-1280.webp">
   <link rel="stylesheet" href="src/styles.css">
   <script>(function(d){var L,F=d.getAttribute('data-lang-fixed');try{L=F||localStorage.getItem('enigma-lang');if(F)localStorage.setItem('enigma-lang',F)}catch(e){L=F}if(!/^(en|ru|ro|uk)$/.test(L||'')){L='en';var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(/^ru/.test(c)){L='ru';break}if(/^(ro|mo)/.test(c)){L='ro';break}if(/^uk/.test(c)){L='uk';break}if(/^en/.test(c))break}}if(!F&&L!=='en'&&d.hasAttribute('data-built')){location.replace(L+'/'+(location.pathname.split('/').pop()||'index.html')+location.search+location.hash);return}d.lang=L;if(L!=='en'&&!F){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})(document.documentElement)</script>
@@ -85,7 +84,7 @@
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></svg>
               <span class="ls-btn__text"><span class="ls-btn__small" data-ls-play-small>Free prologue</span><span class="ls-btn__big">Play the demo</span></span>
             </a>
-            <a class="ghost-btn" href="#buy">Full game · <span data-ls-price>$2.99</span></a>
+            <a class="ghost-btn" href="#buy" data-sticky-cta>Full game · <span data-ls-price>$2.99</span></a>
           </div>
         </div>
 
@@ -331,6 +330,19 @@
         </div>
       </div>
     </section>
+
+    <!-- ============ NEXT PROJECT ============ -->
+    <nav class="next-proj next-proj--twins" aria-label="Next project">
+      <a class="next-proj__link" href="twins-hunt.html">
+        <img class="next-proj__bg" src="assets/twins/banner-1280.webp" alt="" loading="lazy">
+        <span class="container next-proj__inner">
+          <span class="next-proj__eyebrow">Next project</span>
+          <span class="next-proj__title">Twins’ Hunt</span>
+          <span class="next-proj__meta">Action horror · Android</span>
+          <span class="next-proj__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+    </nav>
   </main>
 
   <!-- Lightbox -->

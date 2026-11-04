@@ -24,9 +24,8 @@
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Kavoon&family=Koulen&family=Oswald:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/koulen-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
   <link rel="preload" as="image" href="assets/art/game-banner-1920.webp" imagesrcset="assets/art/game-banner-1280.webp 1280w, assets/art/game-banner-1920.webp 1920w, assets/art/game-banner.webp 2560w" imagesizes="100vw">
   <link rel="stylesheet" href="src/styles.css">
   <script>(function(d){var L,F=d.getAttribute('data-lang-fixed');try{L=F||localStorage.getItem('enigma-lang');if(F)localStorage.setItem('enigma-lang',F)}catch(e){L=F}if(!/^(en|ru|ro|uk)$/.test(L||'')){L='en';var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(/^ru/.test(c)){L='ru';break}if(/^(ro|mo)/.test(c)){L='ro';break}if(/^uk/.test(c)){L='uk';break}if(/^en/.test(c))break}}if(!F&&L!=='en'&&d.hasAttribute('data-built')){location.replace(L+'/'+(location.pathname.split('/').pop()||'index.html')+location.search+location.hash);return}d.lang=L;if(L!=='en'&&!F){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})(document.documentElement)</script>
@@ -89,7 +88,7 @@
           <div><dt>Status</dt><dd><span class="live-dot"></span>In development</dd></div>
         </dl>
         <div class="actions">
-          <a class="steam-btn" data-steam>
+          <a class="steam-btn" data-steam data-sticky-cta>
             <img class="steam-btn__icon" src="assets/brand/steam.png" alt="" width="36" height="36">
             <span class="steam-btn__text">
               <span class="steam-btn__small" data-steam-small>Coming soon</span>
@@ -110,8 +109,26 @@
         <div class="split">
           <div class="split__head" data-reveal>
             <h2 class="h2" id="about-title">Some secrets should remain buried</h2>
-            <div class="frame split__media">
-              <img src="assets/art/cemetery-1280.webp" srcset="assets/art/cemetery-1280.webp 1280w, assets/art/cemetery.webp 2560w" sizes="(max-width: 900px) 100vw, 480px" alt="An open cemetery gate in a moonlit forest" width="1280" height="720" loading="lazy">
+            <div class="split__media vf-file" data-vf-file>
+              <div class="vf-file__paper" data-vf-file-paper>
+                <div class="vf-file__top">
+                  <svg class="vf-file__logo" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 35V12M20 20l-7-6M20 17l6-6M20 26l-9-5M20 24l8-5M13 14l-3-5M26 11l3-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+                  <p class="vf-file__org"><span>Greywood Foundation</span><span class="vf-file__est">Est. 1958 · Internal file</span></p>
+                  <p class="vf-file__no">SV-014</p>
+                </div>
+                <p class="vf-file__title">St. Valentine Psychiatric Hospital</p>
+                <dl class="vf-file__rows">
+                  <div><dt>Program</dt><dd><span class="vf-x">behavioral research, phase II</span></dd></div>
+                  <div><dt>Subjects on record</dt><dd><span class="vf-x">41</span></dd></div>
+                  <div><dt>Subjects alive</dt><dd><span class="vf-x">unknown</span></dd></div>
+                  <div><dt>Records destroyed</dt><dd>1973</dd></div>
+                  <div><dt>Next stage</dt><dd><span class="vf-x">J. J.</span></dd></div>
+                </dl>
+                <p class="vf-file__note">If this file is ever found, it must be <span class="vf-x">burned</span>.</p>
+                <p class="vf-file__sign">R. L.</p>
+                <span class="vf-file__stamp">Classified</span>
+              </div>
+              <p class="vf-file__hint" data-vf-file-hint>Move the light to read what was hidden</p>
             </div>
           </div>
           <div class="split__body" data-reveal>
@@ -315,6 +332,19 @@
         </div>
       </div>
     </section>
+
+    <!-- ============ NEXT PROJECT ============ -->
+    <nav class="next-proj next-proj--ls" aria-label="Next project">
+      <a class="next-proj__link" href="last-signal.html">
+        <img class="next-proj__bg" src="assets/lastsignal/banner-1280.webp" alt="" loading="lazy">
+        <span class="container next-proj__inner">
+          <span class="next-proj__eyebrow">Next project</span>
+          <span class="next-proj__title">Last Signal</span>
+          <span class="next-proj__meta">Browser prequel · 2 players</span>
+          <span class="next-proj__go" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </span>
+      </a>
+    </nav>
   </main>
 
   <!-- Lightbox -->
@@ -404,5 +434,6 @@
   <script src="src/gallery.js"></script>
   <script src="src/veil-of-fear.js"></script>
   <script src="src/vf-cam.js"></script>
+  <script src="src/vf-file.js"></script>
 </body>
 </html>

@@ -183,6 +183,41 @@ if (newsBox && Array.isArray(window.ENIGMA_NEWS)) {
   }
 }
 
+// ---- Phones: keep the page's main action at hand ------------------
+// Buttons marked data-sticky-cta are copied into a bar at the bottom of the
+// screen once the first screen is scrolled past (hidden again at the footer).
+{
+  const src = [...document.querySelectorAll('[data-sticky-cta]')];
+  const phone = window.matchMedia('(max-width: 760px)');
+  if (src.length) {
+    let bar = null;
+    const build = () => {
+      bar = document.createElement('div');
+      bar.className = 'sticky-cta';
+      src.filter((a) => a.hasAttribute('href')).forEach((a) => {
+        const c = a.cloneNode(true);
+        c.removeAttribute('data-sticky-cta');
+        c.removeAttribute('id');
+        bar.appendChild(c);
+      });
+      if (!bar.childElementCount) { bar = null; return; }
+      bar.setAttribute('aria-hidden', 'true');
+      bar.querySelectorAll('a').forEach((a) => a.setAttribute('tabindex', '-1'));
+      document.body.appendChild(bar);
+    };
+    let pastHero = false, atFooter = false;
+    const update = () => {
+      if (!phone.matches) { if (bar) bar.classList.remove('is-shown'); return; }
+      if (!bar && pastHero) build();
+      if (bar) bar.classList.toggle('is-shown', pastHero && !atFooter);
+    };
+    new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting && e.boundingClientRect.top < 0; update(); }).observe(src[0]);
+    const footer = document.querySelector('.site-footer, .next-proj');
+    if (footer) new IntersectionObserver(([e]) => { atFooter = e.isIntersecting; update(); }).observe(footer);
+    phone.addEventListener('change', update);
+  }
+}
+
 // ---- Post page: copy the link to this post ----------------------
 document.querySelectorAll('[data-share-url]').forEach((b) => {
   const label = b.querySelector('span');
