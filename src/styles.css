@@ -2117,3 +2117,54 @@ button.ghost-btn { font-family: inherit; text-transform: inherit; letter-spacing
 }
 /* keep the camcorder's REC and battery clear of the fixed header on wide screens */
 @media (min-width: 900px) { .vf-cam { margin-top: 104px; } }
+
+/* =========================================================
+   Last Signal hero: live laptop notifications, screen flicker, photo wipe
+   ========================================================= */
+.ls-hero__side { position: relative; justify-self: end; width: min(100%, 340px); }
+.ls-hero__side .ls-poster { width: 100%; }
+.ls-notes { position: absolute; left: -17.5rem; top: 2.25rem; z-index: 3; width: 300px; display: flex; flex-direction: column; gap: .55rem; pointer-events: none; }
+.ls-note {
+  display: flex; gap: .7rem; align-items: flex-start; padding: .7rem .85rem; border-radius: 14px;
+  background: rgba(30, 28, 26, .78); -webkit-backdrop-filter: blur(18px) saturate(1.4); backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid rgba(255, 255, 255, .12); box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .9);
+  color: #f2eee6; text-align: left; text-transform: none; letter-spacing: 0;
+  opacity: 0; transform: translateX(28px) scale(.96); transition: opacity .45s var(--ease), transform .55s var(--ease), max-height .5s var(--ease), margin .5s var(--ease), padding .5s var(--ease);
+  max-height: 120px; overflow: hidden;
+}
+.ls-note.is-in { opacity: 1; transform: none; }
+.ls-note.is-out { opacity: 0; transform: translateY(10px) scale(.94); max-height: 0; padding-top: 0; padding-bottom: 0; margin-top: -.55rem; }
+.ls-note__icon { flex: none; display: grid; place-items: center; width: 34px; height: 34px; border-radius: 9px; background: #3a8f4e; color: #fff; }
+.ls-note__icon svg { width: 19px; height: 19px; }
+.ls-note__icon--rec { background: #b0281e; }
+.ls-note__icon--img { background: linear-gradient(135deg, #e8a840, #c4502e); }
+.ls-note__icon--unk { background: #4a4a4f; }
+.ls-note__icon--sys { background: #e8a840; color: #120d05; }
+.ls-note__body { display: grid; min-width: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; line-height: 1.25; }
+.ls-note__top { display: flex; justify-content: space-between; gap: .5rem; font-size: .72rem; color: rgba(242, 238, 230, .55); text-transform: uppercase; letter-spacing: .04em; }
+.ls-note__who { font-size: .9rem; font-weight: 600; margin-top: .1rem; }
+.ls-note__text { font-size: .85rem; color: rgba(242, 238, 230, .82); }
+.ls-note--warn { border-color: rgba(232, 168, 64, .45); box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .9), 0 0 30px -10px rgba(232, 168, 64, .5); }
+
+.ls-hero__bg.is-flicker img { animation: ls-drift 26s ease-in-out infinite alternate, ls-flicker .7s steps(1, end); }
+@keyframes ls-flicker {
+  0% { filter: grayscale(.15) brightness(1.15); } 12% { filter: grayscale(.15) brightness(.35); }
+  24% { filter: grayscale(.15) brightness(.95) hue-rotate(-12deg); } 40% { filter: grayscale(.15) brightness(.5); }
+  55% { filter: grayscale(.15) brightness(.85); } 100% { filter: grayscale(.15) brightness(.72); }
+}
+.ls-poster__photo.is-wipe { animation: ls-wipe .9s steps(1, end); }
+@keyframes ls-wipe {
+  0% { clip-path: inset(0); transform: none; }
+  10% { clip-path: inset(18% 0 52% 0); transform: translateX(-6px); filter: grayscale(1) contrast(1.6) brightness(1.3); }
+  22% { clip-path: inset(0 0 0 0); transform: translateX(4px); filter: grayscale(1) invert(.15); }
+  34% { clip-path: inset(60% 0 8% 0); transform: translateX(-3px); }
+  46% { clip-path: inset(0); transform: none; opacity: .25; }
+  60% { opacity: 1; filter: grayscale(1) contrast(1.05) sepia(.15); }
+  100% { clip-path: inset(0); transform: none; }
+}
+@media (max-width: 1180px) { .ls-notes { left: -2.5rem; top: 15rem; width: 270px; } }
+@media (max-width: 860px) {
+  .ls-hero__side { justify-self: center; width: min(100%, 300px); }
+  .ls-notes { left: 50%; top: auto; bottom: 10.5rem; width: min(92vw, 300px); transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) { .ls-note { transition: none; } .ls-hero__bg.is-flicker img, .ls-poster__photo.is-wipe { animation: none; } }

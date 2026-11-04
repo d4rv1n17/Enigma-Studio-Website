@@ -65,7 +65,7 @@
 
     <!-- ============ HERO ============ -->
     <section class="ls-hero" aria-labelledby="ls-title">
-      <div class="ls-hero__bg" aria-hidden="true">
+      <div class="ls-hero__bg" aria-hidden="true" data-ls-bg>
         <img src="assets/lastsignal/banner-1280.webp" srcset="assets/lastsignal/banner-1280.webp 1280w, assets/lastsignal/banner.webp 1672w" sizes="100vw" alt="" width="1672" height="941">
       </div>
       <div class="container ls-hero__grid">
@@ -89,6 +89,7 @@
           </div>
         </div>
 
+        <div class="ls-hero__side">
         <figure class="ls-poster" aria-label="Missing person notice">
           <span class="ls-poster__tape" aria-hidden="true"></span>
           <p class="ls-poster__head">Missing</p>
@@ -100,6 +101,8 @@
             <p class="ls-poster__signal"><span class="ls-sig ls-sig--dying" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Last signal: 7:52 PM</p>
           </figcaption>
         </figure>
+        <div class="ls-notes" data-ls-notes aria-hidden="true"></div>
+        </div>
       </div>
     </section>
 
@@ -416,5 +419,6 @@
   <script src="src/main.js"></script>
   <script src="src/gallery.js"></script>
   <script src="src/last-signal.js"></script>
+  <script src="src/ls-live.js"></script>
 </body>
 </html>
