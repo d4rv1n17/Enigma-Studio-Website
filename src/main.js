@@ -171,6 +171,18 @@ if (newsBox && Array.isArray(window.ENIGMA_NEWS)) {
   }
 }
 
+// ---- Visitor statistics (Cloudflare Web Analytics, only on the real site) ----
+{
+  const token = ((window.ENIGMA_CONFIG || {}).analytics || {}).cloudflareToken;
+  if (token && /(^|\.)enigmastudioo\.com$/.test(location.hostname)) {
+    const s = document.createElement('script');
+    s.defer = true;
+    s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
+    s.setAttribute('data-cf-beacon', JSON.stringify({ token, spa: false }));
+    document.head.appendChild(s);
+  }
+}
+
 // ---- Post page: copy the link to this post ----------------------
 document.querySelectorAll('[data-share-url]').forEach((b) => {
   const label = b.querySelector('span');

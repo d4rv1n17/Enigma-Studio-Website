@@ -2212,3 +2212,6 @@ button.ghost-btn { font-family: inherit; text-transform: inherit; letter-spacing
 .news-post__more .h2 { margin-bottom: clamp(1.5rem, 3vw, 2.25rem); }
 .news-post__more .news-card__title { font-size: 1.35rem; }
 .news-post .news-card__share { position: static; padding: .55rem 1rem .45rem; font-size: .95rem; }
+/* tablets: long translated footer links ("Конфиденциальность") need the full width */
+@media (max-width: 1279px) and (min-width: 761px) { .site-footer__top { grid-template-columns: 1fr; } }
+.vf-cam { overflow: hidden; }

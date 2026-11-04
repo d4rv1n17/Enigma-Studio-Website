@@ -50,6 +50,11 @@ window.ENIGMA_CONFIG = {
   // Empty = the visitor's e-mail app opens with a ready "subscribe me" letter to the studio address.
   newsletter: { action: 'https://assets.mailerlite.com/jsonp/2697071/forms/200795927724688837/subscribe', emailField: 'email' },
 
+  // Visitor statistics: Cloudflare Web Analytics (free, no cookies, no consent banner needed).
+  // Cloudflare dashboard -> Analytics & Logs -> Web Analytics -> Add a site -> enigmastudioo.com,
+  // then copy the token from the snippet ({"token": "..."}) here. Empty = no statistics.
+  analytics: { cloudflareToken: '' },
+
   email: 'enigmastudio.md@gmail.com',
   // Time zone of the 'Studio time' clock on the contact page.
   studioTimeZone: 'Europe/Chisinau',
