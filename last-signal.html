@@ -63,61 +63,30 @@
   <main id="main" class="ls">
 
     <!-- ============ HERO ============ -->
-    <section class="ls-hero" aria-labelledby="ls-title">
-      <div class="ls-hero__bg" aria-hidden="true" data-ls-bg>
-        <img src="assets/lastsignal/banner-1280.webp" srcset="assets/lastsignal/banner-1280.webp 1280w, assets/lastsignal/banner.webp 1672w" sizes="100vw" alt="" width="1672" height="941">
+    <section class="xh xh--ls" aria-labelledby="ls-title">
+      <div class="xh__media" aria-hidden="true">
+        <img class="xh__img " src="assets/lastsignal/banner-1280.webp" srcset="assets/lastsignal/banner-1280.webp 1280w, assets/lastsignal/banner.webp 1672w" sizes="100vw" alt="" fetchpriority="high">
       </div>
-      <div class="container ls-hero__grid">
-        <div class="ls-hero__text">
-          <p class="ls-kicker"><span class="ls-sig" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Veil of Fear · Prequel to Episode 1</p>
-          <h1 class="ls-title" id="ls-title">Last Signal</h1>
-          <p class="ls-tagline">A detective horror for two in your browser. One laptop, one phone, and a girl nobody is looking for.</p>
-          <ul class="ls-chips">
-            <li>2 players</li>
-            <li>Laptop + phone</li>
-            <li>45–60 minutes</li>
-            <li>English · Russian</li>
-            <li>Best with headphones</li>
-          </ul>
-          <div class="actions">
+      <div class="container xh__body">
+        <p class="xh__kicker"><span class="ls-sig" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Veil of Fear · Prequel to Episode 1</p>
+        <h1 class="xh__title" id="ls-title">Last Signal</h1>
+        <p class="xh__lead">A detective horror for two in your browser. One laptop, one phone, and a girl nobody is looking for.</p>
+        <div class="actions">
             <a class="ls-btn" data-ls-play href="#how">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5z" fill="currentColor"/></svg>
               <span class="ls-btn__text"><span class="ls-btn__small" data-ls-play-small>Free prologue</span><span class="ls-btn__big">Play the demo</span></span>
             </a>
             <a class="ghost-btn" href="#buy" data-sticky-cta>Full game · <span data-ls-price>$2.99</span></a>
           </div>
-        </div>
-
-        <div class="ls-hero__side">
-          <div class="ls-stage" data-ls-stage>
-            <div class="ls-stage__canvas" data-ls-canvas>
-            <img class="ls-stage__img" src="assets/lastsignal/banner-1280.webp" srcset="assets/lastsignal/banner-1280.webp 1280w, assets/lastsignal/banner.webp 1672w" sizes="(max-width: 860px) 100vw, 60vw" alt="Nora’s broken laptop in the night forest, still switched on" width="1672" height="941" fetchpriority="high">
-            <div class="ls-screen" data-ls-screen aria-hidden="true">
-              <div class="ls-screen__toasts" data-ls-notes></div>
-              <div class="ls-term">
-                <p class="ls-term__bar"><i></i><i></i><i></i><span>final_message.m4a</span></p>
-                <pre class="ls-term__out" data-ls-term></pre>
-              </div>
-              <div class="ls-wipe" data-ls-wipe>
-                <p class="ls-wipe__title"><b>GW-SEC-04</b> remote session</p>
-                <p class="ls-wipe__file" data-ls-wipe-file>Deleting Photos…</p>
-                <span class="ls-wipe__bar"><i data-ls-wipe-bar></i></span>
-              </div>
-            </div>
-            <span class="ls-stage__glow" aria-hidden="true"></span>
-            </div>
-          </div>
-          <figure class="ls-poster" aria-label="Missing person notice">
-            <span class="ls-poster__tape" aria-hidden="true"></span>
-            <p class="ls-poster__head">Missing</p>
-            <img class="ls-poster__photo" src="assets/lastsignal/nora.webp" alt="Nora Bennett" width="340" height="340">
-            <figcaption>
-              <p class="ls-poster__name">Nora Bennett, 24</p>
-              <p class="ls-poster__line">Last seen: <b>September 20, 2014</b></p>
-              <p class="ls-poster__signal"><span class="ls-sig ls-sig--dying" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Last signal: 7:52 PM</p>
-            </figcaption>
-          </figure>
-        </div>
+      </div>
+      <div class="container xh__facts">
+        <dl class="facts">
+          <div><dt>Players</dt><dd>2 players</dd></div>
+          <div><dt>Devices</dt><dd>Laptop + phone</dd></div>
+          <div><dt>Length</dt><dd>45–60 minutes</dd></div>
+          <div><dt>Languages</dt><dd>English · Russian</dd></div>
+          <div><dt>Full game</dt><dd><span data-ls-price>$2.99</span></dd></div>
+        </dl>
       </div>
     </section>
 
@@ -127,8 +96,17 @@
         <div class="split">
           <div class="split__head" data-reveal>
             <h2 class="h2" id="story-title">Someone is erasing Nora</h2>
-            <div class="frame split__media">
-              <img src="assets/lastsignal/closet-1280.webp" srcset="assets/lastsignal/closet-1280.webp 1280w, assets/lastsignal/closet.webp 1408w" sizes="(max-width: 900px) 100vw, 480px" alt="A forgotten laptop in the closet of a new apartment" width="1280" height="698" loading="lazy">
+            <div class="split__media ls-poster-wrap">
+              <figure class="ls-poster" aria-label="Missing person notice">
+            <span class="ls-poster__tape" aria-hidden="true"></span>
+            <p class="ls-poster__head">Missing</p>
+            <img class="ls-poster__photo" src="assets/lastsignal/nora.webp" alt="Nora Bennett" width="340" height="340">
+            <figcaption>
+              <p class="ls-poster__name">Nora Bennett, 24</p>
+              <p class="ls-poster__line">Last seen: <b>September 20, 2014</b></p>
+              <p class="ls-poster__signal"><span class="ls-sig ls-sig--dying" aria-hidden="true"><i></i><i></i><i></i><i></i></span>Last signal: 7:52 PM</p>
+            </figcaption>
+          </figure>
             </div>
           </div>
           <div class="split__body" data-reveal>
@@ -447,6 +425,5 @@
   <script src="src/main.js"></script>
   <script src="src/gallery.js"></script>
   <script src="src/last-signal.js"></script>
-  <script src="src/ls-live.js"></script>
 </body>
 </html>

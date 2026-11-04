@@ -26,7 +26,7 @@
 
   <link rel="preload" href="assets/fonts/koulen-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
-  <link rel="preload" as="image" href="assets/art/news-board-1280.webp" imagesrcset="assets/art/news-board-1280.webp 1280w, assets/art/news-board.webp 2560w" imagesizes="100vw">
+  <link rel="preload" as="image" href="assets/art/news-board-1280.webp" fetchpriority="high">
   <link rel="stylesheet" href="src/styles.css">
   <script>(function(d){var L,F=d.getAttribute('data-lang-fixed');try{L=F||localStorage.getItem('enigma-lang');if(F)localStorage.setItem('enigma-lang',F)}catch(e){L=F}if(!/^(en|ru|ro|uk)$/.test(L||'')){L='en';var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(/^ru/.test(c)){L='ru';break}if(/^(ro|mo)/.test(c)){L='ro';break}if(/^uk/.test(c)){L='uk';break}if(/^en/.test(c))break}}if(!F&&L!=='en'&&d.hasAttribute('data-built')){location.replace(L+'/'+(location.pathname.split('/').pop()||'index.html')+location.search+location.hash);return}d.lang=L;if(L!=='en'&&!F){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})(document.documentElement)</script>
   <script>try{if(sessionStorage.getItem('enigma-pt')){sessionStorage.removeItem('enigma-pt');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pt-enter')}}catch(e){}</script>
@@ -61,17 +61,14 @@
   </header>
 
   <main id="main" class="news-page">
-    <section class="contact-hero news-hero" data-torch data-hero-live aria-labelledby="news-title">
-      <div class="hero__scene" aria-hidden="true">
-        <img class="hero__img hero__img--dark" src="assets/art/news-board-1280.webp" srcset="assets/art/news-board-1280.webp 1280w, assets/art/news-board.webp 2560w" sizes="100vw" alt="" width="2560" height="1429">
-        <img class="hero__img hero__img--lit" src="assets/art/news-board-1280.webp" srcset="assets/art/news-board-1280.webp 1280w, assets/art/news-board.webp 2560w" sizes="100vw" alt="" width="2560" height="1429">
-        <span class="hero__beam" data-spot="0.13,0.49,0.3,0.4"></span>
-        <canvas class="hero__dust" data-hero-dust></canvas>
+    <section class="xh xh--news" aria-labelledby="news-title">
+      <div class="xh__media" aria-hidden="true">
+        <img class="xh__img " src="assets/art/news-board-1280.webp" srcset="assets/art/news-board-1280.webp 1280w, assets/art/news-board.webp 2560w" sizes="100vw" alt="" fetchpriority="high">
       </div>
-      <div class="container contact-hero__inner">
-        <p class="eyebrow">Enigma Studio</p>
-        <h1 class="contact-hero__title" id="news-title">News</h1>
-        <p class="lead contact-hero__lead">Releases, updates and a look behind the scenes of our games and apps.</p>
+      <div class="container xh__body">
+        <p class="xh__kicker">Enigma Studio</p>
+        <h1 class="xh__title" id="news-title">News</h1>
+        <p class="xh__lead">Releases, updates and a look behind the scenes of our games and apps.</p>
         <div class="news-filters" role="group" aria-label="Filter news">
           <button type="button" class="news-filter" data-news-filter="all" aria-pressed="true">All</button>
           <button type="button" class="news-filter news-filter--studio" data-news-filter="studio" aria-pressed="false">Enigma Studio</button>
@@ -166,6 +163,5 @@
   <script src="src/i18n.js"></script>
   <script src="src/news.js"></script>
   <script src="src/main.js"></script>
-  <script src="src/hero-live.js"></script>
 </body>
 </html>

@@ -26,7 +26,7 @@
 
   <link rel="preload" href="assets/fonts/koulen-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
-  <link rel="preload" as="image" href="assets/art/studio-desk-1280.webp" imagesrcset="assets/art/studio-desk-1280.webp 1280w, assets/art/studio-desk.webp 2560w" imagesizes="100vw">
+  <link rel="preload" as="image" href="assets/art/studio-desk-1280.webp" fetchpriority="high">
   <link rel="stylesheet" href="src/styles.css">
   <script>(function(d){var L,F=d.getAttribute('data-lang-fixed');try{L=F||localStorage.getItem('enigma-lang');if(F)localStorage.setItem('enigma-lang',F)}catch(e){L=F}if(!/^(en|ru|ro|uk)$/.test(L||'')){L='en';var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(/^ru/.test(c)){L='ru';break}if(/^(ro|mo)/.test(c)){L='ro';break}if(/^uk/.test(c)){L='uk';break}if(/^en/.test(c))break}}if(!F&&L!=='en'&&d.hasAttribute('data-built')){location.replace(L+'/'+(location.pathname.split('/').pop()||'index.html')+location.search+location.hash);return}d.lang=L;if(L!=='en'&&!F){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})(document.documentElement)</script>
   <script>try{if(sessionStorage.getItem('enigma-pt')){sessionStorage.removeItem('enigma-pt');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pt-enter')}}catch(e){}</script>
@@ -62,25 +62,28 @@
 
   <main id="main">
     <!-- HERO: the scene is dark; the torch follows the pointer and reveals it -->
-    <section class="hero" data-torch data-hero-live>
-      <div class="hero__scene" aria-hidden="true">
-        <img class="hero__img hero__img--dark" src="assets/art/studio-desk-1280.webp" srcset="assets/art/studio-desk-1280.webp 1280w, assets/art/studio-desk.webp 2560w" sizes="100vw" alt="" width="2560" height="1429">
-        <img class="hero__img hero__img--lit" src="assets/art/studio-desk-1280.webp" srcset="assets/art/studio-desk-1280.webp 1280w, assets/art/studio-desk.webp 2560w" sizes="100vw" alt="" width="2560" height="1429">
-        <span class="hero__crt" data-spot="0.498,0.531,0.125,0.2"><i></i></span>
-        <canvas class="hero__dust" data-hero-dust></canvas>
+    <section class="xh xh--home" aria-labelledby="home-title">
+      <div class="xh__media" aria-hidden="true">
+        <img class="xh__img " src="assets/art/studio-desk-1280.webp" srcset="assets/art/studio-desk-1280.webp 1280w, assets/art/studio-desk.webp 2560w" sizes="100vw" alt="" fetchpriority="high">
       </div>
-      <div class="hero__inner hero__inner--studio">
-        <p class="hero__kicker">Independent horror game studio</p>
-        <h1 class="hero__title">Enigma Studio</h1>
-        <p class="hero__tagline">Not Just a Studio, An Enigma.</p>
-        <ul class="hero__now" aria-label="Our projects now">
-          <li><a class="hero__news hero__news--vof" href="veil-of-fear.html"><span class="live-dot"></span><span class="hero__news-label">In development</span>Veil of Fear<span class="hero__news-arrow" aria-hidden="true">→</span></a></li>
-          <li><a class="hero__news hero__news--ls" href="last-signal.html"><span class="live-dot"></span><span class="hero__news-label">Out now</span>Last Signal<span class="hero__news-arrow" aria-hidden="true">→</span></a></li>
-          <li><a class="hero__news hero__news--cube" href="enigma-cube.html"><span class="live-dot"></span><span class="hero__news-label">New 3.2</span>Enigma Cube<span class="hero__news-arrow" aria-hidden="true">→</span></a></li>
+      <div class="container xh__body">
+        <p class="xh__kicker">Independent horror game studio</p>
+        <h1 class="xh__title" id="home-title">Enigma Studio</h1>
+        <p class="xh__lead">Not Just a Studio, An Enigma.</p>
+        <ul class="xh__links" aria-label="Our projects now">
+          <li><a class="xh-pill xh-pill--vof" href="veil-of-fear.html"><span class="live-dot"></span><span class="xh-pill__label">In development</span>Veil of Fear<span aria-hidden="true">→</span></a></li>
+          <li><a class="xh-pill xh-pill--ls" href="last-signal.html"><span class="live-dot"></span><span class="xh-pill__label">Out now</span>Last Signal<span aria-hidden="true">→</span></a></li>
+          <li><a class="xh-pill xh-pill--cube" href="enigma-cube.html"><span class="live-dot"></span><span class="xh-pill__label">New 3.2</span>Enigma Cube<span aria-hidden="true">→</span></a></li>
         </ul>
       </div>
-      <p class="hero__hint" data-torch-hint>Move the light to look around</p>
-      <a class="hero__scroll" href="#about" aria-label="Scroll to About us"><span></span></a>
+      <div class="container xh__facts">
+        <dl class="facts">
+          <div><dt>Founded</dt><dd>2022</dd></div>
+          <div><dt>Projects</dt><dd>5</dd></div>
+          <div><dt>Downloads</dt><dd>1000+</dd></div>
+          <div><dt>Genre</dt><dd>Psychological horror</dd></div>
+        </dl>
+      </div>
     </section>
 
     <!-- ABOUT -->
@@ -335,7 +338,6 @@
   <script src="src/i18n.js"></script>
   <script src="src/news.js"></script>
   <script src="src/main.js"></script>
-  <script src="src/hero-live.js"></script>
   <script src="src/veil-of-fear.js"></script>
 </body>
 </html>

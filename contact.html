@@ -26,6 +26,7 @@
 
   <link rel="preload" href="assets/fonts/koulen-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="preload" as="image" href="assets/art/studio-phone-1280.webp" fetchpriority="high">
   <link rel="stylesheet" href="src/styles.css">
   <script>(function(d){var L,F=d.getAttribute('data-lang-fixed');try{L=F||localStorage.getItem('enigma-lang');if(F)localStorage.setItem('enigma-lang',F)}catch(e){L=F}if(!/^(en|ru|ro|uk)$/.test(L||'')){L='en';var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(/^ru/.test(c)){L='ru';break}if(/^(ro|mo)/.test(c)){L='ro';break}if(/^uk/.test(c)){L='uk';break}if(/^en/.test(c))break}}if(!F&&L!=='en'&&d.hasAttribute('data-built')){location.replace(L+'/'+(location.pathname.split('/').pop()||'index.html')+location.search+location.hash);return}d.lang=L;if(L!=='en'&&!F){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})(document.documentElement)</script>
   <script>try{if(sessionStorage.getItem('enigma-pt')){sessionStorage.removeItem('enigma-pt');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pt-enter')}}catch(e){}</script>
@@ -62,16 +63,14 @@
   <main id="main" class="contact-page">
 
     <!-- ============ HERO: the studio desk by candlelight, revealed by the torch ============ -->
-    <section class="contact-hero" data-torch data-hero-live>
-      <div class="hero__scene" aria-hidden="true">
-        <img class="hero__img hero__img--dark" src="assets/art/studio-phone-1280.webp" srcset="assets/art/studio-phone-1280.webp 1280w, assets/art/studio-phone.webp 2560w" sizes="100vw" alt="" width="2560" height="1429">
-        <img class="hero__img hero__img--lit" src="assets/art/studio-phone-1280.webp" srcset="assets/art/studio-phone-1280.webp 1280w, assets/art/studio-phone.webp 2560w" sizes="100vw" alt="" width="2560" height="1429">
-        <span class="hero__candle" data-spot="0.924,0.455,0.12,0.2"></span>
-        <canvas class="hero__dust" data-hero-dust></canvas>
+    <section class="xh xh--contact" aria-labelledby="contact-title">
+      <div class="xh__media" aria-hidden="true">
+        <img class="xh__img " src="assets/art/studio-phone-1280.webp" srcset="assets/art/studio-phone-1280.webp 1280w, assets/art/studio-phone.webp 2560w" sizes="100vw" alt="" fetchpriority="high">
       </div>
-      <div class="container contact-hero__inner">
-        <h1 class="contact-hero__title">Contact Us</h1>
-        <p class="lead contact-hero__lead">Press, collaborations, a stream of our game, or a story that kept you awake at night. Write to us.</p>
+      <div class="container xh__body">
+        <p class="xh__kicker">Enigma Studio</p>
+        <h1 class="xh__title" id="contact-title">Contact Us</h1>
+        <p class="xh__lead">Press, collaborations, a stream of our game, or a story that kept you awake at night. Write to us.</p>
         <div class="email">
           <a class="email__link" href="mailto:enigmastudio.md@gmail.com">enigmastudio.md@gmail.com</a>
           <button class="email__copy" type="button" data-copy="enigmastudio.md@gmail.com">
@@ -278,6 +277,5 @@
   <script src="src/i18n-data.js"></script>
   <script src="src/i18n.js"></script>
   <script src="src/main.js"></script>
-  <script src="src/hero-live.js"></script>
 </body>
 </html>
