@@ -63,10 +63,12 @@
 
   <main id="main">
     <!-- HERO: the scene is dark; the torch follows the pointer and reveals it -->
-    <section class="hero" data-torch>
+    <section class="hero" data-torch data-hero-live>
       <div class="hero__scene" aria-hidden="true">
         <img class="hero__img hero__img--dark" src="assets/art/studio-desk.webp" alt="" width="2560" height="1429">
         <img class="hero__img hero__img--lit" src="assets/art/studio-desk.webp" alt="" width="2560" height="1429">
+        <span class="hero__crt" data-hero-crt><i></i></span>
+        <canvas class="hero__dust" data-hero-dust></canvas>
       </div>
       <div class="hero__inner">
         <h1 class="hero__title">Enigma Studio</h1>
@@ -329,6 +331,7 @@
   <script src="src/i18n.js"></script>
   <script src="src/news.js"></script>
   <script src="src/main.js"></script>
+  <script src="src/hero-live.js"></script>
   <script src="src/veil-of-fear.js"></script>
 </body>
 </html>

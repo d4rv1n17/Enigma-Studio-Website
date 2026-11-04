@@ -2168,3 +2168,30 @@ button.ghost-btn { font-family: inherit; text-transform: inherit; letter-spacing
   .ls-notes { left: 50%; top: auto; bottom: 10.5rem; width: min(92vw, 300px); transform: translateX(-50%); }
 }
 @media (prefers-reduced-motion: reduce) { .ls-note { transition: none; } .ls-hero__bg.is-flicker img, .ls-poster__photo.is-wipe { animation: none; } }
+
+/* =========================================================
+   Home hero: breathing CRT and floating dust
+   ========================================================= */
+.hero__crt { position: absolute; transform: translate(-50%, -50%); pointer-events: none; mix-blend-mode: screen; }
+.hero__crt::before {   /* the glow the screen throws into the dark room */
+  content: ""; position: absolute; inset: -90% -110%;
+  background: radial-gradient(ellipse at 50% 50%, rgba(170, 205, 255, .16) 0%, rgba(140, 180, 255, .06) 35%, transparent 65%);
+  animation: crt-breathe 5.5s ease-in-out infinite, crt-flick 9s steps(1, end) infinite;
+}
+.hero__crt i {   /* the screen itself: soft light, scanlines and a slow rolling bar */
+  position: absolute; inset: 4% 6%; border-radius: 10% / 12%; overflow: hidden;
+  background:
+    repeating-linear-gradient(to bottom, rgba(255,255,255,.05) 0 1px, transparent 1px 3px),
+    radial-gradient(ellipse at 50% 50%, rgba(190, 215, 255, .18), rgba(120, 160, 230, .05) 70%, transparent);
+  animation: crt-flick 9s steps(1, end) infinite;
+}
+.hero__crt i::after {
+  content: ""; position: absolute; left: 0; right: 0; height: 30%; top: -30%;
+  background: linear-gradient(to bottom, transparent, rgba(220, 235, 255, .14), transparent);
+  animation: crt-roll 6.5s linear infinite;
+}
+.hero__dust { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+@keyframes crt-breathe { 0%, 100% { opacity: .75; } 50% { opacity: 1; } }
+@keyframes crt-flick { 0%, 61%, 63%, 64.5%, 100% { opacity: 1; } 62% { opacity: .35; } 64% { opacity: .6; } }
+@keyframes crt-roll { to { top: 100%; } }
+@media (prefers-reduced-motion: reduce) { .hero__crt::before, .hero__crt i, .hero__crt i::after { animation: none; } }
