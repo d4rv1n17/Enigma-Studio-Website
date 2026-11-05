@@ -29,24 +29,32 @@
   const target = { x: 0.5, y: 0.5 }, pos = { x: 0.5, y: 0.5 };
   let last = 0, raf = 0, visible = false;
 
-  const move = (e) => {
+  const aim = (x, y) => {
     const r = box.getBoundingClientRect();
-    target.x = (e.clientX - r.left) / r.width;
-    target.y = (e.clientY - r.top) / r.height;
+    target.x = Math.min(1, Math.max(0, (x - r.left) / r.width));
+    target.y = Math.min(1, Math.max(0, (y - r.top) / r.height));
     last = performance.now();
     box.classList.add('is-touched');
+    if (!raf && visible) raf = requestAnimationFrame(tick);
   };
-  box.addEventListener('pointermove', move);
-  box.addEventListener('pointerdown', move);
+  // mouse and pen
+  box.addEventListener('pointermove', (e) => { if (e.pointerType !== 'touch') aim(e.clientX, e.clientY); });
+  box.addEventListener('pointerdown', (e) => aim(e.clientX, e.clientY));
+  // fingers: touch events keep coming while the page scrolls (pointer events stop),
+  // so the light follows the finger on phones too
+  const onTouch = (e) => { const t = e.touches[0]; if (t) aim(t.clientX, t.clientY); };
+  box.addEventListener('touchstart', onTouch, { passive: true });
+  box.addEventListener('touchmove', onTouch, { passive: true });
 
   const tick = (t) => {
-    if (reduce) { target.x = 0.5; target.y = 0.55; }
-    else if (t - last > 2500) {
+    const idle = t - last > 2500;
+    if (idle && reduce) { target.x = 0.5; target.y = 0.55; }
+    else if (idle) {
       // nobody is holding the light: it searches the page by itself
       target.x = 0.5 + Math.sin(t / 2300) * 0.32;
       target.y = 0.52 + Math.sin(t / 1700) * 0.3;
     }
-    const k = reduce ? 1 : 0.12;
+    const k = reduce ? 0.35 : 0.14;
     pos.x += (target.x - pos.x) * k;
     pos.y += (target.y - pos.y) * k;
     box.style.setProperty('--lx', (pos.x * 100).toFixed(2) + '%');
