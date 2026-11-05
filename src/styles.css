@@ -2759,3 +2759,16 @@ html { scrollbar-color: rgba(255, 255, 255, .22) #000; }
 }
 @media (max-width: 899px) { .xh--vof .xh__img { object-position: 38% 40%; } }
 .xh__media { overflow: hidden; }
+/* new home and news pictures */
+.xh--home .xh__img { object-position: 50% 45%; }
+.xh--news .xh__img { object-position: 70% 50%; }
+@media (min-width: 900px) {
+  .xh--home .xh__media { left: 22%; }
+  .xh--home .xh__media::after {
+    background:
+      linear-gradient(90deg, #000 0%, rgba(0,0,0,.5) 20%, rgba(0,0,0,.05) 50%, rgba(0,0,0,.1) 100%),
+      linear-gradient(to top, #000 0%, rgba(0,0,0,.8) 12%, rgba(0,0,0,0) 45%),
+      linear-gradient(to bottom, rgba(0,0,0,.5) 0%, transparent 20%);
+  }
+}
+@media (max-width: 899px) { .xh--home .xh__img { object-position: 47% 45%; } .xh--news .xh__img { object-position: 74% 50%; } }
