@@ -193,7 +193,7 @@ function start() {
     const r = host.getBoundingClientRect();
     renderer.setSize(r.width, r.height, false);
     camera.aspect = r.width / Math.max(1, r.height);
-    camera.position.z = window.innerWidth < 900 ? 12.5 : 16;
+    camera.position.z = camera.aspect < 1.4 ? 12.5 : 17;
     lift.position.x = 0;
     camera.updateProjectionMatrix();
   }
