@@ -58,15 +58,15 @@ if (cube) {
 document.querySelectorAll('[data-social]').forEach((box) => {
   const large = box.dataset.socialSize === 'large';
   (CONFIG.social || []).forEach((s) => {
-    const a = document.createElement('a');
-    a.href = s.url;
-    a.target = '_blank';
-    a.rel = 'noopener';
+    const size0 = box.dataset.socialSize;
+    if (!s.url && size0 !== 'card') return;          // channel not open yet: footers skip it
+    const a = document.createElement(s.url ? 'a' : 'div');
+    if (s.url) { a.href = s.url; a.target = '_blank'; a.rel = 'noopener'; } else { a.classList.add('is-soon'); }
     a.setAttribute('aria-label', `Enigma Studio — ${s.name}`);
     const size = box.dataset.socialSize;
     if (size === 'card') {
-      a.className = 'social-card';
-      a.innerHTML = `<img src="${asset(s.icon)}" alt="" width="48" height="48"><span class="social-card__name">${s.name}</span><span class="social-card__handle">${s.handle || ''}</span><span class="social-card__go" aria-hidden="true">${t('Open')}</span>`;
+      a.classList.add('social-card');
+      a.innerHTML = `<img src="${asset(s.icon)}" alt="" width="48" height="48"><span class="social-card__name">${s.name}</span><span class="social-card__handle">${s.url ? (s.handle || '') : t('Coming soon')}</span><span class="social-card__go" aria-hidden="true">${s.url ? t('Open') : ''}</span>`;
     } else {
       a.innerHTML = large
         ? `<span class="social__icon"><img src="${asset(s.icon)}" alt="" width="56" height="56"></span><span class="social__name">${s.name}</span>`

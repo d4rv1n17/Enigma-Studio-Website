@@ -2774,3 +2774,58 @@ html { scrollbar-color: rgba(255, 255, 255, .22) #000; }
 @media (max-width: 899px) { .xh--home .xh__img { object-position: 47% 45%; } .xh--news .xh__img { object-position: 74% 50%; } }
 .xh--contact .xh__img { object-position: 75% 50%; }
 @media (max-width: 899px) { .xh--contact .xh__img { object-position: 82% 50%; } }
+/* Veil of Fear: the universe banner (Episode I between two sealed episodes), full width */
+.xh--vof .xh__img { object-position: 50% 30%; }
+@media (min-width: 900px) {
+  .xh--vof .xh__media { left: 36%; }
+  .xh--vof .xh__img { object-fit: contain; object-position: 50% 35%; background: #000; transform-origin: 50% 40%; }
+  .xh--vof .xh__media::after {
+    background:
+      linear-gradient(90deg, #000 0%, rgba(0,0,0,.35) 10%, transparent 30%),
+      linear-gradient(to top, #000 0%, rgba(0,0,0,.85) 14%, rgba(0,0,0,0) 50%),
+      linear-gradient(to bottom, rgba(0,0,0,.5) 0%, transparent 18%);
+  }
+}
+@media (max-width: 899px) { .xh--vof .xh__img { object-position: 50% 30%; } }
+/* a channel that is not open yet */
+.social-card.is-soon { opacity: .5; cursor: default; pointer-events: none; }
+.social-card.is-soon .social-card__handle { color: var(--grey); }
+
+/* =========================================================
+   Publishing & Press pages
+   ========================================================= */
+.xh--pub, .xh--press { --xh-accent: #d9d4cb; --xh-glow: rgba(255,255,255,.18); }
+.xh--pub .xh__img { object-position: 52% 45%; }
+.xh--press .xh__img { object-position: 60% 40%; }
+@media (min-width: 900px) {
+  .xh--pub .xh__media { left: 25%; }
+  .xh--pub .xh__media::after {
+    background:
+      linear-gradient(90deg, #000 0%, rgba(0,0,0,.5) 20%, rgba(0,0,0,.05) 50%, rgba(0,0,0,.1) 100%),
+      linear-gradient(to top, #000 0%, rgba(0,0,0,.8) 12%, rgba(0,0,0,0) 45%),
+      linear-gradient(to bottom, rgba(0,0,0,.5) 0%, transparent 20%);
+  }
+}
+.ghost-btn--solid { background: #fff; color: #000; border-color: #fff; }
+.ghost-btn--solid:hover { background: #fff; color: #000; box-shadow: 0 0 40px -8px rgba(255,255,255,.5); }
+.pub { --ls-amber: #e9e6df; --ls-glow: rgba(255,255,255,.22); }
+.pillars--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 2.5rem; }
+.pillars--3 li:nth-child(3n+1) { padding-left: 0; border-left: 0; }
+@media (max-width: 900px) { .pillars--3 { grid-template-columns: 1fr; } .pillars--3 li { padding-left: 0; border-left: 0; } }
+.pub-req { margin-top: 1.5rem; display: grid; gap: .8rem; }
+.pub-req li { position: relative; padding-left: 1.6rem; color: var(--grey-text); line-height: 1.45; }
+.pub-req li::before { content: ""; position: absolute; left: 0; top: .55em; width: .7rem; height: .7rem; border: 1.5px solid #fff; border-radius: 2px; }
+.press .pillars li { padding-top: 1.5rem; }
+.pub-promo {
+  position: relative; display: grid; gap: .7rem; padding: clamp(1.75rem, 4vw, 3rem); border-radius: 14px; overflow: hidden; isolation: isolate;
+  color: #fff; text-decoration: none; border: 1px solid var(--line);
+  background: linear-gradient(100deg, rgba(0,0,0,.92) 0%, rgba(0,0,0,.7) 45%, rgba(0,0,0,.2) 100%), url("../assets/art/studio-night-1280.webp") 70% 45% / cover;
+  transition: border-color .4s var(--ease), box-shadow .4s var(--ease);
+}
+.pub-promo__kicker { display: inline-flex; align-items: center; gap: .7rem; color: #d9d4cb; font-size: var(--fs-small); letter-spacing: .14em; }
+.pub-promo__kicker::before { content: ""; width: 2.2rem; height: 1px; background: #d9d4cb; }
+.pub-promo__title { font-size: var(--fs-h2); line-height: 1.05; max-width: 22ch; }
+.pub-promo__text { color: var(--grey-text); max-width: 46ch; }
+.pub-promo .link-arrow { margin-top: .4rem; }
+.pub-promo:hover { border-color: rgba(255,255,255,.35); box-shadow: 0 0 60px -20px rgba(255,255,255,.25); }
+.social-card.is-soon .social-card__go { display: none; }
