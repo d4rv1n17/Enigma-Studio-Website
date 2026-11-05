@@ -2772,3 +2772,5 @@ html { scrollbar-color: rgba(255, 255, 255, .22) #000; }
   }
 }
 @media (max-width: 899px) { .xh--home .xh__img { object-position: 47% 45%; } .xh--news .xh__img { object-position: 74% 50%; } }
+.xh--contact .xh__img { object-position: 75% 50%; }
+@media (max-width: 899px) { .xh--contact .xh__img { object-position: 82% 50%; } }
