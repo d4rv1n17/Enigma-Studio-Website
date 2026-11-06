@@ -26,7 +26,7 @@
 
   <link rel="preload" href="assets/fonts/koulen-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
-  <link rel="preload" as="image" href="assets/art/he-never-left-1280.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/art/press-desk-1280.webp" fetchpriority="high">
   <link rel="stylesheet" href="src/styles.css">
   <script>(function(d){var L,F=d.getAttribute('data-lang-fixed');try{L=F||localStorage.getItem('enigma-lang');if(F)localStorage.setItem('enigma-lang',F)}catch(e){L=F}if(!/^(en|ru|ro|uk)$/.test(L||'')){L='en';var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(/^ru/.test(c)){L='ru';break}if(/^(ro|mo)/.test(c)){L='ro';break}if(/^uk/.test(c)){L='uk';break}if(/^en/.test(c))break}}if(!F&&L!=='en'&&d.hasAttribute('data-built')){location.replace(L+'/'+(location.pathname.split('/').pop()||'index.html')+location.search+location.hash);return}d.lang=L;if(L!=='en'&&!F){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})(document.documentElement)</script>
   <script>try{if(sessionStorage.getItem('enigma-pt')){sessionStorage.removeItem('enigma-pt');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pt-enter')}}catch(e){}</script>
@@ -64,8 +64,12 @@
   <main id="main" class="press">
 
     <section class="xh xh--press" aria-labelledby="press-title">
-      <div class="xh__media" aria-hidden="true">
-        <img class="xh__img" src="assets/art/he-never-left-1280.webp" srcset="assets/art/he-never-left-1280.webp 1280w, assets/art/he-never-left.webp 2560w" sizes="100vw" alt="" fetchpriority="high">
+      <div class="xh__media" aria-hidden="true" data-fx-hero>
+        <div class="xh__scene">
+        <img class="xh__img" src="assets/art/press-desk-1280.webp" srcset="assets/art/press-desk-1280.webp 1280w, assets/art/press-desk.webp 2048w" sizes="100vw" alt="" fetchpriority="high">
+        <span class="fx-spot fx-glow fx-glow--beam" data-spot="0.69,0.3,0.4,0.7"></span>
+        <canvas class="fx-dust" data-fx="dust"></canvas>
+        </div>
       </div>
       <div class="container xh__body">
         <p class="xh__kicker">Enigma Studio</p>
@@ -162,5 +166,6 @@
   <script src="src/i18n-data.js"></script>
   <script src="src/i18n.js"></script>
   <script src="src/main.js"></script>
+  <script src="src/hero-fx.js"></script>
 </body>
 </html>

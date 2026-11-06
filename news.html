@@ -63,8 +63,13 @@
 
   <main id="main" class="news-page">
     <section class="xh xh--news" aria-labelledby="news-title">
-      <div class="xh__media" aria-hidden="true">
+      <div class="xh__media" aria-hidden="true" data-fx-hero>
+        <div class="xh__scene">
         <img class="xh__img " src="assets/art/static-tv-1280.webp" srcset="assets/art/static-tv-1280.webp 1280w, assets/art/static-tv.webp 2048w" sizes="100vw" alt="" fetchpriority="high">
+        <span class="fx-spot fx-tv" data-spot="0.735,0.517,0.112,0.225"><canvas class="fx-noise" data-fx="noise" data-tint="235,240,255" data-strength="1" width="96" height="72"></canvas></span>
+        <span class="fx-spot fx-glow fx-glow--tv" data-spot="0.74,0.62,0.55,0.75"></span>
+        <canvas class="fx-dust" data-fx="dust"></canvas>
+        </div>
       </div>
       <div class="container xh__body">
         <p class="xh__kicker">Enigma Studio</p>
@@ -166,5 +171,6 @@
   <script src="src/i18n.js"></script>
   <script src="src/news.js"></script>
   <script src="src/main.js"></script>
+  <script src="src/hero-fx.js"></script>
 </body>
 </html>

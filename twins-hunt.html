@@ -65,8 +65,14 @@
 
     <!-- ============ HERO ============ -->
     <section class="xh xh--twins" aria-labelledby="th-title">
-      <div class="xh__media" aria-hidden="true">
+      <div class="xh__media" aria-hidden="true" data-fx-hero>
+        <div class="xh__scene">
         <img class="xh__img " src="assets/twins/banner-1280.webp" srcset="assets/twins/banner-1280.webp 1280w, assets/twins/banner.webp 2560w" sizes="100vw" alt="" fetchpriority="high">
+        <span class="fx-spot fx-glow fx-glow--blood" data-spot="0.5,0.56,0.5,0.4"></span>
+        <span class="fx-spot fx-glow fx-glow--ice" data-spot="0.5,0.28,0.5,0.35"></span>
+        <span class="fx-spot fx-glow fx-glow--hall" data-spot="0.8,0.42,0.3,0.7"></span>
+        <canvas class="fx-dust fx-dust--ash" data-fx="dust" data-color="255,120,120"></canvas>
+        </div>
       </div>
       <div class="container xh__body">
         <p class="xh__kicker">Action horror · Android</p>
@@ -315,6 +321,7 @@
   <script src="src/i18n-data.js"></script>
   <script src="src/i18n.js"></script>
   <script src="src/main.js"></script>
+  <script src="src/hero-fx.js"></script>
   <script src="src/gallery.js"></script>
 </body>
 </html>

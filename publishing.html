@@ -26,7 +26,7 @@
 
   <link rel="preload" href="assets/fonts/koulen-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
-  <link rel="preload" as="image" href="assets/art/studio-night-1280.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/art/publish-phone-1280.webp" fetchpriority="high">
   <link rel="stylesheet" href="src/styles.css">
   <script>(function(d){var L,F=d.getAttribute('data-lang-fixed');try{L=F||localStorage.getItem('enigma-lang');if(F)localStorage.setItem('enigma-lang',F)}catch(e){L=F}if(!/^(en|ru|ro|uk)$/.test(L||'')){L='en';var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(/^ru/.test(c)){L='ru';break}if(/^(ro|mo)/.test(c)){L='ro';break}if(/^uk/.test(c)){L='uk';break}if(/^en/.test(c))break}}if(!F&&L!=='en'&&d.hasAttribute('data-built')){location.replace(L+'/'+(location.pathname.split('/').pop()||'index.html')+location.search+location.hash);return}d.lang=L;if(L!=='en'&&!F){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})(document.documentElement)</script>
   <script>try{if(sessionStorage.getItem('enigma-pt')){sessionStorage.removeItem('enigma-pt');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pt-enter')}}catch(e){}</script>
@@ -64,8 +64,12 @@
   <main id="main" class="pub">
 
     <section class="xh xh--pub" aria-labelledby="pub-title">
-      <div class="xh__media" aria-hidden="true">
-        <img class="xh__img" src="assets/art/studio-night-1280.webp" srcset="assets/art/studio-night-1280.webp 1280w, assets/art/studio-night.webp 2048w" sizes="100vw" alt="" fetchpriority="high">
+      <div class="xh__media" aria-hidden="true" data-fx-hero>
+        <div class="xh__scene">
+        <img class="xh__img" src="assets/art/publish-phone-1280.webp" srcset="assets/art/publish-phone-1280.webp 1280w, assets/art/publish-phone.webp 2048w" sizes="100vw" alt="" fetchpriority="high">
+        <span class="fx-spot fx-glow fx-glow--phone" data-spot="0.82,0.63,0.3,0.35"></span>
+        <canvas class="fx-dust" data-fx="dust"></canvas>
+        </div>
       </div>
       <div class="container xh__body">
         <p class="xh__kicker">Enigma Publishing</p>
@@ -79,9 +83,9 @@
       <div class="container xh__facts">
         <dl class="facts">
           <div><dt>Store</dt><dd>Google Play</dd></div>
-          <div><dt>For</dt><dd>Solo developers and small teams</dd></div>
-          <div><dt>Genres</dt><dd>Any, not only horror</dd></div>
-          <div><dt>Status</dt><dd><span class="live-dot"></span>Accepting games</dd></div>
+          <div class="facts__hl"><dt>Profit</dt><dd>50 / 50</dd></div>
+          <div><dt>Rights</dt><dd>Stay with you</dd></div>
+          <div><dt>Reply</dt><dd><span class="live-dot"></span>Within 2 days</dd></div>
         </dl>
       </div>
     </section>
@@ -137,8 +141,8 @@
         </div>
         <ol class="ls-steps ls-steps--4" data-reveal>
           <li><span class="ls-steps__n">1</span><h3>Send your game</h3><p>A link to the build or the project, a few screenshots and a short description: what the game is and who it is for.</p></li>
-          <li><span class="ls-steps__n">2</span><h3>We play it</h3><p>We play the game, check it against the Google Play rules and reply with what we think.</p></li>
-          <li><span class="ls-steps__n">3</span><h3>We agree</h3><p>We discuss the terms for your game and prepare the store page together.</p></li>
+          <li><span class="ls-steps__n">2</span><h3>We play it</h3><p>We play the game, check it against the Google Play rules and reply within 2 days.</p></li>
+          <li><span class="ls-steps__n">3</span><h3>We agree</h3><p>A simple agreement: we split the profit 50/50 and the game stays yours. Then we prepare the store page together.</p></li>
           <li><span class="ls-steps__n">4</span><h3>Release</h3><p>We publish the game and keep it updated with every new version you send.</p></li>
         </ol>
       </div>
@@ -163,7 +167,11 @@
           </details>
           <details class="faq__item">
             <summary>How much does it cost?</summary>
-            <p>We agree on the terms for each game separately. Write to us about your game and we will answer.</p>
+            <p>Nothing up front. We split the profit from the game 50/50.</p>
+          </details>
+          <details class="faq__item">
+            <summary>Who owns the game?</summary>
+            <p>You do. All the rights stay with you: we only publish the game and share the profit.</p>
           </details>
           <details class="faq__item">
             <summary>Only Google Play?</summary>
@@ -189,7 +197,7 @@
           <div class="support__text">
             <p class="eyebrow">Enigma Publishing</p>
             <h2 class="h2" id="pub-cta-title">Send us your game</h2>
-            <p class="muted">Write to <a href="mailto:enigmastudio.md@gmail.com?subject=Publishing%3A%20">enigmastudio.md@gmail.com</a> with “Publishing” and the name of your game in the subject.</p>
+            <p class="muted">Write to <a href="mailto:enigmastudio.md@gmail.com?subject=Publishing%3A%20">enigmastudio.md@gmail.com</a> with “Publishing” and the name of your game in the subject. We reply within 2 days.</p>
           </div>
           <div class="support__action">
             <a class="support-btn" href="mailto:enigmastudio.md@gmail.com?subject=Publishing%3A%20"><span>Send your game</span></a>
@@ -259,5 +267,6 @@
   <script src="src/i18n-data.js"></script>
   <script src="src/i18n.js"></script>
   <script src="src/main.js"></script>
+  <script src="src/hero-fx.js"></script>
 </body>
 </html>

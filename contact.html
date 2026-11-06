@@ -65,8 +65,13 @@
 
     <!-- ============ HERO: the studio desk by candlelight, revealed by the torch ============ -->
     <section class="xh xh--contact" aria-labelledby="contact-title">
-      <div class="xh__media" aria-hidden="true">
+      <div class="xh__media" aria-hidden="true" data-fx-hero>
+        <div class="xh__scene">
         <img class="xh__img " src="assets/art/night-phone-1280.webp" srcset="assets/art/night-phone-1280.webp 1280w, assets/art/night-phone.webp 2048w" sizes="100vw" alt="" fetchpriority="high">
+        <span class="fx-spot fx-glow fx-glow--lamp" data-spot="0.89,0.27,0.34,0.6"></span>
+        <canvas class="fx-spot fx-rain" data-fx="rain" data-spot="0.585,0.23,0.17,0.41"></canvas>
+        <canvas class="fx-dust" data-fx="dust"></canvas>
+        </div>
       </div>
       <div class="container xh__body">
         <p class="xh__kicker">Enigma Studio</p>
@@ -280,5 +285,6 @@
   <script src="src/i18n-data.js"></script>
   <script src="src/i18n.js"></script>
   <script src="src/main.js"></script>
+  <script src="src/hero-fx.js"></script>
 </body>
 </html>

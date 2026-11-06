@@ -26,7 +26,7 @@
 
   <link rel="preload" href="assets/fonts/koulen-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/fonts/fonts.css">
-  <link rel="preload" as="image" href="assets/art/vof-universe-1280.webp" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/art/vof-universe-ai-1280.webp" fetchpriority="high">
   <link rel="stylesheet" href="src/styles.css">
   <script>(function(d){var L,F=d.getAttribute('data-lang-fixed');try{L=F||localStorage.getItem('enigma-lang');if(F)localStorage.setItem('enigma-lang',F)}catch(e){L=F}if(!/^(en|ru|ro|uk)$/.test(L||'')){L='en';var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(/^ru/.test(c)){L='ru';break}if(/^(ro|mo)/.test(c)){L='ro';break}if(/^uk/.test(c)){L='uk';break}if(/^en/.test(c))break}}if(!F&&L!=='en'&&d.hasAttribute('data-built')){location.replace(L+'/'+(location.pathname.split('/').pop()||'index.html')+location.search+location.hash);return}d.lang=L;if(L!=='en'&&!F){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})(document.documentElement)</script>
   <script>try{if(sessionStorage.getItem('enigma-pt')){sessionStorage.removeItem('enigma-pt');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pt-enter')}}catch(e){}</script>
@@ -65,8 +65,17 @@
 
     <!-- ============ HERO ============ -->
     <section class="xh xh--vof" aria-labelledby="vf-title">
-      <div class="xh__media" aria-hidden="true">
-        <img class="xh__img" src="assets/art/vof-universe-1280.webp" srcset="assets/art/vof-universe-1280.webp 1280w, assets/art/vof-universe.webp 2560w" sizes="100vw" alt="" fetchpriority="high">
+      <div class="xh__media" aria-hidden="true" data-fx-hero>
+        <div class="xh__scene">
+        <img class="xh__img" src="assets/art/vof-universe-ai-1280.webp" srcset="assets/art/vof-universe-ai-1280.webp 1280w, assets/art/vof-universe-ai.webp 2048w" sizes="100vw" alt="" fetchpriority="high">
+        <span class="fx-spot fx-fog" data-spot="0.19,0.36,0.24,0.66"></span>
+        <span class="fx-spot fx-fog fx-fog--r" data-spot="0.81,0.36,0.24,0.66"></span>
+        <span class="fx-spot fx-q" data-spot="0.198,0.34,0.11,0.32"></span>
+        <span class="fx-spot fx-q fx-q--r" data-spot="0.802,0.34,0.11,0.32"></span>
+        <span class="fx-spot fx-nv" data-spot="0.5,0.34,0.345,0.68"><canvas class="fx-noise" data-fx="noise" data-tint="150,255,140" width="96" height="120"></canvas><i class="fx-scan"></i><i class="fx-roll"></i></span>
+        <span class="fx-spot fx-glow fx-glow--nv" data-spot="0.522,0.06,0.25,0.4"></span>
+        <canvas class="fx-spot fx-rain fx-rain--nv" data-fx="rain" data-spot="0.5,0.34,0.345,0.68"></canvas>
+        </div>
       </div>
       <div class="container xh__body">
         <p class="xh__kicker">Episodic psychological horror · PC</p>
@@ -427,6 +436,7 @@
   <script src="src/i18n-data.js"></script>
   <script src="src/i18n.js"></script>
   <script src="src/main.js"></script>
+  <script src="src/hero-fx.js"></script>
   <script src="src/gallery.js"></script>
   <script src="src/veil-of-fear.js"></script>
   <script src="src/vf-cam.js"></script>

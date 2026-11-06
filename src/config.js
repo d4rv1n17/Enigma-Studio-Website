@@ -30,7 +30,7 @@ window.ENIGMA_CONFIG = {
   social: [
     { name: 'YouTube',   handle: '@enigmastudiomd',  url: 'https://www.youtube.com/@enigmastudiomd',   icon: 'assets/brand/youtube.svg' },
     { name: 'Instagram', handle: '@enigmastudio.md', url: 'https://www.instagram.com/enigmastudio.md/', icon: 'assets/brand/instagram.svg' },
-    { name: 'TikTok',    handle: '@enigmastudiomd',  url: 'https://www.tiktok.com/@enigmastudiomd',    icon: 'assets/brand/tiktok.png' },
+    { name: 'TikTok',    handle: '@enigmastudiomd',  url: 'https://www.tiktok.com/@enigmastudiomd',    icon: 'assets/brand/tiktok.svg' },
     { name: 'GitHub',    handle: 'd4rv1n17',         url: 'https://github.com/d4rv1n17',               icon: 'assets/brand/github.svg' },
     // Empty url = the channel is not open yet: shown as "Coming soon" on the home and contact pages, hidden in footers.
     { name: 'Telegram',  handle: '',                 url: '',                                           icon: 'assets/brand/telegram.svg' },
