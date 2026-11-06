@@ -25,6 +25,13 @@ document.querySelectorAll('[data-steam-badge]').forEach((a) => {
 });
 
 // ---- Support links (from config) ---------------------------
+if (CONFIG.servicePrices) document.querySelectorAll('[data-svc-price]').forEach((el) => { const v = CONFIG.servicePrices[el.dataset.svcPrice]; if (v) el.textContent = v; });
+  if (CONFIG.supportTiers) document.querySelectorAll('[data-tier-price]').forEach((el) => { const v = CONFIG.supportTiers[el.dataset.tierPrice]; if (v) el.textContent = v; });
+if (Array.isArray(CONFIG.supporters) && CONFIG.supporters.length) document.querySelectorAll('[data-supporters]').forEach((box) => {
+  const ul = box.querySelector('[data-supporters-list]');
+  CONFIG.supporters.forEach((n) => { const li = document.createElement('li'); li.textContent = n; ul.appendChild(li); });
+  box.hidden = false;
+});
 if (CONFIG.supportUrl) document.querySelectorAll('[data-support]').forEach((a) => { a.href = CONFIG.supportUrl; });
 
 // ---- Enigma Disk + source-code links (from config) ----------

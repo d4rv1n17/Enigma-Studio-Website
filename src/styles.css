@@ -1730,7 +1730,7 @@ button.ghost-btn { font-family: inherit; text-transform: inherit; letter-spacing
 /* Enigma Disk screenshots: overview wide on top, two below; shown whole, never cropped */
 .shots--disk { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .shots--disk .shot--wide { grid-column: 1 / -1; }
-.shots--disk .shot img { aspect-ratio: 1916 / 1033; height: auto; object-fit: cover; }
+.shots--disk .shot img { aspect-ratio: 1919 / 1033; height: auto; object-fit: cover; }
 @media (max-width: 640px) { .shots--disk { grid-template-columns: 1fr; } }
 
 /* News page: the investigation board (text sits on its dark left side) */
@@ -2929,3 +2929,38 @@ html { scrollbar-color: rgba(255, 255, 255, .22) #000; }
 .disk-new .muted { margin-top: .8rem; }
 @media (max-width: 860px) { .disk-new { grid-template-columns: 1fr; } }
 .pillars--3 svg { color: var(--accent); }
+
+/* ---------- Support tiers ---------- */
+.tiers { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.5rem); align-items: stretch; }
+.tier { position: relative; display: flex; flex-direction: column; gap: 1rem; padding: clamp(1.4rem, 3vw, 2rem); border-radius: 14px; border: 1px solid var(--line); background: linear-gradient(160deg, rgba(255,255,255,.04), rgba(255,255,255,.01) 60%); transition: border-color .4s var(--ease), transform .4s var(--ease), box-shadow .4s var(--ease); }
+.tier:hover { transform: translateY(-3px); border-color: rgba(255,255,255,.28); box-shadow: 0 30px 60px -30px #000; }
+.tier--hl { border-color: rgba(255,255,255,.4); background: linear-gradient(160deg, rgba(255,255,255,.09), rgba(255,255,255,.015) 60%); box-shadow: 0 0 60px -25px rgba(255,255,255,.35); }
+.tier__badge { position: absolute; top: -.75rem; left: clamp(1.4rem, 3vw, 2rem); padding: .2rem .7rem .1rem; border-radius: 999px; background: #fff; color: #000; font-size: .85rem; letter-spacing: .06em; }
+.tier__name { font-size: var(--fs-h3); letter-spacing: .06em; }
+.tier__price { display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap; }
+.tier__price span { font-size: clamp(2.4rem, 1.8rem + 2vw, 3.2rem); line-height: 1; }
+.tier__price small { color: var(--grey); font-size: .9rem; }
+.tier__perks { display: grid; gap: .55rem; color: var(--grey-text); flex: 1; align-content: start; }
+.tier__perks li { position: relative; padding-left: 1.4rem; line-height: 1.4; }
+.tier__perks li::before { content: ""; position: absolute; left: 0; top: .5em; width: .55rem; height: .55rem; border-radius: 50%; border: 1.5px solid #fff; }
+.tier__btn { justify-content: center; }
+.tier__note { margin-top: 1.25rem; font-size: var(--fs-small); }
+.tier__note a { color: #fff; }
+.supporters { margin-top: 2rem; }
+.supporters__list { display: flex; flex-wrap: wrap; gap: .5rem 1.4rem; margin-top: .6rem; font-size: 1.15rem; }
+@media (max-width: 900px) { .tiers { grid-template-columns: 1fr; } .tier--hl { order: -1; } }
+
+/* ---------- Services ---------- */
+.svc-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap); }
+.svc { display: flex; flex-direction: column; gap: .6rem; padding: clamp(1.25rem, 2vw, 1.75rem); border: 1px solid var(--line); border-radius: 14px; background: rgba(255,255,255,.025); transition: border-color .25s, transform .25s; }
+.svc:hover { border-color: rgba(255,255,255,.28); transform: translateY(-2px); }
+.svc svg { width: 34px; height: 34px; color: #fff; opacity: .9; }
+.svc h3 { font-size: var(--fs-h3); line-height: 1.2; margin-top: .4rem; }
+.svc p { color: var(--grey-text); font-size: 1rem; }
+.svc .svc__price { margin-top: auto; padding-top: .6rem; color: var(--grey-text); font-size: .95rem; }
+.svc .svc__price b { color: #fff; font-size: 1.35rem; font-weight: 700; margin-left: .2rem; }
+.svc .link-arrow { font-size: .95rem; }
+.svc-pub { margin-top: clamp(2rem, 4vw, 3rem); }
+.svc-note { margin-top: 1rem; font-size: .95rem; }
+@media (max-width: 1100px) { .svc-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .svc-grid { grid-template-columns: 1fr; } }
