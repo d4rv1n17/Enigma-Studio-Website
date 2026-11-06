@@ -77,8 +77,8 @@ window.ENIGMA_CONFIG = {
   // The link always points to EnigmaDiskSetup.exe of the LATEST GitHub release, so a new
   // version needs no change here: publish a release and attach a file with exactly that name.
   enigmaDisk: {
-    version: '1.1',
-    size: '59 MB',
+    version: '2.0.0',
+    size: '60 MB',
     url: 'https://github.com/d4rv1n17/Enigma-Disk/releases/latest/download/EnigmaDiskSetup.exe',
     repo: 'https://github.com/d4rv1n17/Enigma-Disk',
   },

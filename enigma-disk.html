@@ -92,7 +92,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span class="dl-btn__text">
               <span class="dl-btn__big">Download for Windows</span>
-              <span class="dl-btn__small">Free, version <span data-disk-version>1.1</span>, <span data-disk-size>59 MB</span></span>
+              <span class="dl-btn__small">Free, version <span data-disk-version>2.0.0</span>, <span data-disk-size>60 MB</span></span>
             </span>
           </a>
           <a class="ghost-btn" href="#screens">Screenshots</a>
@@ -106,7 +106,8 @@
           <div><dt>Price</dt><dd>Free</dd></div>
           <div><dt>Source code</dt><dd>On GitHub</dd></div>
           <div><dt>Released</dt><dd><time datetime="2026-10-09">9 Oct 2026</time></dd></div>
-          <div><dt>Version</dt><dd><span class="live-dot"></span><span data-disk-version>1.1</span></dd></div>
+          <div><dt>Version</dt><dd><span class="live-dot"></span><span data-disk-version>2.0.0</span></dd></div>
+          <div><dt>Updated</dt><dd><span data-disk-date>6 Nov 2026</span></dd></div>
         </dl>
       </div>
     </section>
@@ -128,42 +129,80 @@
           </div>
         </div>
 
-        <ul class="pillars pillars--six" data-reveal>
+        <ul class="pillars pillars--3" data-reveal>
           <li>
-            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="8" width="24" height="17" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="16" cy="16.5" r="4.5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 8l2-3h8l2 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            <h3>Snapshots</h3>
-            <p>A fast multi-threaded scan records every folder over 1 MB and the 300 largest files. About 20 seconds on repeat runs.</p>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="5" width="24" height="22" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M14 5v22M14 15h14M21 15v12" stroke="currentColor" stroke-width="1.6"/></svg>
+            <h3>Disk map</h3>
+            <p>A map of the whole drive: every folder is a tile sized by the space it takes, so the giants are obvious at a glance.</p>
           </li>
           <li>
-            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 24l7-7 5 4 12-12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 9h7v7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 24l8-8 6 5 10-12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 9h7v7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
             <h3>What grew</h3>
             <p>Compare with yesterday, a week, a month ago or the first snapshot, with a plain-language hint for well-known folders.</p>
           </li>
           <li>
-            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 9h9l2 3h13v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-            <h3>Folders and files</h3>
-            <p>Browse any snapshot with sizes, share of the parent folder and change over the week, plus the largest files.</p>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="10" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 6v10l7 7" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            <h3>File types</h3>
+            <p>Videos, games, archives, documents: see which kinds of files fill the drive.</p>
           </li>
           <li>
-            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M7 9h18M13 9V6h6v3M9 9l1.5 17h11L23 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 14v8M18 14v8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="9" width="15" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M12 5h13a2 2 0 0 1 2 2v15" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            <h3>Duplicates</h3>
+            <p>Finds identical files by their contents, not by their names, so you can delete the extra copies.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 8h8l3 3h11v15H5z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M9 22l5-4 4 2 5-5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            <h3>Folder history</h3>
+            <p>Open any folder and see how its size changed over time on a chart.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 5a7 7 0 0 0-7 7v5l-3 4h20l-3-4v-5a7 7 0 0 0-7-7zM13 25a3 3 0 0 0 6 0" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <h3>Reports and alerts</h3>
+            <p>Save a drive report as an HTML page. Get a notification when a folder suddenly grows.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 9h20M12 9V6h8v3M9 9l1.5 17h11L23 9" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
             <h3>Safe clean-up</h3>
             <p>Only well-known caches and temporary files. Files in use are skipped, nothing is deleted without confirmation.</p>
           </li>
           <li>
-            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="7" width="22" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 13h22M11 4v6M21 4v6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M12 20l3 3 5-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <h3>Daily snapshots</h3>
-            <p>Through Windows Task Scheduler: no background service, low priority, catches up after the PC was off.</p>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M16 9v7l5 3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <h3>Daily snapshots and exclusions</h3>
+            <p>Windows takes a snapshot every day. Exclude folders you do not care about to scan faster.</p>
           </li>
           <li>
-            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4l10 4v7c0 6.5-4.3 11.2-10 13-5.7-1.8-10-6.5-10-13V8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M12 16l3 3 5-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <h3>Private</h3>
-            <p>Everything stays in your local app folder. Nothing is sent anywhere. English and Russian interface.</p>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26 16a10 10 0 1 1-3-7.1M26 5v6h-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Updates itself</h3>
+            <p>Settings → Check for updates installs the new version in place. Your snapshots and settings stay.</p>
           </li>
         </ul>
       </div>
     </section>
 
     <!-- ============ HOW IT WORKS ============ -->
+    <!-- ============ WHAT'S NEW ============ -->
+    <section class="section" id="whats-new" aria-labelledby="new-title">
+      <div class="container">
+        <div class="disk-new" data-reveal>
+          <div>
+            <p class="eyebrow">Version 2.0</p>
+            <h2 class="h2" id="new-title">What’s new in Enigma Disk 2.0</h2>
+            <p class="muted">The biggest update so far: a new interface and five new tools. Already have Enigma Disk 2.0? Choose Settings → Check for updates.</p>
+          </div>
+          <ul class="cube-list">
+            <li>A redesigned interface.</li>
+            <li>Disk map: the whole drive as tiles.</li>
+            <li>File types: what kinds of files take the space.</li>
+            <li>Duplicate search by file contents.</li>
+            <li>Folder history on a chart.</li>
+            <li>HTML reports and notifications.</li>
+            <li>More clean-up options and folder exclusions.</li>
+            <li>Updates in place, plus a portable version without installation.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ SCREENSHOTS ============ -->
     <section class="section" id="screens" aria-labelledby="shots-title">
       <div class="container">
@@ -225,7 +264,8 @@
             <li>Adds Start menu and, if you like, desktop shortcuts.</li>
             <li>Shows up in Settings → Apps, where it can be uninstalled.</li>
             <li>A newer installer updates the app and keeps your snapshot history.</li>
-            <li>A portable version that needs no installation is also available.</li>
+            <li data-i18n-unit>Prefer no installation? <a data-disk-portable href="https://github.com/d4rv1n17/Enigma-Disk/releases/latest/download/EnigmaDisk-portable.exe">Download the portable version</a>.</li>
+            <li>Already installed? Settings → Check for updates installs the new version in place.</li>
           </ul>
         </div>
       </div>
@@ -272,7 +312,7 @@
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <span class="dl-btn__text">
               <span class="dl-btn__big">Download Enigma Disk</span>
-              <span class="dl-btn__small">Free, version <span data-disk-version>1.1</span>, <span data-disk-size>59 MB</span></span>
+              <span class="dl-btn__small">Free, version <span data-disk-version>2.0.0</span>, <span data-disk-size>60 MB</span></span>
             </span>
           </a>
         </div>

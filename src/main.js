@@ -183,6 +183,44 @@ if (newsBox && Array.isArray(window.ENIGMA_NEWS)) {
   }
 }
 
+// ---- Live numbers from GitHub Releases ---------------------------
+// The newest release of Enigma Disk / Enigma Cube decides the version, file size,
+// date and download link shown on the page, so a new release needs no site update.
+// Cached for an hour per visitor; on any error the values from config.js stay.
+{
+  const fmtMB = (b) => `${Math.round(b / 1048576)} MB`;
+  const fmtDate = (iso) => { try { return new Intl.DateTimeFormat(({ en: 'en-GB', uk: 'uk-UA' })[LANG] || LANG, { day: 'numeric', month: 'short', year: 'numeric' }).format(new Date(iso)); } catch (e) { return iso.slice(0, 10); } };
+  const live = async (repoUrl, prefix) => {
+    const m = /github\.com\/([^/]+\/[^/#?]+)/.exec(repoUrl || '');
+    if (!m || !document.querySelector(`[data-${prefix}-version],[data-${prefix}-download]`)) return;
+    const key = `enigma-gh-${m[1]}`;
+    let rel = null;
+    try { const c = JSON.parse(sessionStorage.getItem(key) || 'null'); if (c && Date.now() - c.t < 3600e3) rel = c.r; } catch (e) { /* no storage */ }
+    if (!rel) {
+      const res = await fetch(`https://api.github.com/repos/${m[1]}/releases?per_page=30`, { headers: { Accept: 'application/vnd.github+json' } });
+      if (!res.ok) return;
+      const list = (await res.json()).filter((r) => !r.draft && !r.prerelease);
+      if (!list.length) return;
+      const r = list[0];
+      const setup = r.assets.find((a) => /setup.*\.exe$/i.test(a.name)) || r.assets.find((a) => /\.exe$/i.test(a.name));
+      const portable = r.assets.find((a) => /portable.*\.exe$/i.test(a.name));
+      const downloads = list.reduce((n, x) => n + x.assets.filter((a) => /\.exe$/i.test(a.name)).reduce((k, a) => k + a.download_count, 0), 0);
+      rel = { v: r.tag_name.replace(/^v/, ''), date: r.published_at, url: setup && setup.browser_download_url, size: setup && setup.size, portable: portable && portable.browser_download_url, downloads };
+      try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), r: rel })); } catch (e) { /* ignore */ }
+    }
+    const v = rel.v;
+    document.querySelectorAll(`[data-${prefix}-version]`).forEach((el) => { el.textContent = v; });
+    if (rel.size) document.querySelectorAll(`[data-${prefix}-size]`).forEach((el) => { el.textContent = fmtMB(rel.size); });
+    if (rel.url) document.querySelectorAll(`[data-${prefix}-download]`).forEach((a) => { a.href = rel.url; a.removeAttribute('download'); });
+    if (rel.portable) document.querySelectorAll(`[data-${prefix}-portable]`).forEach((a) => { a.href = rel.portable; a.hidden = false; });
+    document.querySelectorAll(`[data-${prefix}-date]`).forEach((el) => { el.textContent = fmtDate(rel.date); });
+    // downloads are shown only once there is something to be proud of
+    if (rel.downloads >= 100) document.querySelectorAll(`[data-${prefix}-downloads]`).forEach((el) => { el.textContent = `${rel.downloads}+`; el.closest('[data-gh-downloads-wrap]')?.removeAttribute('hidden'); });
+  };
+  if (CONFIG.enigmaDisk) live(CONFIG.enigmaDisk.repo, 'disk').catch(() => {});
+  if (CONFIG.enigmaCube) live(CONFIG.enigmaCube.repo, 'cube').catch(() => {});
+}
+
 // ---- Phones: keep the page's main action at hand ------------------
 // Buttons marked data-sticky-cta are copied into a bar at the bottom of the
 // screen once the first screen is scrolled past (hidden again at the footer).

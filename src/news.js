@@ -11,6 +11,25 @@
 // =========================================================
 window.ENIGMA_NEWS = [
   {
+    id: 'enigma-disk-2',
+    date: '2026-11-06',
+    tag: 'disk',
+    image: 'assets/og/enigma-disk.jpg',
+    link: 'enigma-disk.html#whats-new',
+    title: {
+      en: 'Enigma Disk 2.0: disk map, duplicates and folder history',
+      ru: 'Enigma Disk 2.0: карта диска, дубликаты и история папок',
+      ro: 'Enigma Disk 2.0: harta discului, duplicate și istoricul folderelor',
+      uk: 'Enigma Disk 2.0: карта диска, дублікати та історія папок',
+    },
+    text: {
+      en: 'The biggest update so far: a new interface, a map of the whole drive, file types, duplicate search by contents, folder history, HTML reports and notifications. The app now updates itself, and a portable version is available.',
+      ru: 'Самое большое обновление: новый интерфейс, карта всего диска, типы файлов, поиск дубликатов по содержимому, история папок, HTML-отчёты и уведомления. Теперь приложение обновляется само, а ещё появилась портативная версия.',
+      ro: 'Cea mai mare actualizare de până acum: interfață nouă, harta întregului disc, tipuri de fișiere, căutarea duplicatelor după conținut, istoricul folderelor, rapoarte HTML și notificări. Aplicația se actualizează singură și are acum și o versiune portabilă.',
+      uk: 'Найбільше оновлення: новий інтерфейс, карта всього диска, типи файлів, пошук дублікатів за вмістом, історія папок, HTML-звіти та сповіщення. Тепер застосунок оновлюється сам, а ще з’явилася портативна версія.',
+    },
+  },
+  {
     id: 'enigma-cube-3-2',
     date: '2026-11-03',
     tag: 'cube',
