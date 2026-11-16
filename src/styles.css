@@ -3093,3 +3093,101 @@ html { scrollbar-color: rgba(255, 255, 255, .22) #000; }
 .gw-teaser__text b { font-size: 1.35rem; font-weight: 400; color: #f2fff0; }
 .gw-teaser__text span { color: rgba(217, 245, 211, .7); font-size: .98rem; }
 .gw-teaser__go { color: #031003; background: #8ff07f; border-radius: 10px; padding: .6rem 1.1rem; letter-spacing: .06em; text-transform: uppercase; font-size: .95rem; }
+
+/* =========================================================
+   DESIGN SYSTEM 2.0 — one look for every page
+   Display: Koulen caps for headings, navigation, buttons and labels.
+   Text: Inter, normal case, for everything people actually read.
+   One surface, one radius, one hairline, one button family.
+   ========================================================= */
+:root {
+  --font-text: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --fs-text: clamp(1rem, .97rem + .18vw, 1.0875rem);
+  --text: #a7a7ae;
+  --text-strong: #e9e9ee;
+  --grey: #8a8a92;
+  --grey-text: var(--text);
+  --line: rgba(255, 255, 255, .09);
+  --line-strong: rgba(255, 255, 255, .16);
+  --radius: 14px;
+  --radius-lg: 22px;
+  --surface: #0c0c0e;
+  --card: linear-gradient(180deg, rgba(255, 255, 255, .045), rgba(255, 255, 255, .012));
+  --card-border: rgba(255, 255, 255, .085);
+  --card-shadow: 0 1px 0 rgba(255, 255, 255, .05) inset, 0 30px 60px -40px rgba(0, 0, 0, .9);
+  --section: clamp(5rem, 10vw, 8.5rem);
+}
+
+/* ---- reading text ---- */
+:where(p, dd, blockquote, figcaption, td, input, textarea, select, .muted, .lead, .project__desc, .topic__text, .pub-promo__text, .nav-app__desc) {
+  font-family: var(--font-text); text-transform: none; letter-spacing: -.006em;
+}
+:where(main, .site-footer) :where(p, dd, blockquote, figcaption, td) { font-size: var(--fs-text); line-height: 1.68; }
+:where(main) :where(li) > :where(span:not([class]), p) { font-family: var(--font-text); text-transform: none; letter-spacing: -.006em; font-size: var(--fs-text); line-height: 1.6; }
+.lead, :where(main) .lead { font-family: var(--font-text); text-transform: none; font-size: clamp(1.15rem, 1.02rem + .55vw, 1.45rem); line-height: 1.5; letter-spacing: -.012em; color: var(--text-strong); font-weight: 400; }
+.muted { color: var(--grey); }
+p strong, li strong, dd strong { color: var(--text-strong); font-weight: 600; }
+
+/* labels, kickers and numbers stay in the display face */
+:where(.eyebrow, .xh__kicker, .site-footer__head, .status, .tier__price, .tier__name, .tier__badge, .ep__status, .ep__num, .ep__file, .ep__title,
+  .video__title, .gw-card__state, .gw-card__where, .gw-term__org, .gw-term__kicker, .cube-try__label, .svc__price, .facts dt, .facts dd,
+  .section-head__note, .subscribe__legal, .vf-dossier__label, .gw-progress p, .news-card__meta, .xh-pill__label, .focus__label, .social-card__name) {
+  font-family: var(--font); text-transform: uppercase; letter-spacing: .06em;
+}
+.section-head__note { font-size: .9rem; color: var(--grey); }
+.facts dd { letter-spacing: .02em; }
+.eyebrow, .xh__kicker { font-size: .92rem; letter-spacing: .2em; color: var(--grey); }
+/* papers from the Veil of Fear world keep their typewriter */
+.vf-file__paper :where(p, dd, dt, span) { font-family: inherit; font-size: inherit; line-height: inherit; letter-spacing: inherit; text-transform: none; }
+.vf-file__org, .vf-file__org span { text-transform: uppercase; letter-spacing: .06em; }
+.gw-term :where(p) { line-height: 1.6; }
+.mono, .gw-form__out, .cube-try__moves { font-family: ui-monospace, "SFMono-Regular", Consolas, monospace; }
+
+/* ---- headings ---- */
+h1, .h2, h2, h3 { letter-spacing: .01em; }
+.h2 { line-height: 1.02; font-size: clamp(2.4rem, 1.6rem + 3vw, 3.6rem); }
+.section-head { margin-bottom: clamp(1.75rem, 3.5vw, 2.75rem); padding-top: 1.25rem; border-top: 1px solid var(--line); align-items: end; }
+.section-head .h2 { margin-top: .25rem; }
+.split .h2 + .subtitle { font-family: var(--font-text); text-transform: none; font-size: 1.05rem; letter-spacing: 0; }
+
+/* ---- one surface for every card ---- */
+:where(.svc, .tier, .social-card, .cube-try__scramble, .cube-try__timer, .topic, .contact-form, .faq__item, .focus > *, .os-block, .disk-new, .pub-promo, .tier-free, .cube-try__more, .subscribe, .ls-price, .ep) {
+  border-radius: var(--radius-lg);
+}
+.svc, .tier, .social-card, .cube-try__scramble, .cube-try__timer, .topic, .os-block, .focus > * {
+  background: var(--card); border: 1px solid var(--card-border); box-shadow: var(--card-shadow);
+}
+.svc, .tier, .social-card, .topic, .focus > * { transition: transform .45s var(--ease), border-color .45s var(--ease), box-shadow .45s var(--ease); }
+.svc:hover, .tier:hover, .social-card:hover, .topic:hover, .focus > *:hover { transform: translateY(-3px); border-color: var(--line-strong); box-shadow: var(--card-shadow), 0 40px 80px -50px rgba(255, 255, 255, .12); }
+.tier--hl { border-color: rgba(255, 255, 255, .28); background: linear-gradient(180deg, rgba(255, 255, 255, .09), rgba(255, 255, 255, .02)); }
+.frame { border-radius: var(--radius); box-shadow: 0 0 0 1px var(--card-border), 0 40px 80px -45px rgba(0, 0, 0, 1); }
+
+/* ---- one button family ---- */
+.ghost-btn, .support-btn, .gw-card__open, .cube-try__mini { border-radius: 999px; }
+.ghost-btn { padding: .78rem 1.5rem; border-color: var(--line-strong); letter-spacing: .06em; transition: background-color .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease); }
+.ghost-btn:hover { border-color: #fff; transform: translateY(-1px); }
+.ghost-btn--solid { box-shadow: 0 12px 40px -18px rgba(255, 255, 255, .55); }
+.dl-btn, .play-btn, .steam-btn, .ls-btn { border-radius: 16px; }
+.field input, .field select, .field textarea, .subscribe input { border-radius: 12px; font-family: var(--font-text); text-transform: none; letter-spacing: 0; }
+.subscribe input::placeholder { text-transform: none; }
+
+/* ---- atmosphere: fine film grain over the whole site ---- */
+body::after {
+  content: ""; position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: .045; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .9 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+@media (prefers-reduced-transparency: reduce) { body::after { display: none; } }
+::selection { background: #fff; color: #000; }
+html { scrollbar-color: #2a2a2e #000; }
+
+/* ---- footer ---- */
+.site-footer { border-top: 1px solid var(--line); background: radial-gradient(ellipse 60% 120% at 50% 0%, rgba(255, 255, 255, .035), transparent 70%), #000; }
+.site-footer a { transition: color .25s var(--ease); }
+/* taglines are slogans, not sentences: keep them in the display face */
+.xh--home .xh__lead, .site-footer__tagline, .subtitle { font-family: var(--font); text-transform: uppercase; letter-spacing: .04em; }
+.xh--home .xh__lead { font-size: clamp(1.2rem, 1rem + .8vw, 1.6rem); }
+:where(.tier__perks, .cube-steps, .ls-steps, .disk-new, .faq, .cube-features, .feature-list, .press-list) li { font-family: var(--font-text); text-transform: none; letter-spacing: -.006em; font-size: var(--fs-text); line-height: 1.55; }
+:where(.tier__perks, .cube-steps, .ls-steps, .disk-new, .feature-list) li :where(strong, h3, b) { font-family: var(--font); text-transform: uppercase; letter-spacing: .04em; font-weight: 400; }
+.social-card__name { letter-spacing: .02em; }
+.social-cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); }
+.social-card__name { white-space: nowrap; }
