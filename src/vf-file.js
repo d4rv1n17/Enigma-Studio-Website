@@ -4,8 +4,9 @@
 // circle, the redactions turn into glowing ink you can read.
 // =========================================================
 (() => {
-  const box = document.querySelector('[data-vf-file]');
-  if (!box) return;
+const initFile = (box) => {
+  if (!box || box.dataset.vfReady) return;
+  box.dataset.vfReady = '1';
   const paper = box.querySelector('[data-vf-file-paper]');
   const lit = paper.cloneNode(true);
   lit.removeAttribute('data-vf-file-paper');
@@ -67,4 +68,7 @@
     visible = e.isIntersecting;
     if (visible && !raf) raf = requestAnimationFrame(tick);
   }).observe(box);
+};
+document.querySelectorAll('[data-vf-file]').forEach(initFile);
+window.ENIGMA_VF_FILE = initFile;
 })();
