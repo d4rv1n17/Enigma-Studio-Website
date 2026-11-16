@@ -414,6 +414,56 @@ def fix_404():
         p.write_text(html, encoding="utf-8")
 
 
+# ---------------------------------------------------------------- security
+# A Content Security Policy in every page: scripts only from this site (plus the
+# Cloudflare analytics beacon), the few inline scripts allowed by their exact hash,
+# and network calls only to the services the site really uses.
+CSP_HOSTS = {
+    "script": ["https://static.cloudflareinsights.com"],
+    "connect": ["https://api.github.com", "https://api.rss2json.com", "https://noembed.com",
+                "https://www.googleapis.com", "https://assets.mailerlite.com", "https://cloudflareinsights.com"],
+    "img": ["data:", "https://i.ytimg.com"],
+    "frame": ["https://www.youtube-nocookie.com", "https://www.youtube.com"],
+    "form": ["https://assets.mailerlite.com", "https://buttondown.com"],
+}
+
+
+def add_security(html):
+    import base64, hashlib
+    hashes = []
+    for m in re.finditer(r"<script(\s[^>]*)?>(.*?)</script>", html, re.S):
+        attrs, body = m.group(1) or "", m.group(2)
+        if "src=" in attrs or "application/ld+json" in attrs or not body.strip():
+            continue
+        digest = base64.b64encode(hashlib.sha256(body.encode("utf-8")).digest()).decode()
+        hashes.append(f"'sha256-{digest}'")
+    h = CSP_HOSTS
+    csp = "; ".join([
+        "default-src 'self'",
+        "script-src 'self' " + " ".join(sorted(set(hashes)) + h["script"]),
+        "style-src 'self' 'unsafe-inline'",
+        "img-src 'self' " + " ".join(h["img"]),
+        "font-src 'self'",
+        "media-src 'self'",
+        "connect-src 'self' " + " ".join(h["connect"]),
+        "frame-src " + " ".join(h["frame"]),
+        "object-src 'none'",
+        "base-uri 'self'",
+        "form-action 'self' " + " ".join(h["form"]),
+        "upgrade-insecure-requests",
+    ])
+    tags = (f'<meta http-equiv="Content-Security-Policy" content="{csp}">\n'
+            '  <meta name="referrer" content="strict-origin-when-cross-origin">')
+    return html.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n  ' + tags, 1)
+
+
+def secure_all():
+    for p in DIST.rglob("*.html"):
+        html = p.read_text(encoding="utf-8")
+        if "Content-Security-Policy" not in html:
+            p.write_text(add_security(html), encoding="utf-8")
+
+
 # ---------------------------------------------------------------- main
 def main():
     log(f"Building for {SITE_URL}")
@@ -449,6 +499,7 @@ def main():
     sitemap()
     rss(news_data)
     fix_404()
+    secure_all()
     log(f"Done: {len(pages()) + len(POSTS)} pages x {1 + len(LANGS)} languages -> {DIST}")
 
 

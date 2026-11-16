@@ -190,6 +190,52 @@
       </div>
     </section>
 
+    <!-- ============ TRY IT IN THE BROWSER ============ -->
+    <section class="section cube-try-sec" id="try" aria-labelledby="try-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="h2" id="try-title">Try the timer right here</h2>
+          <p class="muted section-head__note">A light version of the Enigma Cube timer. Everyone gets the same scramble of the day, so you can compare times with friends.</p>
+        </div>
+        <div class="cube-try" data-cube-try data-reveal>
+          <div class="cube-try__scramble">
+            <div class="cube-try__top">
+              <p class="cube-try__label" data-try-label data-i18n-skip>Scramble of the day</p>
+              <div class="cube-try__tools">
+                <button class="cube-try__mini" type="button" data-try-copy>Copy</button>
+                <button class="cube-try__mini" type="button" data-try-new>New scramble</button>
+                <button class="cube-try__mini" type="button" data-try-daily hidden>Scramble of the day</button>
+              </div>
+            </div>
+            <p class="cube-try__moves mono" data-try-scramble data-i18n-skip>R U R' U'</p>
+            <div class="cube-try__net" data-try-net></div>
+            <p class="cube-try__note muted">Hold the cube with white on top and green in front.</p>
+          </div>
+          <div class="cube-try__timer">
+            <button class="cube-try__pad" type="button" data-try-pad data-state="idle" aria-describedby="try-hint">
+              <span class="cube-try__time mono" data-try-time data-i18n-skip>0.00</span>
+              <span class="cube-try__hint" id="try-hint" data-try-hint data-i18n-skip>Hold Space or press and hold here, release to start</span>
+            </button>
+            <dl class="cube-try__stats">
+              <div><dt>Best</dt><dd class="mono" data-try-best data-i18n-skip>–</dd></div>
+              <div><dt>ao5</dt><dd class="mono" data-try-ao5 data-i18n-skip>–</dd></div>
+              <div><dt>ao12</dt><dd class="mono" data-try-ao12 data-i18n-skip>–</dd></div>
+              <div><dt>Solves</dt><dd class="mono" data-try-count data-i18n-skip>0</dd></div>
+            </dl>
+            <ol class="cube-try__list mono" data-try-list data-i18n-skip></ol>
+            <div class="cube-try__actions">
+              <button class="cube-try__mini" type="button" data-try-undo disabled>Delete last</button>
+              <button class="cube-try__mini" type="button" data-try-clear disabled>Clear all</button>
+            </div>
+          </div>
+        </div>
+        <div class="cube-try__more" data-reveal>
+          <p>The full app adds a smart cube over Bluetooth, a 3D cube, courses from beginner to ZBLL, sessions and detailed statistics.</p>
+          <a class="ghost-btn ghost-btn--solid" data-cube-download>Download Enigma Cube</a>
+        </div>
+      </div>
+    </section>
+
     <!-- ============ SCREENSHOTS ============ -->
     <section class="section" id="screens" aria-labelledby="shots-title">
       <div class="container">
@@ -260,7 +306,7 @@
             <li><span>Choose the folder and shortcuts and click <strong>Install</strong> (or <strong>Update</strong>).</span></li>
           </ol>
         </div>
-        <p class="cube-hash muted" data-cube-hash hidden>SHA-256: <span class="mono" data-cube-sha></span></p>
+        <p class="cube-hash muted" data-cube-hash hidden>SHA-256: <span class="mono" data-cube-sha data-i18n-skip></span></p>
       </div>
     </section>
 
@@ -402,6 +448,7 @@
   <script src="src/main.js"></script>
   <script src="src/gallery.js"></script>
   <script src="src/cube-hero.js"></script>
+  <script src="src/cube-try.js"></script>
   <script type="importmap">{ "imports": { "three": "/assets/vendor/three/three.module.min.js" } }</script>
   <script type="module" src="src/cube-hero3d.js"></script>
 </body>

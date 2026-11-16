@@ -212,13 +212,24 @@ if (newsBox && Array.isArray(window.ENIGMA_NEWS)) {
       const setup = r.assets.find((a) => /setup.*\.exe$/i.test(a.name)) || r.assets.find((a) => /\.exe$/i.test(a.name));
       const portable = r.assets.find((a) => /portable.*\.exe$/i.test(a.name));
       const downloads = list.reduce((n, x) => n + x.assets.filter((a) => /\.exe$/i.test(a.name)).reduce((k, a) => k + a.download_count, 0), 0);
-      rel = { v: r.tag_name.replace(/^v/, ''), date: r.published_at, url: setup && setup.browser_download_url, size: setup && setup.size, portable: portable && portable.browser_download_url, downloads };
+      const sha = (a) => ((a && a.digest) || '').replace(/^sha256:/, '');
+      rel = { v: r.tag_name.replace(/^v/, ''), date: r.published_at, url: setup && setup.browser_download_url, size: setup && setup.size, portable: portable && portable.browser_download_url, sha: sha(setup), downloads };
       try { sessionStorage.setItem(key, JSON.stringify({ t: Date.now(), r: rel })); } catch (e) { /* ignore */ }
     }
-    const v = rel.v;
+    // only accept download links that really point to this repository's releases
+    const safe = (u) => (typeof u === 'string' && u.startsWith(`https://github.com/${m[1]}/releases/download/`) ? u : '');
+    rel.url = safe(rel.url); rel.portable = safe(rel.portable);
+    const v = String(rel.v || '').replace(/[^\w.\-]/g, '');
     document.querySelectorAll(`[data-${prefix}-version]`).forEach((el) => { el.textContent = v; });
     if (rel.size) document.querySelectorAll(`[data-${prefix}-size]`).forEach((el) => { el.textContent = fmtMB(rel.size); });
     if (rel.url) document.querySelectorAll(`[data-${prefix}-download]`).forEach((a) => { a.href = rel.url; a.removeAttribute('download'); });
+    // the installer's SHA-256 from GitHub; an old hash from config.js is hidden once a newer version is out
+    const sha = /^[0-9a-f]{64}$/.test(rel.sha || '') ? rel.sha : '';
+    const cfgVer = ((CONFIG[prefix === 'disk' ? 'enigmaDisk' : 'enigmaCube'] || {}).version || '');
+    if (sha || v !== cfgVer) {
+      document.querySelectorAll(`[data-${prefix}-sha]`).forEach((el) => { el.textContent = sha; });
+      document.querySelectorAll(`[data-${prefix}-hash]`).forEach((el) => { el.hidden = !sha; });
+    }
     if (rel.portable) document.querySelectorAll(`[data-${prefix}-portable]`).forEach((a) => { a.href = rel.portable; a.hidden = false; });
     document.querySelectorAll(`[data-${prefix}-date]`).forEach((el) => { el.textContent = fmtDate(rel.date); });
     // downloads are shown only once there is something to be proud of
@@ -535,7 +546,7 @@ if (form) {
 // maxresdefault exists only for HD uploads; when it is missing YouTube
 // returns a tiny 120x90 placeholder, so we step down to the next size.
 window.ENIGMA_YT_THUMB = (img, id) => {
-  if (!img || !id) return;
+  if (!img || !/^[\w-]{11}$/.test(id || '')) return;
   const sizes = ['maxresdefault', 'sddefault', 'hqdefault'];
   let i = 0;
   const fallback = img.currentSrc || img.src;

@@ -2969,3 +2969,37 @@ html { scrollbar-color: rgba(255, 255, 255, .22) #000; }
 .tier-free p { color: var(--grey-text); margin: 0; flex: 1 1 320px; }
 .tier-free b { color: #fff; }
 .tier-free .tier__btn { flex: 0 0 auto; width: auto; padding-inline: 1.6rem; }
+
+/* ---------- Enigma Cube: timer in the browser ---------- */
+.cube-try { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: var(--gap); align-items: stretch; }
+.cube-try__scramble, .cube-try__timer { border: 1px solid var(--line); border-radius: 16px; background: rgba(255,255,255,.025); padding: clamp(1.1rem, 2vw, 1.6rem); display: flex; flex-direction: column; gap: .9rem; }
+.cube-try__top { display: flex; align-items: center; justify-content: space-between; gap: .6rem; flex-wrap: wrap; }
+.cube-try__label { color: var(--cube-yellow); font-weight: 600; font-size: .95rem; }
+.cube-try__tools, .cube-try__actions { display: flex; gap: .4rem; flex-wrap: wrap; }
+.cube-try__mini { font: inherit; font-size: .82rem; color: var(--grey-text); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: .35rem .8rem; cursor: pointer; transition: color .2s, border-color .2s; }
+.cube-try__mini:hover:not(:disabled) { color: #fff; border-color: rgba(255,255,255,.4); }
+.cube-try__mini:disabled { opacity: .4; cursor: default; }
+.cube-try__mini[data-try-copy][data-done]::after { content: " ✓"; color: var(--cube-yellow); }
+.cube-try__moves { font-size: clamp(1.05rem, 1.6vw, 1.3rem); line-height: 1.6; color: #fff; word-spacing: .25em; }
+.cube-try__net { max-width: 340px; width: 100%; margin: .2rem auto 0; }
+.cube-try__net svg { display: block; width: 100%; height: auto; }
+.cube-try__note { font-size: .85rem; text-align: center; }
+.cube-try__pad { flex: 1; min-height: 220px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .8rem; border: 1px dashed rgba(255,255,255,.18); border-radius: 12px; background: rgba(0,0,0,.35); color: #fff; cursor: pointer; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; transition: border-color .2s, background .2s; font: inherit; }
+.cube-try__pad:focus-visible { outline: 2px solid var(--cube-yellow); outline-offset: 3px; }
+.cube-try__time { font-size: clamp(3.4rem, 8vw, 5.6rem); font-weight: 600; line-height: 1; font-variant-numeric: tabular-nums; transition: color .15s; }
+.cube-try__hint { color: var(--grey-text); font-size: .9rem; text-align: center; padding: 0 1rem; }
+.cube-try__pad[data-state="holding"] .cube-try__time { color: #ff6b5a; }
+.cube-try__pad[data-state="ready"] .cube-try__time { color: #39d47a; }
+.cube-try__pad[data-state="ready"] { border-color: rgba(57,212,122,.6); }
+.cube-try__pad[data-state="running"] { border-color: var(--cube-yellow); background: rgba(245,203,11,.04); }
+.cube-try__pad[data-state="running"] .cube-try__hint { opacity: .5; }
+.cube-try__stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: .5rem; }
+.cube-try__stats div { border: 1px solid var(--line); border-radius: 10px; padding: .55rem .7rem; }
+.cube-try__stats dt { color: var(--grey-text); font-size: .78rem; }
+.cube-try__stats dd { font-size: 1.15rem; text-align: left; color: #fff; margin-top: .1rem; font-variant-numeric: tabular-nums; }
+.cube-try__list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .35rem; min-height: 1.9rem; }
+.cube-try__list li { font-size: .88rem; padding: .2rem .55rem; border-radius: 6px; background: rgba(255,255,255,.06); color: var(--grey-text); }
+.cube-try__list li.is-best { color: #000; background: var(--cube-yellow); }
+.cube-try__more { margin-top: var(--gap); display: flex; align-items: center; justify-content: space-between; gap: 1rem 2rem; flex-wrap: wrap; padding: 1.1rem clamp(1.25rem, 2vw, 1.75rem); border: 1px solid rgba(245,203,11,.3); border-radius: 14px; }
+.cube-try__more p { color: var(--grey-text); flex: 1 1 360px; margin: 0; }
+@media (max-width: 860px) { .cube-try { grid-template-columns: 1fr; } .cube-try__pad { min-height: 180px; } .cube-try__stats { grid-template-columns: repeat(2, 1fr); } }

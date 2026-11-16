@@ -112,7 +112,7 @@
     //  4) last resort: the playlist's cover picture from noembed
     // If everything fails (offline, service down) the game art stays.
     const show = (v) => {
-      if (!v || !v.id) return false;
+      if (!v || !/^[\w-]{11}$/.test(v.id || '')) return false;
       videoId = v.id;
       window.ENIGMA_YT_THUMB && window.ENIGMA_YT_THUMB(thumb, v.id);
       if (v.title) {

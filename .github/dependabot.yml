@@ -1,0 +1,7 @@
+# Keeps the pinned GitHub Actions in pages.yml up to date (opens a pull request once a month).
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
