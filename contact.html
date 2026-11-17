@@ -197,53 +197,25 @@
     <!-- SUPPORT -->
     <section class="section support" id="support" aria-labelledby="support-title">
       <div class="container">
-        <div class="section-head" data-reveal>
-          <div>
+        <div class="donate" data-reveal>
+          <div class="donate__main">
             <p class="eyebrow">Support the studio</p>
             <h2 class="h2" id="support-title">Keep the lights off</h2>
+            <p class="donate__text" data-i18n-unit>Donate any amount you like. Every bit goes straight into our games. After donating, write to <a href="mailto:enigmastudio.md@gmail.com?subject=Support">enigmastudio.md@gmail.com</a> with the name you want us to use, and it will appear on our wall of thanks.</p>
+            <div class="donate__actions">
+              <a class="ghost-btn ghost-btn--solid" href="https://dalink.to/enigma_studio_md" target="_blank" rel="noopener" data-support><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-7-4.4-9.2-9A5.2 5.2 0 0 1 12 6.3 5.2 5.2 0 0 1 21.2 11C19 15.6 12 20 12 20z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Donate any amount</span></a>
+              <a class="ghost-btn" href="thanks.html">Wall of thanks</a>
+            </div>
+            <p class="donate__fine">Payments open dalink.to in a new tab.</p>
           </div>
-          <p class="muted section-head__note">Every donation goes straight into our games</p>
-        </div>
-        <div class="tiers" data-reveal>
-          <article class="tier">
-            <p class="tier__name">Witness</p>
-            <p class="tier__price"><span data-tier-price="witness">$5</span><small>one-time</small></p>
-            <ul class="tier__perks">
-              <li>Your name on the thank-you wall on our site</li>
-              <li>Our gratitude in every devlog</li>
-            </ul>
-            <a class="ghost-btn tier__btn" href="https://dalink.to/enigma_studio_md" target="_blank" rel="noopener" data-support>Support</a>
-          </article>
-          <article class="tier tier--hl">
-            <p class="tier__badge">Most chosen</p>
-            <p class="tier__name">Insider</p>
-            <p class="tier__price"><span data-tier-price="insider">$10</span><small>one-time</small></p>
-            <ul class="tier__perks">
-              <li>Everything in Witness</li>
-              <li>Closed devlog: work in progress before anyone else sees it</li>
-              <li>Vote on what we build next</li>
-            </ul>
-            <a class="ghost-btn ghost-btn--solid tier__btn" href="https://dalink.to/enigma_studio_md" target="_blank" rel="noopener" data-support>Support</a>
-          </article>
-          <article class="tier">
-            <p class="tier__name">Patron</p>
-            <p class="tier__price"><span data-tier-price="patron">$25</span><small>one-time</small></p>
-            <ul class="tier__perks">
-              <li>Everything in Insider</li>
-              <li>Your name in the credits of Veil of Fear</li>
-              <li>Early access to new episodes</li>
-            </ul>
-            <a class="ghost-btn tier__btn" href="https://dalink.to/enigma_studio_md" target="_blank" rel="noopener" data-support>Support</a>
-          </article>
-        </div>
-        <div class="tier-free" data-reveal>
-          <p><b>Just want to help?</b> Donate any amount, no reward needed. Every bit goes into our games.</p>
-          <a class="ghost-btn tier__btn" href="https://dalink.to/enigma_studio_md" target="_blank" rel="noopener" data-support>Donate any amount</a>
-        </div>
-        <p class="tier__note muted" data-reveal data-i18n-unit>After donating, write to <a href="mailto:enigmastudio.md@gmail.com?subject=Support">enigmastudio.md@gmail.com</a> with the name you want us to use. Payments open dalink.to in a new tab.</p>
-        <div class="supporters" data-supporters hidden>
-          <p class="eyebrow">Thank you</p>
-          <ul class="supporters__list" data-supporters-list></ul>
+          <div class="donate__wall" aria-label="Wall of thanks">
+            <p class="donate__wall-head">Wall of thanks</p>
+            <ul class="donate__names" data-supporters-list data-supporters-limit="8"></ul>
+            <div class="donate__empty" data-supporters-empty>
+              <div class="donate__ghosts" aria-hidden="true"><i style="width:6.5rem"></i><i style="width:8rem"></i><i style="width:5rem"></i><i style="width:7.5rem"></i><i style="width:5.5rem"></i><i style="width:9rem"></i><i style="width:6rem"></i></div>
+              <p>Your name could be the first one here.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -290,6 +262,7 @@
             <a href="publishing.html">Publishing</a>
             <a href="press.html">Press kit</a>
             <a href="archive.html">Greywood Archive</a>
+            <a href="thanks.html">Wall of thanks</a>
             <a href="contact.html">Contact</a>
             <a href="privacy.html">Privacy</a>
           </div>

@@ -26,12 +26,20 @@ document.querySelectorAll('[data-steam-badge]').forEach((a) => {
 
 // ---- Support links (from config) ---------------------------
 if (CONFIG.servicePrices) document.querySelectorAll('[data-svc-price]').forEach((el) => { const v = CONFIG.servicePrices[el.dataset.svcPrice]; if (v) el.textContent = v; });
-  if (CONFIG.supportTiers) document.querySelectorAll('[data-tier-price]').forEach((el) => { const v = CONFIG.supportTiers[el.dataset.tierPrice]; if (v) el.textContent = v; });
-if (Array.isArray(CONFIG.supporters) && CONFIG.supporters.length) document.querySelectorAll('[data-supporters]').forEach((box) => {
-  const ul = box.querySelector('[data-supporters-list]');
-  CONFIG.supporters.forEach((n) => { const li = document.createElement('li'); li.textContent = n; ul.appendChild(li); });
-  box.hidden = false;
-});
+// Wall of thanks: names from config.js (newest last). A box can show only the latest few.
+{
+  const names = (Array.isArray(CONFIG.supporters) ? CONFIG.supporters : []).map((n) => String(n).trim()).filter(Boolean);
+  document.querySelectorAll('[data-supporters-list]').forEach((ul) => {
+    const limit = Number(ul.dataset.supportersLimit) || 0;
+    const shown = limit ? names.slice(-limit).reverse() : names;
+    ul.replaceChildren(...shown.map((n) => { const li = document.createElement('li'); li.textContent = n; return li; }));
+    const box = ul.parentElement;
+    const empty = box && box.querySelector('[data-supporters-empty]');
+    if (empty) empty.hidden = names.length > 0;
+    ul.hidden = names.length === 0;
+  });
+  document.querySelectorAll('[data-supporters-count]').forEach((el) => { el.textContent = String(names.length); });
+}
 if (CONFIG.supportUrl) document.querySelectorAll('[data-support]').forEach((a) => { a.href = CONFIG.supportUrl; });
 
 // ---- Enigma Disk + source-code links (from config) ----------

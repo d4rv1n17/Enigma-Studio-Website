@@ -42,9 +42,8 @@ window.ENIGMA_CONFIG = {
 
   // "Support us" buttons (home, contact, footer) lead here.
   supportUrl: 'https://dalink.to/enigma_studio_md',
-  // Support tiers on the home and contact pages: price shown on each card (any text).
-  supportTiers: { witness: '$5', insider: '$10', patron: '$25' },
-  // Supporters who chose to be named: shown on the home page under the tiers. Example: ['Alex', 'Maria'].
+  // Wall of thanks (thanks.html, and the latest names on the home and contact pages).
+  // Add a name at the end after someone donates and asks to be named. Example: ['Alex', 'Maria'].
   supporters: [],
   // Starting prices on the Services page
   servicePrices: { web: '$50', app: '$150', game: '$300', server: '$25' },
