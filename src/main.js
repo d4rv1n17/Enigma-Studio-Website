@@ -704,7 +704,12 @@ if (!reduceMotion) {
     // the eyes sit in a wrapper that follows the pointer; the eyes themselves blink
     const inner = box.querySelector('#eyes');
     let eyes = null;
-    if (inner) { eyes = document.createElementNS('http://www.w3.org/2000/svg', 'g'); inner.parentNode.insertBefore(eyes, inner); eyes.appendChild(inner); }
+    if (inner) {
+      eyes = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      // the eyes belong to the middle ghost: they go down and come up with it
+      const host = box.querySelector('#ghost-main') || inner.parentNode;
+      host.appendChild(eyes); eyes.appendChild(inner);
+    }
     new IntersectionObserver(([e]) => { box.classList.toggle('is-in', e.isIntersecting); }, { threshold: 0.35 }).observe(box);
     if (!eyes || !window.matchMedia('(pointer: fine)').matches) return;
     let raf = 0; let tx = 0; let ty = 0; let x = 0; let y = 0;

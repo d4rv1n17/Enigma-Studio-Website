@@ -3478,3 +3478,15 @@ html { scrollbar-color: #2a2a2e #000; }
   @keyframes page-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 }
 .site-footer__cols a { white-space: normal; overflow-wrap: anywhere; max-width: 100%; }
+
+/* ---- apps heading: same as every section head, with a quiet GitHub link ---- */
+.apps-head2 { margin-top: clamp(4rem, 8vw, 6.5rem); }
+.apps-head2__side { display: grid; justify-items: end; gap: .7rem; text-align: right; }
+.gh-link { display: inline-flex; align-items: center; gap: .55rem; padding: .5rem 1rem .5rem .8rem; border: 1px solid var(--line-strong); border-radius: 999px; color: #fff; text-decoration: none; font-family: var(--font); text-transform: uppercase; letter-spacing: .08em; font-size: .9rem; transition: border-color .3s var(--ease), background-color .3s var(--ease); }
+.gh-link svg { width: 18px; height: 18px; }
+.gh-link:hover { border-color: #fff; background: rgba(255,255,255,.06); }
+@media (max-width: 760px) { .apps-head2__side { justify-items: start; text-align: left; } }
+
+/* ---- footer columns: the last column ends exactly at the right edge ---- */
+.site-footer__cols { grid-template-columns: repeat(4, max-content); justify-content: space-between; gap: 1.5rem clamp(1.5rem, 4vw, 3.5rem); }
+@media (max-width: 760px) { .site-footer__cols { grid-template-columns: repeat(2, minmax(0, 1fr)); justify-content: stretch; } }
