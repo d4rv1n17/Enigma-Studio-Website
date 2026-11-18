@@ -670,3 +670,17 @@ if (!reduceMotion) {
   update();
 }
 })();
+
+// Spotlight: a soft light follows the pointer across cards
+(() => {
+  if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+  const sel = '.showcase .project, .svc, .social-card, .topic, .cube-features li, .ls-steps li, .donate, .news-card, .cube-try__scramble, .cube-try__timer, .pub-promo';
+  document.querySelectorAll(sel).forEach((el) => {
+    el.classList.add('spot');
+    el.addEventListener('pointermove', (e) => {
+      const r = el.getBoundingClientRect();
+      el.style.setProperty('--mx', `${e.clientX - r.left}px`);
+      el.style.setProperty('--my', `${e.clientY - r.top}px`);
+    });
+  });
+})();
