@@ -16,7 +16,11 @@ function webglOK() {
   try { const c = document.createElement('canvas'); return !!(c.getContext('webgl2') || c.getContext('webgl')); } catch { return false; }
 }
 
-if (stage && host && webglOK()) start();
+// start the 3D scene only after the page has painted, so the hero text shows at once
+if (stage && host && webglOK()) {
+  const go = () => (window.requestIdleCallback ? requestIdleCallback(start, { timeout: 1200 }) : setTimeout(start, 200));
+  if (document.readyState === 'complete') go(); else window.addEventListener('load', go, { once: true });
+}
 
 function start() {
   const timeEl = stage.querySelector('[data-cube3d-time]');

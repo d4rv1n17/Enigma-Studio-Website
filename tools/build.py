@@ -457,6 +457,31 @@ def add_security(html):
     return html.replace('<meta charset="utf-8">', '<meta charset="utf-8">\n  ' + tags, 1)
 
 
+def split_i18n():
+    """Each language page loads only its own dictionary; English pages load none."""
+    import json, subprocess
+    data = json.loads(subprocess.check_output(
+        ["node", "-e", "global.window={};require(process.argv[1]);process.stdout.write(JSON.stringify(window.ENIGMA_I18N_DATA))",
+         str(ROOT / "src" / "i18n-data.js")]))
+    for lang, d in data.items():
+        (DIST / "src" / f"i18n-{lang}.js").write_text(
+            "window.ENIGMA_I18N_DATA = " + json.dumps({lang: d}, ensure_ascii=False, separators=(",", ":")) + ";\n", encoding="utf-8")
+    tag = re.compile(r'\s*<script src="((?:\.\./)*)src/i18n-data\.js"></script>')
+    for p in DIST.rglob("*.html"):
+        html = p.read_text(encoding="utf-8")
+        m = re.search(r'<html[^>]*\blang="([a-z]+)"', html)
+        lang = m.group(1) if m else "en"
+        if p.name in NO_LANG_PAGES:  # picks its language in the browser, so it needs every dictionary
+            new = tag.sub(lambda mm: f'\n  <script src="{mm.group(1)}src/i18n-all.js"></script>', html)
+        elif lang in data:
+            new = tag.sub(lambda mm: f'\n  <script src="{mm.group(1)}src/i18n-{lang}.js"></script>', html)
+        else:
+            new = tag.sub("", html)
+        if new != html:
+            p.write_text(new, encoding="utf-8")
+    (DIST / "src" / "i18n-data.js").rename(DIST / "src" / "i18n-all.js")
+
+
 def secure_all():
     for p in DIST.rglob("*.html"):
         html = p.read_text(encoding="utf-8")
@@ -499,6 +524,7 @@ def main():
     sitemap()
     rss(news_data)
     fix_404()
+    split_i18n()
     secure_all()
     log(f"Done: {len(pages()) + len(POSTS)} pages x {1 + len(LANGS)} languages -> {DIST}")
 
