@@ -3394,3 +3394,45 @@ html { scrollbar-color: #2a2a2e #000; }
 
 /* ---- one focus ring for keyboard users ---- */
 :where(a, button, input, select, textarea, summary, [tabindex]):focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 6px; }
+
+/* =========================================================
+   Footer wordmark v2: words and logo on one centre line,
+   the logo is the same height as the letters
+   ========================================================= */
+.footer-mark { --fm: clamp(3rem, 11.5vw, 13rem); align-items: center; line-height: 1; padding-top: clamp(2rem, 5vw, 4rem); padding-bottom: clamp(1rem, 3vw, 2.5rem); }
+.footer-mark span { font-size: var(--fm); line-height: .8; transform: none; padding-top: .06em; background: linear-gradient(180deg, rgba(255,255,255,.16) 10%, rgba(255,255,255,.02) 95%); -webkit-background-clip: text; background-clip: text; }
+.footer-mark__logo { width: auto; height: calc(var(--fm) * .889); aspect-ratio: 1390 / 1310; margin: 0; align-self: center; animation: none; }
+.footer-mark__logo img, .footer-mark__logo .fm-logo { display: block; width: 100%; height: 100%; overflow: visible; }
+.footer-mark__logo::before { inset: -35% -45%; background: radial-gradient(closest-side, rgba(227, 36, 46, .22), rgba(227, 36, 46, .06) 45%, transparent 75%); opacity: 0; transition: opacity 1.4s var(--ease) .9s; animation: none; }
+.footer-mark__logo.is-in::before { opacity: 1; animation: mark-halo 3.4s ease-in-out 2.2s infinite; }
+@media (max-width: 560px) { .footer-mark { --fm: 13.5vw; } .footer-mark span { font-size: var(--fm); } .footer-mark__logo { width: auto; } }
+
+/* living logo */
+.fm-logo #ghost-main, .fm-logo #ghost-left, .fm-logo #ghost-right, .fm-logo #eyes, .fm-logo #hands, .fm-logo #frame, .fm-logo #plate, .fm-logo #bar, .fm-logo #title, .fm-logo #tagline, .fm-logo #ornaments { transform-box: fill-box; }
+@media (prefers-reduced-motion: no-preference) {
+  /* before it is seen: the sign is low and dim, the ghosts hide behind it */
+  .footer-mark__logo .fm-logo { transform: translateY(14%) scale(.92); opacity: 0; filter: drop-shadow(0 30px 50px rgba(0,0,0,.9)); transition: transform 1.3s cubic-bezier(.2,.8,.2,1), opacity 1s var(--ease); }
+  .footer-mark__logo.is-in .fm-logo { transform: none; opacity: 1; }
+  .fm-logo #ghost-main, .fm-logo #ghost-left, .fm-logo #ghost-right { transform-origin: 50% 100%; transform: translateY(105%); transition: transform 1.4s cubic-bezier(.2,.9,.25,1); }
+  .footer-mark__logo.is-in .fm-logo #ghost-main { transform: none; transition-delay: .55s; animation: fm-peek 8s cubic-bezier(.45,0,.25,1) 2.6s infinite; }
+  .footer-mark__logo.is-in .fm-logo #ghost-left { transform: none; transition-delay: .8s; animation: fm-peek 9.5s cubic-bezier(.45,0,.25,1) 4s infinite; }
+  .footer-mark__logo.is-in .fm-logo #ghost-right { transform: none; transition-delay: .95s; animation: fm-peek 10.5s cubic-bezier(.45,0,.25,1) 6s infinite; }
+  .fm-logo #eyes { opacity: 0; }
+  .footer-mark__logo.is-in .fm-logo #eyes { animation: fm-ignite .9s steps(1) 1.6s forwards, fm-blink 6.5s 3.5s infinite; }
+  .footer-mark__logo.is-in .fm-logo #eyes ellipse { animation: fm-halo 2.8s ease-in-out 2.5s infinite; }
+  .fm-logo #hands { transform: translateY(6px); transition: transform 1s var(--ease) .5s; }
+  .footer-mark__logo.is-in .fm-logo #hands { transform: none; }
+  /* a slow light sweeps across the sign */
+  .footer-mark__logo::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0;
+    -webkit-mask: url("../assets/brand/logo.svg") center / contain no-repeat; mask: url("../assets/brand/logo.svg") center / contain no-repeat;
+    background: linear-gradient(105deg, transparent 35%, rgba(255,255,255,.0) 42%, rgba(160,160,170,.55) 50%, rgba(255,255,255,0) 58%, transparent 65%) -150% 0 / 250% 100% no-repeat; mix-blend-mode: multiply; }
+  .footer-mark__logo.is-in::after { opacity: 1; animation: fm-sweep 7s cubic-bezier(.6,0,.4,1) 2.4s infinite; }
+}
+.footer-mark__logo:hover .fm-logo #ghost-main { animation: none; transform: translateY(-4%); transition: transform .6s var(--ease); }
+.footer-mark__logo:hover .fm-logo #eyes ellipse { animation-duration: .9s; }
+@keyframes fm-peek { 0%, 100% { transform: translateY(0); } 42%, 58% { transform: translateY(16%) scaleY(.98); } }
+@keyframes fm-ignite { 0% { opacity: 0; } 20% { opacity: 1; } 30% { opacity: .1; } 45% { opacity: 1; } 55% { opacity: .3; } 70%, 100% { opacity: 1; } }
+@keyframes fm-blink { 0%, 88%, 100% { transform: scaleY(1); } 90% { transform: scaleY(.08); } 92% { transform: scaleY(1); } 94% { transform: scaleY(.08); } 96% { transform: scaleY(1); } }
+@keyframes fm-halo { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
+@keyframes fm-sweep { 0% { background-position: -150% 0; } 45%, 100% { background-position: 250% 0; } }
+.footer-mark__logo { height: calc(var(--fm) * .93); translate: 0 calc(var(--fm) * -.075); }

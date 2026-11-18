@@ -684,3 +684,42 @@ if (!reduceMotion) {
     });
   });
 })();
+
+// Footer logo: the real SVG is placed inline so it can come alive —
+// the ghosts rise from behind the sign when it scrolls into view,
+// the eyes light up, blink and follow the pointer.
+(() => {
+  const box = document.querySelector('.footer-mark__logo');
+  if (!box) return;
+  const img = box.querySelector('img');
+  const src = img && img.getAttribute('src').replace('logo-anim.svg', 'logo.svg');
+  const load = () => fetch(src).then((r) => r.text()).then((txt) => {
+    const doc = new DOMParser().parseFromString(txt, 'image/svg+xml');
+    const svg = doc.documentElement;
+    if (!svg || svg.nodeName !== 'svg') return;
+    svg.removeAttribute('width'); svg.removeAttribute('height');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.classList.add('fm-logo');
+    box.replaceChildren(document.importNode(svg, true));
+    // the eyes sit in a wrapper that follows the pointer; the eyes themselves blink
+    const inner = box.querySelector('#eyes');
+    let eyes = null;
+    if (inner) { eyes = document.createElementNS('http://www.w3.org/2000/svg', 'g'); inner.parentNode.insertBefore(eyes, inner); eyes.appendChild(inner); }
+    new IntersectionObserver(([e]) => { box.classList.toggle('is-in', e.isIntersecting); }, { threshold: 0.35 }).observe(box);
+    if (!eyes || !window.matchMedia('(pointer: fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    let raf = 0; let tx = 0; let ty = 0; let x = 0; let y = 0;
+    const step = () => { x += (tx - x) * 0.12; y += (ty - y) * 0.12; eyes.setAttribute('transform', `translate(${x.toFixed(2)} ${y.toFixed(2)})`); raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.05 ? requestAnimationFrame(step) : 0; };
+    window.addEventListener('pointermove', (e) => {
+      if (!box.classList.contains('is-in')) return;
+      const r = box.getBoundingClientRect();
+      const dx = e.clientX - (r.left + r.width / 2); const dy = e.clientY - (r.top + r.height * 0.15);
+      const d = Math.hypot(dx, dy) || 1; const k = Math.min(1, d / 400);
+      tx = (dx / d) * 9 * k; ty = (dy / d) * 5 * k;
+      if (!raf) raf = requestAnimationFrame(step);
+    }, { passive: true });
+  }).catch(() => { /* the picture stays as it is */ });
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver(([e]) => { if (e.isIntersecting) { io.disconnect(); load(); } }, { rootMargin: '400px' });
+    io.observe(box);
+  }
+})();
