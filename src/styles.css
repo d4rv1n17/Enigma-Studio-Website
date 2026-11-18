@@ -3344,3 +3344,4 @@ html { scrollbar-color: #2a2a2e #000; }
 @media (max-width: 860px) { .projects .showcase .project--app .project__media { aspect-ratio: 2 / 1; } }
 .projects .showcase .project { align-items: stretch; }
 .projects .showcase .project--app .project__media img { width: clamp(84px, 20%, 132px); height: auto; }
+.social-cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr)); }
