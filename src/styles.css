@@ -3386,3 +3386,11 @@ html { scrollbar-color: #2a2a2e #000; }
 .site-footer__mail, .email__link, .legal__body a { font-family: var(--font-text); text-transform: none; letter-spacing: -.01em; font-weight: 500; }
 .site-footer__mail { font-size: clamp(1rem, .95rem + .3vw, 1.2rem); }
 .legal__body a { text-decoration-color: rgba(255,255,255,.35); }
+
+/* ---- plain page heads get the same quiet light as the rest ---- */
+.page-hero--plain { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.page-hero--plain::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse 50% 70% at 15% 0%, rgba(255,255,255,.07), transparent 70%), radial-gradient(ellipse 40% 60% at 90% 20%, rgba(255,255,255,.03), transparent 70%); }
+.page-hero--plain > * { position: relative; }
+
+/* ---- one focus ring for keyboard users ---- */
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 6px; }
