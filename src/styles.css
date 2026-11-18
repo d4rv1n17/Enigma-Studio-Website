@@ -3345,3 +3345,44 @@ html { scrollbar-color: #2a2a2e #000; }
 .projects .showcase .project { align-items: stretch; }
 .projects .showcase .project--app .project__media img { width: clamp(84px, 20%, 132px); height: auto; }
 .social-cards { grid-template-columns: repeat(auto-fill, minmax(min(100%, 21rem), 1fr)); }
+
+/* ---- footer wordmark with the living logo in the middle ---- */
+.footer-mark { display: grid; grid-template-columns: 1fr auto 1fr; align-items: end; gap: clamp(.8rem, 2.5vw, 2.5rem); pointer-events: none; }
+.footer-mark > span:first-child { text-align: right; }
+.footer-mark__logo { position: relative; display: block; width: clamp(5.5rem, 15vw, 15rem); align-self: center; margin-bottom: clamp(.5rem, 1.5vw, 1.4rem); pointer-events: auto; animation: mark-float 7s cubic-bezier(.45,0,.25,1) infinite; }
+.footer-mark__logo img { display: block; width: 100%; height: auto; filter: drop-shadow(0 30px 50px rgba(0,0,0,.9)); transition: transform .8s var(--ease); }
+.footer-mark__logo::before { content: ""; position: absolute; inset: -30% -40%; background: radial-gradient(closest-side, rgba(227, 36, 46, .16), rgba(255, 255, 255, .05) 45%, transparent 75%); z-index: -1; animation: mark-halo 3.2s ease-in-out infinite; }
+.footer-mark__logo:hover img { transform: scale(1.04) rotate(-1.5deg); }
+@keyframes mark-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+@keyframes mark-halo { 0%, 100% { opacity: .55; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .footer-mark__logo, .footer-mark__logo::before { animation: none; } }
+@media (max-width: 560px) { .footer-mark span { font-size: 15vw; } }
+
+/* ---- Last Signal: the signal bars search for a network ---- */
+.ls-sig i { transition: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .xh__kicker .ls-sig i { animation: sig-scan 4.2s infinite; }
+  .xh__kicker .ls-sig i:nth-child(1) { animation-name: sig-one; }
+  .xh__kicker .ls-sig i:nth-child(2) { animation-delay: .18s; }
+  .xh__kicker .ls-sig i:nth-child(3) { animation-delay: .36s; }
+  .xh__kicker .ls-sig i:nth-child(4) { animation-delay: .54s; }
+}
+@keyframes sig-scan {
+  0%, 8% { background: rgba(255,255,255,.22); box-shadow: none; }
+  12%, 34% { background: var(--ls-amber); box-shadow: 0 0 8px var(--ls-glow); }
+  40%, 100% { background: rgba(255,255,255,.22); box-shadow: none; }
+}
+@keyframes sig-one {
+  0%, 60%, 64%, 70%, 100% { background: var(--ls-amber); box-shadow: 0 0 8px var(--ls-glow); }
+  62%, 67% { background: rgba(255,255,255,.22); box-shadow: none; }
+}
+.footer-mark { padding-inline: clamp(12px, 2vw, 32px); overflow: hidden; }
+.footer-mark span { font-size: clamp(3rem, 12.6vw, 14rem); white-space: nowrap; }
+.footer-mark > span:last-child { text-align: left; }
+.footer-mark__logo { width: clamp(4.6rem, 12vw, 12.5rem); }
+@media (max-width: 560px) { .footer-mark span { font-size: 11.5vw; } .footer-mark__logo { width: 19vw; margin-bottom: .3rem; } }
+
+/* ---- emails read as text everywhere (no script face) ---- */
+.site-footer__mail, .email__link, .legal__body a { font-family: var(--font-text); text-transform: none; letter-spacing: -.01em; font-weight: 500; }
+.site-footer__mail { font-size: clamp(1rem, .95rem + .3vw, 1.2rem); }
+.legal__body a { text-decoration-color: rgba(255,255,255,.35); }
