@@ -3436,3 +3436,26 @@ html { scrollbar-color: #2a2a2e #000; }
 @keyframes fm-halo { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
 @keyframes fm-sweep { 0% { background-position: -150% 0; } 45%, 100% { background-position: 250% 0; } }
 .footer-mark__logo { height: calc(var(--fm) * .93); translate: 0 calc(var(--fm) * -.075); }
+
+/* footer bottom row: the icons sit exactly in the middle, under the logo */
+@media (min-width: 761px) {
+  .site-footer__bottom { display: grid; grid-template-columns: 1fr auto 1fr; }
+  .site-footer__bottom > :first-child { justify-self: start; }
+  .site-footer__bottom > :last-child { justify-self: end; }
+}
+
+/* living logo, stronger: deeper peeks, brighter eyes, visible light sweep */
+@keyframes fm-peek { 0%, 100% { transform: translateY(0); } 38%, 56% { transform: translateY(42%) scaleY(.97); } 66% { transform: translateY(-4%); } 74% { transform: translateY(0); } }
+.footer-mark__logo.is-in .fm-logo #ghost-main { animation-duration: 6s; animation-delay: 2.4s; }
+.footer-mark__logo.is-in .fm-logo #ghost-left { animation-duration: 6.8s; animation-delay: 3.4s; }
+.footer-mark__logo.is-in .fm-logo #ghost-right { animation-duration: 7.4s; animation-delay: 4.6s; }
+.fm-logo #eyes path { filter: drop-shadow(0 0 6px #ff2a35) drop-shadow(0 0 14px rgba(255, 42, 53, .8)); }
+.footer-mark__logo::before { inset: -45% -60%; background: radial-gradient(closest-side, rgba(227, 36, 46, .32), rgba(227, 36, 46, .1) 45%, transparent 75%); }
+.footer-mark__logo::after { mix-blend-mode: normal !important; background: linear-gradient(105deg, transparent 38%, rgba(255,255,255,.0) 44%, rgba(255,255,255,.35) 50%, rgba(255,255,255,0) 56%, transparent 62%) -150% 0 / 250% 100% no-repeat !important; }
+.footer-mark__logo.is-in::after { animation-duration: 5s !important; }
+/* people who turned animations off still get the glow and the blink, without movement */
+@media (prefers-reduced-motion: reduce) {
+  .fm-logo #eyes { animation: fm-blink 6.5s 1s infinite; }
+  .fm-logo #eyes ellipse { animation: fm-halo 2.8s ease-in-out infinite; }
+  .footer-mark__logo.is-in::before { opacity: 1; animation: mark-halo 3.4s ease-in-out infinite; }
+}

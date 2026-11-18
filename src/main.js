@@ -706,7 +706,7 @@ if (!reduceMotion) {
     let eyes = null;
     if (inner) { eyes = document.createElementNS('http://www.w3.org/2000/svg', 'g'); inner.parentNode.insertBefore(eyes, inner); eyes.appendChild(inner); }
     new IntersectionObserver(([e]) => { box.classList.toggle('is-in', e.isIntersecting); }, { threshold: 0.35 }).observe(box);
-    if (!eyes || !window.matchMedia('(pointer: fine)').matches || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!eyes || !window.matchMedia('(pointer: fine)').matches) return;
     let raf = 0; let tx = 0; let ty = 0; let x = 0; let y = 0;
     const step = () => { x += (tx - x) * 0.12; y += (ty - y) * 0.12; eyes.setAttribute('transform', `translate(${x.toFixed(2)} ${y.toFixed(2)})`); raf = Math.abs(tx - x) + Math.abs(ty - y) > 0.05 ? requestAnimationFrame(step) : 0; };
     window.addEventListener('pointermove', (e) => {
