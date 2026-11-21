@@ -78,6 +78,9 @@ window.ENIGMA_CONFIG = {
     price: '$2.99',
   },
 
+  // Apps are installed through Enigma Hub: every download button on the site downloads
+  // EnigmaHubSetup.exe (enigmaHub below). The entries for Disk and Cube only feed the version,
+  // repository and source-code links on their pages.
   // Enigma Disk: the download button downloads the installer right away.
   // The link always points to EnigmaDiskSetup.exe of the LATEST GitHub release, so a new
   // version needs no change here: publish a release and attach a file with exactly that name.
@@ -86,6 +89,16 @@ window.ENIGMA_CONFIG = {
     size: '60 MB',
     url: 'https://github.com/d4rv1n17/Enigma-Disk/releases/latest/download/EnigmaDiskSetup.exe',
     repo: 'https://github.com/d4rv1n17/Enigma-Disk',
+  },
+
+  // Enigma Hub: the launcher for all studio apps. Like Enigma Disk, the link always points to
+  // EnigmaHubSetup.exe of the LATEST GitHub release; version, size and SHA-256 are read live from GitHub.
+  enigmaHub: {
+    version: '1.2.3',
+    size: '87 MB',
+    url: 'https://github.com/d4rv1n17/Enigma-Hub/releases/latest/download/EnigmaHubSetup.exe',
+    repo: 'https://github.com/d4rv1n17/Enigma-Hub',
+    sha256: '426a680a24f87d80b937fa5f71ce0e222539585b9f5b47160a59a3f3bda71b4f',
   },
 
   // Enigma Cube download: the installer from GitHub Releases of the Enigma-Cube repository.

@@ -3,13 +3,32 @@
 // Newest first. To add a post, copy one block and change it.
 //   id:    short name for the link to this post (news.html#id), latin letters and dashes
 //   date:  'YYYY-MM-DD' (shows the day) or 'YYYY-MM' (month only)
-//   tag:   'studio' | 'vof' | 'twins' | 'cube' | 'disk'  (sets the colour)
+//   tag:   'studio' | 'vof' | 'twins' | 'cube' | 'disk' | 'hub'  (sets the colour)
 //   image: a picture from assets/ (the -1280 versions load faster)
 //   link:  where "Read more" leads (a page of the site or any URL)
 //   title / text: one line per language — en, ru, ro, uk.
 //   A missing language falls back to English.
 // =========================================================
 window.ENIGMA_NEWS = [
+  {
+    id: 'enigma-hub',
+    date: '2026-11-21',
+    tag: 'hub',
+    image: 'assets/og/enigma-hub.jpg',
+    link: 'enigma-hub.html',
+    title: {
+      en: 'Meet Enigma Hub: all our apps in one place',
+      ru: 'Встречайте Enigma Hub: все наши приложения в одном месте',
+      ro: 'Faceți cunoștință cu Enigma Hub: toate aplicațiile noastre într-un singur loc',
+      uk: 'Зустрічайте Enigma Hub: усі наші застосунки в одному місці',
+    },
+    text: {
+      en: 'A free Windows launcher for the studio: install Enigma Cube and Enigma Disk in one click, get updates automatically, launch our games and read studio news. Every download is checked by its SHA-256, and the code is on GitHub.',
+      ru: 'Бесплатный лаунчер студии для Windows: устанавливайте Enigma Cube и Enigma Disk в один клик, получайте обновления автоматически, запускайте наши игры и читайте новости студии. Каждая загрузка проверяется по SHA-256, а код открыт на GitHub.',
+      ro: 'Un launcher gratuit al studioului pentru Windows: instalați Enigma Cube și Enigma Disk cu un clic, primiți actualizări automat, lansați jocurile noastre și citiți noutățile studioului. Fiecare descărcare este verificată după SHA-256, iar codul este pe GitHub.',
+      uk: 'Безкоштовний лаунчер студії для Windows: встановлюйте Enigma Cube та Enigma Disk в один клік, отримуйте оновлення автоматично, запускайте наші ігри й читайте новини студії. Кожне завантаження перевіряється за SHA-256, а код відкритий на GitHub.',
+    },
+  },
   {
     id: 'enigma-disk-2',
     date: '2026-11-06',

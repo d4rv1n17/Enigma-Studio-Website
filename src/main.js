@@ -50,6 +50,15 @@ if (disk) {
   document.querySelectorAll('[data-disk-version]').forEach((el) => { el.textContent = disk.version; });
   if (disk.size) document.querySelectorAll('[data-disk-size]').forEach((el) => { el.textContent = t(disk.size); });
 }
+const hub = CONFIG.enigmaHub;
+if (hub) {
+  document.querySelectorAll('[data-hub-download]').forEach((a) => { a.href = hub.url; });
+  document.querySelectorAll('[data-hub-repo]').forEach((a) => { a.href = hub.repo; });
+  document.querySelectorAll('[data-hub-version]').forEach((el) => { el.textContent = hub.version; });
+  if (hub.size) document.querySelectorAll('[data-hub-size]').forEach((el) => { el.textContent = t(hub.size); });
+  document.querySelectorAll('[data-hub-sha]').forEach((el) => { el.textContent = hub.sha256 || ''; });
+  document.querySelectorAll('[data-hub-hash]').forEach((el) => { el.hidden = !hub.sha256; });
+}
 if (CONFIG.enigmaCube && CONFIG.enigmaCube.repo) document.querySelectorAll('[data-cube-repo]').forEach((a) => { a.href = CONFIG.enigmaCube.repo; });
 if (CONFIG.githubUrl) document.querySelectorAll('[data-github]').forEach((a) => { a.href = CONFIG.githubUrl; });
 
@@ -99,7 +108,7 @@ const newsBox = document.querySelector('[data-news]');
 if (newsBox && Array.isArray(window.ENIGMA_NEWS)) {
   const all = newsBox.dataset.news === 'all';
   const TAGS = {
-    studio: 'Enigma Studio', vof: 'Veil of Fear', twins: 'Twins’ Hunt', cube: 'Enigma Cube', disk: 'Enigma Disk',
+    studio: 'Enigma Studio', vof: 'Veil of Fear', twins: 'Twins’ Hunt', cube: 'Enigma Cube', disk: 'Enigma Disk', hub: 'Enigma Hub',
   };
   const pick = (v) => (v && typeof v === 'object' ? (v[LANG] || v.en || '') : (v || ''));
   const esc = (x) => String(x).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -199,7 +208,7 @@ if (newsBox && Array.isArray(window.ENIGMA_NEWS)) {
 }
 
 // ---- Live numbers from GitHub Releases ---------------------------
-// The newest release of Enigma Disk / Enigma Cube decides the version, file size,
+// The newest release of Enigma Disk / Enigma Cube / Enigma Hub decides the version, file size,
 // date and download link shown on the page, so a new release needs no site update.
 // Cached for an hour per visitor; on any error the values from config.js stay.
 {
@@ -233,7 +242,7 @@ if (newsBox && Array.isArray(window.ENIGMA_NEWS)) {
     if (rel.url) document.querySelectorAll(`[data-${prefix}-download]`).forEach((a) => { a.href = rel.url; a.removeAttribute('download'); });
     // the installer's SHA-256 from GitHub; an old hash from config.js is hidden once a newer version is out
     const sha = /^[0-9a-f]{64}$/.test(rel.sha || '') ? rel.sha : '';
-    const cfgVer = ((CONFIG[prefix === 'disk' ? 'enigmaDisk' : 'enigmaCube'] || {}).version || '');
+    const cfgVer = ((CONFIG[{ disk: 'enigmaDisk', hub: 'enigmaHub' }[prefix] || 'enigmaCube'] || {}).version || '');
     if (sha || v !== cfgVer) {
       document.querySelectorAll(`[data-${prefix}-sha]`).forEach((el) => { el.textContent = sha; });
       document.querySelectorAll(`[data-${prefix}-hash]`).forEach((el) => { el.hidden = !sha; });
@@ -245,6 +254,7 @@ if (newsBox && Array.isArray(window.ENIGMA_NEWS)) {
   };
   if (CONFIG.enigmaDisk) live(CONFIG.enigmaDisk.repo, 'disk').catch(() => {});
   if (CONFIG.enigmaCube) live(CONFIG.enigmaCube.repo, 'cube').catch(() => {});
+  if (CONFIG.enigmaHub) live(CONFIG.enigmaHub.repo, 'hub').catch(() => {});
 }
 
 // ---- Phones: keep the page's main action at hand ------------------

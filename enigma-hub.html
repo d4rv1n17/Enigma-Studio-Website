@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Enigma Hub — All Enigma Studio Apps and Games in One Place</title>
+  <meta name="description" content="Enigma Hub is a free Windows launcher for Enigma Studio: install, launch and update our apps in one click, open our games and read studio news. Its code is on GitHub.">
+  <meta name="theme-color" content="#000000">
+  <meta property="og:title" content="Enigma Hub — Launcher for Enigma Studio Apps">
+  <meta property="og:description" content="All studio apps and games in one place. Free, with the code on GitHub.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Enigma Studio">
+  <meta property="og:image" content="assets/og/enigma-hub.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Enigma Hub — Launcher for Enigma Studio Apps">
+  <meta name="twitter:description" content="All studio apps and games in one place. Free, with the code on GitHub.">
+  <meta name="twitter:image" content="assets/og/enigma-hub.jpg">
+  <link rel="icon" href="favicon.ico" sizes="48x48">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="assets/icons/favicon-16.png" type="image/png" sizes="16x16">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+
+  <link rel="preload" href="assets/fonts/koulen-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/fonts/fonts.css">
+  <link rel="stylesheet" href="src/styles.css">
+  <script>(function(d){var L,F=d.getAttribute('data-lang-fixed');try{L=F||localStorage.getItem('enigma-lang');if(F)localStorage.setItem('enigma-lang',F)}catch(e){L=F}if(!/^(en|ru|ro|uk)$/.test(L||'')){L='en';var n=navigator.languages||[navigator.language||''];for(var i=0;i<n.length;i++){var c=String(n[i]).toLowerCase();if(/^ru/.test(c)){L='ru';break}if(/^(ro|mo)/.test(c)){L='ro';break}if(/^uk/.test(c)){L='uk';break}if(/^en/.test(c))break}}if(!F&&L!=='en'&&d.hasAttribute('data-built')){location.replace(L+'/'+(location.pathname.split('/').pop()||'index.html')+location.search+location.hash);return}d.lang=L;if(L!=='en'&&!F){d.classList.add('i18n-wait');setTimeout(function(){d.classList.remove('i18n-wait')},2500)}})(document.documentElement)</script>
+  <script>try{if(sessionStorage.getItem('enigma-pt')){sessionStorage.removeItem('enigma-pt');if(!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('pt-enter')}}catch(e){}</script>
+</head>
+<body class="theme-cube theme-hub" data-page="hub">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header" data-header>
+    <a class="logo" href="index.html" aria-label="Enigma Studio — home">
+      <img src="assets/brand/logo.svg" alt="Enigma Studio" width="91" height="86">
+    </a>
+    <nav class="site-nav" aria-label="Main">
+      <a href="index.html">Home</a>
+      <div class="nav-group nav-group--games" data-nav-group>
+        <button class="nav-group__btn" type="button" aria-expanded="false" aria-haspopup="true">Games<svg class="nav-group__chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-group__menu">
+          <a class="nav-app nav-app--vof" href="veil-of-fear.html"><img src="assets/brand/nav-vof.webp" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Veil of Fear</span><span class="nav-app__desc">Psychological horror · PC</span></span></a>
+          <a class="nav-app nav-app--ls" href="last-signal.html"><img src="assets/brand/nav-lastsignal.webp" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Last Signal</span><span class="nav-app__desc">Browser prequel · 2 players</span></span></a>
+          <a class="nav-app nav-app--twins" href="twins-hunt.html"><img src="assets/brand/nav-twins.webp" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Twins’ Hunt</span><span class="nav-app__desc">Action horror · Android</span></span></a>
+        </div>
+      </div>
+      <div class="nav-group nav-group--apps is-current" data-nav-group>
+        <button class="nav-group__btn" type="button" aria-expanded="false" aria-haspopup="true">Apps<svg class="nav-group__chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <div class="nav-group__menu">
+          <a class="nav-app nav-app--cube" href="enigma-cube.html"><img src="assets/brand/enigma-cube.png" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Enigma Cube</span><span class="nav-app__desc">Timer and speedcubing school</span></span></a>
+          <a class="nav-app nav-app--disk" href="enigma-disk.html"><img src="assets/brand/enigma-disk.png" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Enigma Disk</span><span class="nav-app__desc">Disk space analyzer</span></span></a>
+          <a class="nav-app nav-app--hub" href="enigma-hub.html" aria-current="page"><img src="assets/brand/enigma-hub.png" alt="" width="40" height="40"><span class="nav-app__text"><span class="nav-app__name">Enigma Hub</span><span class="nav-app__desc">All studio apps in one place</span></span></a>
+        </div>
+      </div>
+      <a href="news.html">News</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="xh xh--hub" aria-labelledby="hub-title">
+      <div class="xh__media xh__media--product" aria-hidden="true">
+        <div class="disk-hero__visual hub-hero" aria-hidden="true">
+          <div class="disk-hero__glow"></div>
+          <svg class="hub-fold" viewBox="0 0 96 96" aria-hidden="true">
+            <path class="hub-fold__top" d="M8 26 48 4l40 22-40 22z"/>
+            <path class="hub-fold__left" d="M8 33l36 20v38L8 71z"/>
+            <path class="hub-fold__right" d="m52 53 36-20v38L52 91z"/>
+          </svg>
+          <div class="grew-card hub-card">
+            <p class="grew-card__head"><span>My library</span><em>Example</em></p>
+            <ul>
+              <li><span><img src="assets/brand/enigma-cube.png" alt="" width="20" height="20">Enigma Cube</span><b>Launch</b></li>
+              <li><span><img src="assets/brand/enigma-disk.png" alt="" width="20" height="20">Enigma Disk</span><b>Update</b></li>
+              <li><span><img src="assets/brand/nav-lastsignal.webp" alt="" width="20" height="20">Last Signal</span><b>Game page</b></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="container xh__body">
+        <p class="xh__kicker"><span class="os-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg><span>Code on GitHub</span></span><span>Free for Windows</span></p>
+        <h1 class="xh__title" id="hub-title">Enigma Hub</h1>
+        <p class="xh__lead">One hub for every Enigma Studio app and game.</p>
+        <div class="actions">
+          <a class="dl-btn" data-hub-download href="https://github.com/d4rv1n17/Enigma-Hub/releases/latest/download/EnigmaHubSetup.exe">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="dl-btn__text">
+              <span class="dl-btn__big">Download for Windows</span>
+              <span class="dl-btn__small">Free, version <span data-hub-version>1.2.3</span>, <span data-hub-size>87 MB</span></span>
+            </span>
+          </a>
+          <a class="ghost-btn" href="#screens">Screenshots</a>
+          <a class="ghost-btn gh-btn" data-hub-repo href="https://github.com/d4rv1n17/Enigma-Hub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Source code</a>
+        </div>
+      </div>
+      <div class="container xh__facts">
+        <dl class="facts">
+          <div><dt>Type</dt><dd>Studio launcher</dd></div>
+          <div><dt>Platform</dt><dd>Windows 10 / 11</dd></div>
+          <div><dt>Price</dt><dd>Free</dd></div>
+          <div><dt>Source code</dt><dd>On GitHub</dd></div>
+          <div><dt>Released</dt><dd><time datetime="2026-11-17">17 Nov 2026</time></dd></div>
+          <div><dt>Version</dt><dd><span class="live-dot"></span><span data-hub-version>1.2.3</span></dd></div>
+          <div><dt>Updated</dt><dd><span data-hub-date>19 Nov 2026</span></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section" aria-labelledby="about-title">
+      <div class="container">
+        <div class="split">
+          <div data-reveal>
+            <h2 class="h2" id="about-title">One hub. More to discover.</h2>
+            <div class="frame split__media cube-icon-card">
+              <img src="assets/brand/enigma-hub.png" alt="Enigma Hub icon: a folded white, grey and yellow cube" width="256" height="256" loading="lazy">
+            </div>
+          </div>
+          <div class="split__body" data-reveal>
+            <p class="lead">Our apps and games used to live on different pages, each with its own installer and its own way of updating. Enigma Hub brings them together, and from now on our apps are installed through it.</p>
+            <p>Install Enigma Cube or Enigma Disk in one click, launch them from one window and get updates without searching for them. Our games open from the same place, and studio news arrives right inside the app.</p>
+            <p>Hub installs only for your Windows account and does not need administrator rights. Your settings and apps stay where they are.</p>
+          </div>
+        </div>
+
+        <ul class="pillars pillars--3" data-reveal>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="5" width="9" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="18" y="5" width="9" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="5" y="18" width="9" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><rect x="18" y="18" width="9" height="9" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            <h3>Every app in one place</h3>
+            <p>Install, launch, update and remove Enigma Cube and Enigma Disk without visiting any download page.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 4l10 4v7c0 6-4.3 10.5-10 13-5.7-2.5-10-7-10-13V8z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M11.5 16l3 3 6-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Verified downloads</h3>
+            <p>Installers come only from our official GitHub releases and are checked by their SHA-256. Unfinished downloads are deleted.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="9" width="24" height="15" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 14v5M7.5 16.5h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><circle cx="21" cy="15" r="1.2" fill="currentColor"/><circle cx="23.5" cy="18" r="1.2" fill="currentColor"/></svg>
+            <h3>Our games</h3>
+            <p>Launch the studio games you already have, including Steam libraries on any drive, or open their store pages. Hub never takes payments.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 5v22M11 5v22M16 6l6 21" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M24 7l2.2 4.4 4.8.7-3.5 3.4.8 4.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+            <h3>Your library</h3>
+            <p>Search, favourites, sorting by last launch and quick launch of the three apps you used most recently.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="5" width="22" height="22" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 11h12M10 16h12M10 21h7" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <h3>Studio news</h3>
+            <p>Release notes for every version right inside Hub, saved for reading offline.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26 16a10 10 0 1 1-3-7.1M26 5v6h-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <h3>Smart updates</h3>
+            <p>Hub updates itself in the background. Apps are updated only when a newer version is really out.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 22l5-5 4 3 6-7M20 13h5v5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><path d="M5 27h22" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            <h3>Download panel</h3>
+            <p>Speed, time left and a cancel button. Free space is checked before anything is downloaded.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="11" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M5 16h22M16 5c3 3.2 4.5 6.8 4.5 11S19 24.8 16 27M16 5c-3 3.2-4.5 6.8-4.5 11S13 24.8 16 27" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+            <h3>Six languages</h3>
+            <p>English, Russian, Romanian, German, Spanish and French. The language changes instantly.</p>
+          </li>
+          <li>
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M12 20l8-8M10 13l-2.5 2.5a4.5 4.5 0 0 0 6.4 6.4L16.5 19M22 19l2.5-2.5a4.5 4.5 0 0 0-6.4-6.4L15.5 13" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+            <h3>Keeps what you have</h3>
+            <p>Already installed Cube or Disk? Connect it without reinstalling. A local history shows every launch, install and update.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SCREENSHOTS ============ -->
+    <section class="section" id="screens" aria-labelledby="shots-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="h2" id="shots-title">Screenshots</h2>
+          <p class="muted section-head__note">Click any image to view it full screen</p>
+        </div>
+        <div class="shots shots--disk shots--hub" data-reveal>
+          <button class="frame shot shot--wide" type="button" data-full="assets/app/hub-home.webp"><img src="assets/app/hub-home-1280.webp" srcset="assets/app/hub-home-1280.webp 1280w, assets/app/hub-home.webp 2880w" sizes="(max-width: 860px) 100vw, 1180px" alt="Home: featured Enigma Cube and Enigma Disk with Launch buttons and a summary of apps and games" width="1280" height="800" loading="lazy"></button>
+          <button class="frame shot" type="button" data-full="assets/app/hub-apps.webp"><img src="assets/app/hub-apps-1280.webp" srcset="assets/app/hub-apps-1280.webp 1280w, assets/app/hub-apps.webp 2880w" sizes="(max-width: 860px) 100vw, 590px" alt="Discover: studio applications with search and filters" width="1280" height="800" loading="lazy"></button>
+          <button class="frame shot" type="button" data-full="assets/app/hub-games.webp"><img src="assets/app/hub-games-1280.webp" srcset="assets/app/hub-games-1280.webp 1280w, assets/app/hub-games.webp 2880w" sizes="(max-width: 860px) 100vw, 590px" alt="Discover: studio games Veil of Fear, Twins’ Hunt and Last Signal with links to their pages" width="1280" height="800" loading="lazy"></button>
+          <button class="frame shot" type="button" data-full="assets/app/hub-library.webp"><img src="assets/app/hub-library-1280.webp" srcset="assets/app/hub-library-1280.webp 1280w, assets/app/hub-library.webp 2880w" sizes="(max-width: 860px) 100vw, 590px" alt="My library: installed apps with favourites, search and sorting" width="1280" height="800" loading="lazy"></button>
+          <button class="frame shot" type="button" data-full="assets/app/hub-news.webp"><img src="assets/app/hub-news-1280.webp" srcset="assets/app/hub-news-1280.webp 1280w, assets/app/hub-news.webp 2880w" sizes="(max-width: 860px) 100vw, 590px" alt="Studio news: release notes for Enigma Disk and Enigma Cube" width="1280" height="800" loading="lazy"></button>
+          <button class="frame shot shot--wide" type="button" data-full="assets/app/hub-settings.webp"><img src="assets/app/hub-settings-1280.webp" srcset="assets/app/hub-settings-1280.webp 1280w, assets/app/hub-settings.webp 2880w" sizes="(max-width: 860px) 100vw, 1180px" alt="Settings: interface animations, startup intro and interface language" width="1280" height="800" loading="lazy"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-head" data-reveal>
+          <h2 class="h2" id="how-title">How it works</h2>
+          <p class="muted section-head__note">Three steps, one window</p>
+        </div>
+        <ol class="disk-steps" data-reveal>
+          <li>
+            <span class="disk-steps__n">01</span>
+            <h3>Install Hub</h3>
+            <p>Run the installer, choose a folder and whether you want a desktop shortcut. No administrator rights needed.</p>
+          </li>
+          <li>
+            <span class="disk-steps__n">02</span>
+            <h3>Pick an app</h3>
+            <p>Open Discover and press Install. Hub downloads the official release, checks its SHA-256 and installs it for you.</p>
+          </li>
+          <li>
+            <span class="disk-steps__n">03</span>
+            <h3>Launch and stay up to date</h3>
+            <p>Start apps and games from Home or My library. When a new version comes out, the Update button appears by itself.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ REQUIREMENTS + INSTALL ============ -->
+    <section class="section" aria-labelledby="req-title">
+      <div class="container cube-two">
+        <div class="cube-panel" data-reveal>
+          <h2 class="h2" id="req-title">System requirements</h2>
+          <dl class="cube-req">
+            <div><dt>System</dt><dd>Windows 10 or Windows 11, 64-bit</dd></div>
+            <div><dt>Python</dt><dd>Not needed, everything is included</dd></div>
+            <div><dt>Administrator</dt><dd>Not needed</dd></div>
+            <div><dt>Internet</dt><dd>For downloads and news</dd></div>
+            <div><dt>Price</dt><dd>Free</dd></div>
+          </dl>
+        </div>
+        <div class="cube-panel" data-reveal>
+          <h2 class="h2">The installer</h2>
+          <ul class="cube-list">
+            <li>Installs for the current user, no administrator rights needed.</li>
+            <li>Lets you choose the folder and a desktop shortcut.</li>
+            <li>Shows up in Settings → Apps, where it can be uninstalled.</li>
+            <li>Removing Hub keeps your installed apps and your settings.</li>
+            <li>New Hub versions download in the background and install after a restart.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="install-title">
+      <div class="container">
+        <div class="cube-install" data-reveal>
+          <div>
+            <h2 class="h2" id="install-title">Installing</h2>
+            <p class="muted">Enigma Hub is not code-signed yet, so Windows SmartScreen may show a blue “Windows protected your PC” window the first time. This is normal for small independent apps.</p>
+          </div>
+          <ol class="cube-steps">
+            <li><span>Run <span class="mono">EnigmaHubSetup.exe</span>.</span></li>
+            <li><span>If the blue window appears, click <strong>More info</strong>.</span></li>
+            <li><span>Click <strong>Run anyway</strong> and follow the installer.</span></li>
+          </ol>
+        </div>
+        <p class="cube-hash muted" data-hub-hash>SHA-256: <span class="mono" data-hub-sha data-i18n-skip>426a680a24f87d80b937fa5f71ce0e222539585b9f5b47160a59a3f3bda71b4f</span></p>
+      </div>
+    </section>
+
+    <!-- ============ SOURCE CODE ON GITHUB ============ -->
+    <section class="section" aria-labelledby="os-title">
+      <div class="container">
+        <div class="os-block" data-reveal>
+          <div class="os-block__icon" aria-hidden="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></div>
+          <div class="os-block__text">
+            <p class="eyebrow">Source code</p>
+            <h2 class="h2" id="os-title">See how it works inside</h2>
+            <p class="muted">The full source code of Enigma Hub is on GitHub: the launcher, the download checks, the installer and 52 automated tests. Run it with Python 3.13 or newer, report a bug or suggest an idea.</p>
+          </div>
+          <a class="ghost-btn gh-btn" data-hub-repo href="https://github.com/d4rv1n17/Enigma-Hub" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.78 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.84 1.19 3.1 0 4.42-2.7 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>Open on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FINAL CTA ============ -->
+    <section class="vf-cta disk-cta" aria-labelledby="cta-title">
+      <div class="container vf-cta__inner" data-reveal>
+        <h2 class="h2" id="cta-title">Everything Enigma, one click away</h2>
+        <p>Enigma Hub is free for Windows 10 and 11, and its code is on GitHub.</p>
+        <div class="actions actions--center">
+          <a class="dl-btn" data-hub-download href="https://github.com/d4rv1n17/Enigma-Hub/releases/latest/download/EnigmaHubSetup.exe">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-5-5m5 5 5-5M4 19h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span class="dl-btn__text">
+              <span class="dl-btn__big">Download Enigma Hub</span>
+              <span class="dl-btn__small">Free, version <span data-hub-version>1.2.3</span>, <span data-hub-size>87 MB</span></span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <dialog class="lightbox" data-lightbox aria-label="Image viewer">
+    <div class="lightbox__top">
+      <span class="lightbox__count" data-lb-count></span>
+      <div class="lightbox__tools">
+        <button class="lb-btn" type="button" data-lb-fullscreen aria-label="Full screen" title="Full screen (F)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+        <button class="lb-btn" type="button" data-lb-close aria-label="Close" title="Close (Esc)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+        </button>
+      </div>
+    </div>
+    <figure class="lightbox__stage">
+      <img class="lightbox__img" data-lb-img alt="">
+      <figcaption class="lightbox__caption" data-lb-caption></figcaption>
+    </figure>
+    <button class="lb-btn lb-nav lb-nav--prev" type="button" data-lb-prev aria-label="Previous image">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+    <button class="lb-btn lb-nav lb-nav--next" type="button" data-lb-next aria-label="Next image">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+    </button>
+    <div class="lightbox__thumbs" data-lb-thumbs></div>
+  </dialog>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <a class="logo logo--small" href="index.html" aria-label="Enigma Studio — home"><img src="assets/brand/logo.svg" alt="Enigma Studio" width="73" height="69"></a>
+          <p class="site-footer__tagline">Not Just a Studio, An Enigma.</p>
+          <a class="site-footer__mail" href="mailto:enigmastudio.md@gmail.com">enigmastudio.md@gmail.com</a>
+          <a class="site-footer__support" href="https://dalink.to/enigma_studio_md" target="_blank" rel="noopener" data-support><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5s-7.5-4.6-9.3-9.2C1.4 8 3.4 4.5 6.9 4.5c2 0 3.6 1.1 5.1 3 1.5-1.9 3.1-3 5.1-3 3.5 0 5.5 3.5 4.2 6.8-1.8 4.6-9.3 9.2-9.3 9.2Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span>Support the studio</span></a>
+        </div>
+        <nav class="site-footer__cols" aria-label="Footer">
+          <div class="site-footer__col">
+            <p class="site-footer__head">Games</p>
+            <a href="veil-of-fear.html">Veil of Fear</a>
+            <a href="last-signal.html">Last Signal</a>
+            <a href="twins-hunt.html">Twins' Hunt</a>
+          </div>
+          <div class="site-footer__col">
+            <p class="site-footer__head">Apps</p>
+            <a href="enigma-cube.html">Enigma Cube</a>
+            <a href="enigma-disk.html">Enigma Disk</a>
+            <a href="enigma-hub.html">Enigma Hub</a>
+          </div>
+          <div class="site-footer__col">
+            <p class="site-footer__head">Studio</p>
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About us</a>
+            <a href="news.html">News</a>
+            <a href="services.html">Services</a>
+            <a href="publishing.html">Publishing</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="site-footer__col">
+            <p class="site-footer__head">More</p>
+            <a href="press.html">Press kit</a>
+            <a href="archive.html">Greywood Archive</a>
+            <a href="thanks.html">Wall of thanks</a>
+            <a href="privacy.html">Privacy</a>
+          </div>
+        </nav>
+      </div>
+      <div class="site-footer__news">
+        <div>
+          <p class="site-footer__head">Newsletter</p>
+          <p class="site-footer__news-text">Fresh news from the studio, straight to your inbox.</p>
+        </div>
+        <form class="subscribe subscribe--compact" data-subscribe novalidate>
+            <label class="visually-hidden" for="nl-foot">Your email</label>
+            <div class="subscribe__row">
+              <input id="nl-foot" type="email" name="email" placeholder="Your email" autocomplete="email" inputmode="email" required>
+              <button class="subscribe__btn" type="submit">Subscribe</button>
+            </div>
+            <p class="subscribe__msg" data-subscribe-msg aria-live="polite"></p>
+            <p class="subscribe__legal" data-i18n-unit>By subscribing you agree to our <a href="privacy.html">Privacy Policy</a>.</p>
+          </form>
+      </div>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">© <span data-year>2026</span> Enigma Studio</p>
+        <div class="social-mini" data-social></div>
+        <a class="to-top" href="#main" data-to-top>Back to top <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 13V3M3.5 7.5 8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+    <div class="footer-mark" aria-hidden="true" data-i18n-skip><span>Enigma</span><a class="footer-mark__logo" href="index.html" tabindex="-1"><img src="assets/brand/logo-anim.svg" alt="" width="1390" height="1310" loading="lazy" decoding="async"></a><span>Studio</span></div>
+  </footer>
+
+  <script src="src/config.js"></script>
+  <script src="src/i18n-data.js"></script>
+  <script src="src/i18n.js"></script>
+  <script src="src/main.js"></script>
+  <script src="src/gallery.js"></script>
+</body>
+</html>

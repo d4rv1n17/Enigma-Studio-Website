@@ -126,7 +126,7 @@ NEWS_JS = """() => {
         id: n.id, date: String(n.date), tag: n.tag || 'studio', image: n.image || '', link: n.link || '',
         title: pick(n.title), text: pick(n.text), dateText: fmt(n.date) })) };
 }"""
-NEWS_TAGS = {"studio": "Enigma Studio", "vof": "Veil of Fear", "twins": "Twins’ Hunt", "cube": "Enigma Cube", "disk": "Enigma Disk"}
+NEWS_TAGS = {"studio": "Enigma Studio", "vof": "Veil of Fear", "twins": "Twins’ Hunt", "cube": "Enigma Cube", "disk": "Enigma Disk", "hub": "Enigma Hub"}
 POSTS = {}          # page name -> {lang: post}
 
 
@@ -345,6 +345,15 @@ def structured_data(name, html, lang):
                 "downloadUrl": "https://github.com/d4rv1n17/Enigma-Disk/releases/latest",
                 "codeRepository": "https://github.com/d4rv1n17/Enigma-Disk",
                 "image": SITE_URL + "assets/og/enigma-disk.jpg",
+                "author": studio, "publisher": studio}
+    elif name == "enigma-hub.html":
+        data = {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Enigma Hub", "url": url,
+                "description": desc, "applicationCategory": "UtilitiesApplication", "operatingSystem": "Windows 10, Windows 11",
+                "softwareVersion": "1.2.3", "datePublished": "2026-11-17", "dateModified": "2026-11-19", "inLanguage": lang,
+                "isAccessibleForFree": True, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+                "downloadUrl": "https://github.com/d4rv1n17/Enigma-Hub/releases/latest",
+                "codeRepository": "https://github.com/d4rv1n17/Enigma-Hub",
+                "image": SITE_URL + "assets/og/enigma-hub.jpg",
                 "author": studio, "publisher": studio}
     elif post_page(name) and lang in POSTS.get(name, {}):
         post = POSTS[name][lang]
