@@ -3566,3 +3566,16 @@ html { scrollbar-color: #2a2a2e #000; }
 /* home: the three app cards line up */
 .showcase--apps .project__body .status { min-height: 1.6em; }
 .news-filter--hub { --f: var(--cube-yellow); }
+
+/* =========================================================
+   Polish pass 5: one style for lists, steps and accents
+   ========================================================= */
+/* anything people read inside a list uses the reading face; components that want the display face say so themselves */
+:where(main) :where(li) { font-family: var(--font-text); text-transform: none; letter-spacing: -.006em; }
+/* numbered steps: one badge everywhere, tinted by the page */
+.theme-cube .ls-steps__n { border-color: rgba(245, 203, 11, .5); color: var(--cube-yellow); background: rgba(245, 203, 11, .06); }
+.theme-cube .ls-steps li { background: linear-gradient(160deg, rgba(245, 203, 11, .05), rgba(255, 255, 255, .015) 60%); border-color: rgba(245, 203, 11, .16); }
+/* chips and big numbers inside lists keep the display face */
+.tags li, .cube-allinone__list strong, .donate__names li, .thanks-names li { font-family: var(--font); text-transform: uppercase; letter-spacing: .06em; }
+.cube-allinone__list strong { letter-spacing: .01em; }
+.pub-req li { font-size: var(--fs-text); line-height: 1.55; }
