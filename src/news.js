@@ -14,7 +14,7 @@ window.ENIGMA_NEWS = [
     id: 'enigma-hub',
     date: '2026-11-21',
     tag: 'hub',
-    image: 'assets/og/enigma-hub.jpg',
+    image: 'assets/app/hub-banner-1280.webp',
     link: 'enigma-hub.html',
     title: {
       en: 'Meet Enigma Hub: all our apps in one place',
@@ -33,7 +33,7 @@ window.ENIGMA_NEWS = [
     id: 'enigma-disk-2',
     date: '2026-11-06',
     tag: 'disk',
-    image: 'assets/og/enigma-disk.jpg',
+    image: 'assets/app/disk-banner-1280.webp',
     link: 'enigma-disk.html#whats-new',
     title: {
       en: 'Enigma Disk 2.0: disk map, duplicates and folder history',
@@ -109,7 +109,7 @@ window.ENIGMA_NEWS = [
     id: 'enigma-disk',
     date: '2026-10-09',
     tag: 'disk',
-    image: 'assets/og/enigma-disk.jpg',
+    image: 'assets/app/disk-banner-1280.webp',
     link: 'enigma-disk.html',
     title: {
       en: 'Meet Enigma Disk',
@@ -185,7 +185,7 @@ window.ENIGMA_NEWS = [
     id: 'twins-hunt-release',
     date: '2023-09-25',
     tag: 'twins',
-    image: 'assets/twins/shot-get-out-1280.webp',
+    image: 'assets/twins/banner-1280.webp',
     link: 'twins-hunt.html',
     title: {
       en: 'Twins’ Hunt is out on Android',

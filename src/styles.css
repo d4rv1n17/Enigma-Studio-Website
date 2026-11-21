@@ -3097,11 +3097,11 @@ html { scrollbar-color: rgba(255, 255, 255, .22) #000; }
 /* =========================================================
    DESIGN SYSTEM 2.0 — one look for every page
    Display: Koulen caps for headings, navigation, buttons and labels.
-   Text: Inter, normal case, for everything people actually read.
+   Text: IBM Plex Sans, normal case, for everything people actually read.
    One surface, one radius, one hairline, one button family.
    ========================================================= */
 :root {
-  --font-text: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-text: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   --fs-text: clamp(1rem, .97rem + .18vw, 1.0875rem);
   --text: #a7a7ae;
   --text-strong: #e9e9ee;
