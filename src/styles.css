@@ -3523,3 +3523,46 @@ html { scrollbar-color: #2a2a2e #000; }
 /* three apps: three columns on wide screens; in between the launcher takes a whole row */
 @media (min-width: 1100px) { .showcase--apps { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (min-width: 861px) and (max-width: 1099px) { .showcase--apps .project--hub { grid-column: 1 / -1; } }
+
+/* =========================================================
+   Polish pass 4: one hero rhythm for every page
+   ========================================================= */
+/* the line under a page title: lighter, calmer, easier to read */
+.xh__lead {
+  font-family: var(--font-text); text-transform: none; font-weight: 350;
+  font-size: clamp(1.08rem, .98rem + .5vw, 1.32rem); line-height: 1.55; letter-spacing: -.011em;
+  color: rgba(236, 236, 242, .74); max-width: 40ch; text-wrap: pretty; text-shadow: 0 1px 24px rgba(0, 0, 0, .85);
+  margin-top: .9rem;
+}
+.xh__lead strong, .xh__lead em { color: #fff; font-style: normal; font-weight: 500; }
+.xh .actions { margin-top: clamp(1.5rem, 2.6vw, 2.1rem); }
+/* facts: always one row on wide screens, however many there are */
+@media (min-width: 900px) {
+  .xh__facts .facts { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+  .xh__facts .facts > div { padding-inline: clamp(.75rem, 1.4vw, 1.25rem); }
+  .xh__facts .facts > div:first-child { padding-left: 0; }
+}
+/* floating example cards never cover the buttons */
+@media (max-width: 1279px) { .xh--hub .xh__media--product .hub-card, .xh--disk .xh__media--product .grew-card, .xh--cube .xh__media--product .cube-timer-card { display: none; } }
+/* mid-size screens: the product keeps to its half, the title and badges keep theirs */
+@media (min-width: 900px) and (max-width: 1279px) {
+  .xh__media--product { width: 46%; }
+  .xh--cube .xh__kicker, .xh--disk .xh__kicker, .xh--hub .xh__kicker { max-width: 52%; flex-wrap: wrap; }
+}
+
+/* ---- one reading face for every list and caption ---- */
+:where(.cube-list, .ls-list) li, .gw-teaser__text span {
+  font-family: var(--font-text); text-transform: none; letter-spacing: -.006em; font-size: var(--fs-text); line-height: 1.55;
+}
+.ls-list li + li { margin-top: .55rem; }
+.gw-teaser__text span { font-size: .98rem; }
+/* small labels above a heading: always the same eyebrow */
+.ls-promo__kicker, .th-soon__label { font-family: var(--font); text-transform: uppercase; letter-spacing: .2em; font-size: .92rem; }
+/* Veil of Fear: the logo already carries its own tagline, give the line under it room */
+.xh__logo + .xh__lead, .xh__title:has(.xh__logo) + .xh__lead { margin-top: 1.4rem; }
+/* "How to buy": four steps read best as two rows of two until there is real room */
+@media (min-width: 861px) and (max-width: 1399px) { .ls-steps--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.ls-steps p { overflow-wrap: break-word; }
+/* home: the three app cards line up */
+.showcase--apps .project__body .status { min-height: 1.6em; }
+.news-filter--hub { --f: var(--cube-yellow); }
