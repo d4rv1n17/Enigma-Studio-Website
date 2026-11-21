@@ -3579,3 +3579,9 @@ html { scrollbar-color: #2a2a2e #000; }
 .tags li, .cube-allinone__list strong, .donate__names li, .thanks-names li { font-family: var(--font); text-transform: uppercase; letter-spacing: .06em; }
 .cube-allinone__list strong { letter-spacing: .01em; }
 .pub-req li { font-size: var(--fs-text); line-height: 1.55; }
+
+/* Mobile menu: an open menu always covers the whole screen. The scrolled header's blur would
+   otherwise turn the header into the menu's frame and clip it to the header's height. */
+.site-header.is-menu-open, .site-header.is-menu-open.is-scrolled, .site-header.is-menu-open.scrolled {
+  backdrop-filter: none; -webkit-backdrop-filter: none; background: transparent; border-bottom-color: transparent; box-shadow: none;
+}
