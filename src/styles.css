@@ -3603,3 +3603,9 @@ html { scrollbar-color: #2a2a2e #000; }
 .site-header.is-menu-open, .site-header.is-menu-open.is-scrolled, .site-header.is-menu-open.scrolled {
   backdrop-filter: none; -webkit-backdrop-filter: none; background: transparent; border-bottom-color: transparent; box-shadow: none;
 }
+
+/* Veil of Fear hero: sharper art (no zoom drift, no blocky night-vision noise) and a cleaner lead */
+.xh--vof .xh__img { animation: none; transform: none; }
+.xh--vof .xh__lead { max-width: 30rem; }
+.xh__ep { display: inline-flex; align-items: center; gap: .6rem; margin-top: .9rem; font-family: var(--font); text-transform: uppercase; letter-spacing: .14em; font-size: .78rem; color: var(--xh-accent, #8fe388); animation: fade-up 1s .3s var(--ease) both; }
+.xh__ep .live-dot { background: var(--xh-accent, #8fe388); box-shadow: 0 0 10px var(--xh-accent, #8fe388); }
