@@ -197,7 +197,9 @@ function start() {
     const r = host.getBoundingClientRect();
     renderer.setSize(r.width, r.height, false);
     camera.aspect = r.width / Math.max(1, r.height);
-    camera.position.z = window.innerWidth < 900 ? 12.5 : 16;
+    // keep the whole cube in frame: on narrow, tall stages the width is the limit
+    const base = window.innerWidth < 900 ? 12.5 : 16;
+    camera.position.z = Math.max(base, 12.5 / Math.max(0.3, camera.aspect));
     lift.position.x = 0;
     camera.updateProjectionMatrix();
   }
